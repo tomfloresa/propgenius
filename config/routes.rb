@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         registrations: 'administrators/registrations'
       }
     end
+
+    root :to => redirect("/renters/sign_in")
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
