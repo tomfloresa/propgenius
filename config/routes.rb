@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :administrators
+  devise_for :renters
+
+  Rails.application.routes.draw do
+      devise_for :renters, controllers: {
+        sessions: 'renters/sessions',
+        registrations: 'renters/registrations'
+      }
+    end
+
+    Rails.application.routes.draw do
+      devise_for :administrators, controllers: {
+        sessions: 'administrators/sessions',
+        registrations: 'administrators/registrations'
+      }
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
