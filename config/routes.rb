@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       }
     end
 
-    root :to => redirect("/renters/sign_in")
+    get 'index/index'
+
+    root 'index#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
