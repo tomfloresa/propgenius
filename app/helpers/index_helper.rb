@@ -1,6 +1,6 @@
 module IndexHelper
   def resource_name
-    :administrator
+    :renter
   end
 
   def resource

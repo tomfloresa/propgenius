@@ -6,7 +6,7 @@ $second-font: "Oxygen";
 
 $green: #4FC71A;
 $brussian: #24242B;
-
+$blue: #3354EC;
 h1,
 h2,
 h3,
@@ -26,13 +26,27 @@ a:hover {
   font-size: 1.4em;
   font-weight: 200;
 }
-
+.container-login {
+  margin-top: 10%;
+}
 .btn-go {
   font-family: $main-font;
   font-size: 1.4em !important;
   color: white !important;
   background-color: $green !important;
   border-color: $green !important;
+}
+.btn-option {
+  font-family: $main-font;
+  font-size: 1.4em !important;
+  color: white !important;
+  background-color: $blue !important;
+  border-color: $blue !important;
+}
+.btn-option:hover {
+  color: white !important;
+  background-color: $blue !important;
+  border-color: $blue !important;
 }
 .form-div {
   margin-top: 10px !important;
