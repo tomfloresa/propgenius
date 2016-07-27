@@ -1,0 +1,29 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab';
+@import 'https://fonts.googleapis.com/css?family=Oxygen';
+
+$main-font: "Roboto Slab";
+$second-font: "Oxygen";
+
+$green: #4FC71A;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $main-font !important;
+}
+.input-header {
+  font-family: $second-font;
+  font-size: 1.4em;
+  font-weight: 200;
+}
+
+.btn-go {
+  font-family: $main-font;
+  font-size: 1.4em !important;
+  color: white !important;
+  background-color: $green !important;
+  border-color: $green !important;
+}
