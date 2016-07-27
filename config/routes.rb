@@ -21,6 +21,11 @@ Rails.application.routes.draw do
 
     root 'index#index'
 
+scope path: '/administrators', controller: :administrators do
+  get 'dashboard' => 'administrators#dashboard', :as => :administrators_dashboard
+end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
