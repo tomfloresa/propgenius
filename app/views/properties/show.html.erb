@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Square meters:</strong>
+  <%= @property.square_meters %>
+</p>
+
+<p>
+  <strong>Property type:</strong>
+  <%= @property.property_type_id %>
+</p>
+
+<p>
+  <strong>Renter:</strong>
+  <%= @property.renter_id %>
+</p>
+
+<p>
+  <strong>Rent value:</strong>
+  <%= @property.rent_value %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @property.number %>
+</p>
+
+<p>
+  <strong>Subunits number:</strong>
+  <%= @property.subunits_number %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

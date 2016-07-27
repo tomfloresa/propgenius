@@ -1,0 +1,19 @@
+$green: #4FC71A;
+$pink: #ED3D45;
+$blue: #3354EC;
+
+#actions-dashboard {
+  margin-top: 20px;
+  border-bottom-color: RGBA(51, 84, 236, 0.3);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+#fa-green {
+  color: $green;
+}
+#fa-blue {
+  color: $blue;
+}
+#fa-pink {
+  color: $pink;
+}

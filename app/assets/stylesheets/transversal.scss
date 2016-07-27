@@ -5,6 +5,7 @@ $main-font: "Roboto Slab";
 $second-font: "Oxygen";
 
 $green: #4FC71A;
+$brussian: #24242B;
 
 h1,
 h2,
@@ -13,6 +14,12 @@ h4,
 h5,
 h6 {
   font-family: $main-font !important;
+}
+a {
+  color: $brussian !important;
+}
+a:hover {
+  background-color: transparent !important;
 }
 .input-header {
   font-family: $second-font;
@@ -26,4 +33,8 @@ h6 {
   color: white !important;
   background-color: $green !important;
   border-color: $green !important;
+}
+.form-div {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }

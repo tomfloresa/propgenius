@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :properties
   resources :property_types
   Rails.application.routes.draw do
+  resources :properties
   resources :property_types
       devise_for :renters, controllers: {
         sessions: 'renters/sessions',
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
     end
 
     Rails.application.routes.draw do
+  resources :properties
   resources :property_types
       devise_for :administrators, controllers: {
         sessions: 'administrators/sessions',
