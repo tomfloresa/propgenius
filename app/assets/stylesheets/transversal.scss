@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab';
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
+@import 'https://fonts.googleapis.com/css?family=Bangers';
 
 $main-font: "Roboto Slab";
 $second-font: "Oxygen";
@@ -21,8 +22,12 @@ a {
 a:hover {
   background-color: transparent !important;
 }
+.brand-huge {
+  font-family: "Bangers" !important;
+  font-size: 6em;
+}
 .navbar-brand {
-  font-family: $main-font !important;
+  font-family: "Bangers" !important;
   font-size: 2em !important;
 }
 .dropdown-toggle {
