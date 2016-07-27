@@ -21,6 +21,14 @@ a {
 a:hover {
   background-color: transparent !important;
 }
+.navbar-brand {
+  font-family: $main-font !important;
+  font-size: 2em !important;
+}
+.dropdown-toggle {
+  font-family: $second-font !important;
+  font-size: 1.4em;
+}
 .input-header {
   font-family: $second-font;
   font-size: 1.4em;
