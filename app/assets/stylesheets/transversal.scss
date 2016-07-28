@@ -1,13 +1,20 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab';
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
-@import 'https://fonts.googleapis.com/css?family=Bangers';
+@import 'https://fonts.googleapis.com/css?family=Squada+One';
 
 $main-font: "Roboto Slab";
 $second-font: "Oxygen";
+$bg: #F2F6FA;
 
 $green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
+html {
+  background-color: $bg !important;
+}
+body {
+  background-color: $bg !important;
+}
 h1,
 h2,
 h3,
@@ -23,11 +30,11 @@ a:hover {
   background-color: transparent !important;
 }
 .brand-huge {
-  font-family: "Bangers" !important;
+  font-family: "Squada One" !important;
   font-size: 6em;
 }
 .navbar-brand {
-  font-family: "Bangers" !important;
+  font-family: "Squada One" !important;
   font-size: 2em !important;
 }
 .dropdown-toggle {
