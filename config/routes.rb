@@ -1,28 +1,30 @@
 Rails.application.routes.draw do
+  root 'index#index'
 
   resources :properties
   resources :property_types
+
   Rails.application.routes.draw do
-  resources :properties
-  resources :property_types
       devise_for :renters, controllers: {
         sessions: 'renters/sessions',
         registrations: 'renters/registrations'
       }
     end
-
-    Rails.application.routes.draw do
-  resources :properties
-  resources :property_types
+  Rails.application.routes.draw do
       devise_for :administrators, controllers: {
         sessions: 'administrators/sessions',
         registrations: 'administrators/registrations'
       }
     end
+  Rails.application.routes.draw do
+      devise_for :owners, controllers: {
+        sessions: 'owners/sessions',
+        registrations: 'owners/registrations'
+      }
+    end
 
-    get 'index/index'
 
-    root 'index#index'
+get 'index/index'
 
 scope path: '/administrators', controller: :administrators do
   get 'dashboard' => 'administrators#dashboard', :as => :administrators_dashboard
