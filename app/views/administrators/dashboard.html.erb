@@ -1,1 +1,28 @@
 <%= render('transversals/navbar_admin') %>
+<div class="container-fluid">
+    <div class="col-lg-4">
+      <h3 class="text-center">Propiedades</h3>
+      <ul>
+        <% @properties.each do |p| %>
+        <li><%= p.address %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h3 class="text-center">Arrendatarios</h3>
+      <ul>
+        <% @renters.each do |r| %>
+        <li><%= "#{r.first_name} #{r.first_last_name}" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h3 class="text-center">Propietarios</h3>
+      <ul>
+        <% @owners.each do |o| %>
+        <li><%= "#{o.first_name} #{o.first_last_name}" %></li>
+        <% end %>
+      </ul>
+    </div>
+</div>
+<div class="container-fluid"></div>
