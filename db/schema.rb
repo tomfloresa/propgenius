@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829013522) do
+ActiveRecord::Schema.define(version: 20160830020611) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160829013522) do
     t.datetime "updated_at",       null: false
     t.integer  "comune_id"
     t.integer  "lease_startdate"
+    t.integer  "owner_id"
   end
 
   create_table "property_types", force: :cascade do |t|

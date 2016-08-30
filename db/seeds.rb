@@ -14,6 +14,7 @@ Renter.create!(first_name: "Juan",
                landline: " ",
                email: "juansilva@gmail.com",
                password: "12345678")
+
 Owner.create!(first_name: "Tomás ",
               second_name: "Andrés",
               first_last_name: "Flores",
@@ -40,6 +41,7 @@ PropertyType.create!(description: "Local")
 Property.create(address: "Santa Rosa 2",
                 square_meters: 678,
                 property_type_id: 4,
+                owner_id: 1,
                 renter_id: 1,
                 rent_value: 5300000,
                 number: 2,

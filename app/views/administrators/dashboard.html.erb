@@ -4,7 +4,7 @@
       <h3 class="text-center">Propiedades</h3>
       <ul>
         <% @properties.each do |p| %>
-        <li><%= p.address %></li>
+        <li><%= link_to "#{p.address}", property_path(p) %></li>
         <% end %>
       </ul>
     </div>
