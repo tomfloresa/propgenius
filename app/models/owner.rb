@@ -5,4 +5,8 @@ class Owner < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :properties
+
+  def owner_name_lastname
+    "#{self.first_name} #{self.first_last_name}"
+  end
 end
