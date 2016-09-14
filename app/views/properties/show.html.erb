@@ -14,7 +14,7 @@
     <h1 class="text-center">Subunidades</h1>
     <ul>
       <% @property.subunits.each do |s| %>
-      <li><%= link_to "#{@property.address}, Nº #{s.number}", subunit_path(s), :target => "_blank" %></li>
+      <li class="li-list-properties"><%= link_to "#{@property.address}, Nº #{s.number}", subunit_path(s), :target => "_blank" %></li>
       <% end %>
     </ul>
   </div>
