@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  square_meters: 1.5
+  property_type_id: 1
+  renter_id: 1
+  rent_value: 1.5
+  number: 1
+  lease_startdate: 2016-09-11
+  owner_id: 1
+
+two:
+  square_meters: 1.5
+  property_type_id: 1
+  renter_id: 1
+  rent_value: 1.5
+  number: 1
+  lease_startdate: 2016-09-11
+  owner_id: 1

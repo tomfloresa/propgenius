@@ -1,0 +1,1 @@
+json.array! @subunits, partial: 'subunits/subunit', as: :subunit

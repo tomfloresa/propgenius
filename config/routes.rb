@@ -1,30 +1,36 @@
 Rails.application.routes.draw do
+  resources :subunits
   root 'index#index'
 
   resources :properties
   resources :property_types
 
   Rails.application.routes.draw do
+  resources :subunits
       devise_for :renters, controllers: {
         sessions: 'renters/sessions',
         registrations: 'renters/registrations'
       }
     end
   Rails.application.routes.draw do
+  resources :subunits
       devise_for :administrators, controllers: {
         sessions: 'administrators/sessions',
         registrations: 'administrators/registrations'
       }
     end
   Rails.application.routes.draw do
+  resources :subunits
       devise_for :owners, controllers: {
         sessions: 'owners/sessions',
         registrations: 'owners/registrations'
       }
     end
 
-
-get 'index/index'
+scope path: '/index', controller: :index do
+  get 'index' => 'index#index', :as => :index
+  get 'new_subunit_for_property/:property_id' => 'index#new_subunit_for_property', :as => :new_subunit_for_property
+end
 
 scope path: '/administrators', controller: :administrators do
   get 'dashboard' => 'administrators#dashboard', :as => :administrators_dashboard

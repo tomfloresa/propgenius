@@ -4,7 +4,21 @@
   <h3 class="text-center">Propietario: <%= @property.owner.owner_name_lastname %></h3>
   <div class="row">
     <div class="text-center">
-      <%= link_to "Crear subunidad", nil, class: "btn btn-default" %>
+      <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default" %>
+      <%= link_to "Crear Gasto Común", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default" %>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-lg-6">
+    <h1 class="text-center">Subunidades</h1>
+    <ul>
+      <% @property.subunits.each do |s| %>
+      <li><%= link_to "#{@property.address}, Nº #{s.number}", subunit_path(s), :target => "_blank" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-6">
+    <h1 class="text-center">Información</h1>
   </div>
 </div>
