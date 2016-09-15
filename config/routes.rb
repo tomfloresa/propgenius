@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :common_expense_properties
   resources :subunits
   root 'index#index'
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   resources :property_types
 
   Rails.application.routes.draw do
+  resources :common_expense_properties
   resources :subunits
       devise_for :renters, controllers: {
         sessions: 'renters/sessions',
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
       }
     end
   Rails.application.routes.draw do
+  resources :common_expense_properties
   resources :subunits
       devise_for :administrators, controllers: {
         sessions: 'administrators/sessions',
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
       }
     end
   Rails.application.routes.draw do
+  resources :common_expense_properties
   resources :subunits
       devise_for :owners, controllers: {
         sessions: 'owners/sessions',

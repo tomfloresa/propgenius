@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @common_expense_property.property_id %>
+</p>
+
+<p>
+  <strong>Water:</strong>
+  <%= @common_expense_property.water %>
+</p>
+
+<p>
+  <strong>Gas:</strong>
+  <%= @common_expense_property.gas %>
+</p>
+
+<p>
+  <strong>Electricity:</strong>
+  <%= @common_expense_property.electricity %>
+</p>
+
+<p>
+  <strong>Others:</strong>
+  <%= @common_expense_property.others %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @common_expense_property.details %>
+</p>
+
+<%= link_to 'Edit', edit_common_expense_property_path(@common_expense_property) %> |
+<%= link_to 'Back', common_expense_properties_path %>

@@ -1,0 +1,1 @@
+json.partial! "common_expense_properties/common_expense_property", common_expense_property: @common_expense_property

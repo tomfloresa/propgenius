@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property_id: 1
+  water: 1.5
+  gas: 1.5
+  electricity: 1.5
+  others: 1.5
+  details: MyText
+
+two:
+  property_id: 1
+  water: 1.5
+  gas: 1.5
+  electricity: 1.5
+  others: 1.5
+  details: MyText

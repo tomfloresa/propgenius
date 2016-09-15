@@ -1,0 +1,1 @@
+json.array! @common_expense_properties, partial: 'common_expense_properties/common_expense_property', as: :common_expense_property

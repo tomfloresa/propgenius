@@ -1,0 +1,41 @@
+<%= form_for(@common_expense_property) do |f| %>
+  <% if @common_expense_property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@common_expense_property.errors.count, "error") %> prohibited this common_expense_property from being saved:</h2>
+
+      <ul>
+      <% @common_expense_property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :property_id %><br>
+    <%= f.number_field :property_id %>
+  </div>
+  <div class="field">
+    <%= f.label :water %><br>
+    <%= f.text_field :water %>
+  </div>
+  <div class="field">
+    <%= f.label :gas %><br>
+    <%= f.text_field :gas %>
+  </div>
+  <div class="field">
+    <%= f.label :electricity %><br>
+    <%= f.text_field :electricity %>
+  </div>
+  <div class="field">
+    <%= f.label :others %><br>
+    <%= f.text_field :others %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
