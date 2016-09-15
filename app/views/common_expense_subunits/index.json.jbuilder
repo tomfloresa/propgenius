@@ -1,0 +1,1 @@
+json.array! @common_expense_subunits, partial: 'common_expense_subunits/common_expense_subunit', as: :common_expense_subunit

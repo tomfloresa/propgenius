@@ -1,0 +1,2 @@
+json.extract! common_expense_subunit, :id, :subunit_id, :electricity_charge, :water_charge, :gas_charge, :others_charge, :created_at, :updated_at
+json.url common_expense_subunit_url(common_expense_subunit, format: :json)

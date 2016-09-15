@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subunit:</strong>
+  <%= @common_expense_subunit.subunit_id %>
+</p>
+
+<p>
+  <strong>Electricity charge:</strong>
+  <%= @common_expense_subunit.electricity_charge %>
+</p>
+
+<p>
+  <strong>Water charge:</strong>
+  <%= @common_expense_subunit.water_charge %>
+</p>
+
+<p>
+  <strong>Gas charge:</strong>
+  <%= @common_expense_subunit.gas_charge %>
+</p>
+
+<p>
+  <strong>Others charge:</strong>
+  <%= @common_expense_subunit.others_charge %>
+</p>
+
+<%= link_to 'Edit', edit_common_expense_subunit_path(@common_expense_subunit) %> |
+<%= link_to 'Back', common_expense_subunits_path %>

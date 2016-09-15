@@ -30,10 +30,16 @@ class CommonExpensePropertiesController < ApplicationController
       if @common_expense_property.save
         # If the common expense for the property is created, get all the subunutis of the property itself
         subunits = @common_expense_property.property.subunits
-        
+
         # For every subunit conforming the property, create a subunit common expense
         subunits.each do |s|
-
+          ces = CommonExpenseSubunit.new
+          ces.subunit_id = s.id
+          ces.electricity_charge = @common_expense_property * s.proration_percentage
+          ces.water_charge = @common_expense_property * s.proration_percentage
+          ces.gas_charge = @common_expense_property * s.proration_percentage
+          ces.others_charge = @common_expense_property * s.proration_percentage
+          ces.create!
         end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }
