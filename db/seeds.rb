@@ -21,7 +21,7 @@ Owner.create!(first_name: "Tomás ",
               second_last_name: "Alvear",
               mobile: "56985009287",
               landline: " ",
-              email: "marcelacoronado@gmail.com",
+              email: "marcela@valprop.com",
               password: "12345678")
 
 Administrator.create!(first_name: "Marcela",
@@ -30,7 +30,7 @@ Administrator.create!(first_name: "Marcela",
               second_last_name: "Díaz",
               mobile: "5698774412",
               landline: " ",
-              email: "marcelacoronado@gmail.com",
+              email: "marcela@valprop.com",
               password: "12345678")
 
 PropertyType.create!(description: "Bodega")
