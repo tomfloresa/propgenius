@@ -1,6 +1,9 @@
 class IndexController < ApplicationController
   def index
-    #code
+    # Depending on the tipe of user signed_id, redirect to it's dashboard
+    if administrator_signed_in?
+      redirect_to administrators_dashboard_path
+    end
   end
 
   def new_subunit_for_property
