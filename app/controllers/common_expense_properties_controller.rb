@@ -28,6 +28,13 @@ class CommonExpensePropertiesController < ApplicationController
 
     respond_to do |format|
       if @common_expense_property.save
+        # If the common expense for the property is created, get all the subunutis of the property itself
+        subunits = @common_expense_property.property.subunits
+        
+        # For every subunit conforming the property, create a subunit common expense
+        subunits.each do |s|
+
+        end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }
       else
@@ -69,6 +76,6 @@ class CommonExpensePropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_property_params
-      params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details)
+      params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details, :period)
     end
 end

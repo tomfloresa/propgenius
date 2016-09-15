@@ -4,7 +4,10 @@
   <p>
     Creando el gasto común "madre" (es decir, de la propiedad que contiene las subunidades) creará los gastos comunes para todas las
     subunidades. La creación se basa en el porcentaje de prorrateo que tiene cada subunidad.
-</p>
+  </p>
+  <p>
+    Se creará gasto común para <%= @property.subunits.count %> subunidades.
+  </p>
 </div>
 <div class="container">
   <%= form_for(@common_expense_property) do |f| %>
@@ -23,6 +26,10 @@
     <div class="field">
       <%= f.label :property_id %><br>
       <%= f.number_field :property_id, :value => @property.id %>
+    </div>
+    <div class="field">
+      <%= f.label :period %><br>
+      <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020} %>
     </div>
     <div class="field">
       <%= f.label :water %><br>
