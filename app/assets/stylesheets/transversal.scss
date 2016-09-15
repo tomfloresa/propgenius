@@ -24,6 +24,11 @@ h5,
 h6 {
   font-family: $main-font !important;
 }
+p {
+  font-family: $second-font !important;
+  font-size: 1.2em !important;
+  line-height: 1.6em;
+}
 a {
   color: $brussian !important;
 }

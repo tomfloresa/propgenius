@@ -33,11 +33,12 @@ Rails.application.routes.draw do
 
 scope path: '/index', controller: :index do
   get 'index' => 'index#index', :as => :index
-  get 'new_subunit_for_property/:property_id' => 'index#new_subunit_for_property', :as => :new_subunit_for_property
 end
 
 scope path: '/administrators', controller: :administrators do
   get 'dashboard' => 'administrators#dashboard', :as => :administrators_dashboard
+  get 'new_subunit_for_property/:property_id' => 'administrators#new_subunit_for_property', :as => :new_subunit_for_property
+  get 'new_matrix_common_expese_property/:property_id' => 'administrators#new_matrix_common_expese_property', :as => :new_matrix_common_expese_property
 end
 
 scope path: '/renters', controller: :renters do

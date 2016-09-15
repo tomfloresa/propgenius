@@ -5,9 +5,4 @@ class IndexController < ApplicationController
       redirect_to administrators_dashboard_path
     end
   end
-
-  def new_subunit_for_property
-    @subunit = Subunit.new
-    @property = Property.find(params[:property_id])
-  end
 end
