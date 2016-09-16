@@ -35,11 +35,12 @@ class CommonExpensePropertiesController < ApplicationController
         subunits.each do |s|
           ces = CommonExpenseSubunit.new
           ces.subunit_id = s.id
-          ces.electricity_charge = @common_expense_property * s.proration_percentage
-          ces.water_charge = @common_expense_property * s.proration_percentage
-          ces.gas_charge = @common_expense_property * s.proration_percentage
-          ces.others_charge = @common_expense_property * s.proration_percentage
-          ces.create!
+          ces.electricity_charge = @common_expense_property.electricity * s.proration_percentage
+          ces.water_charge = @common_expense_property.water * s.proration_percentage
+          ces.gas_charge = @common_expense_property.gas * s.proration_percentage
+          ces.others_charge = @common_expense_property.others * s.proration_percentage
+          ces.payed = false
+          ces.save!
         end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915205135) do
+ActiveRecord::Schema.define(version: 20160915235425) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160915205135) do
     t.float    "others_charge"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.boolean  "payed"
   end
 
   create_table "owners", force: :cascade do |t|
