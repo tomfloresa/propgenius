@@ -6,6 +6,7 @@
     <div class="text-center">
       <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default" %>
       <%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default" %>
+      <%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default" %>
     </div>
   </div>
 </div>

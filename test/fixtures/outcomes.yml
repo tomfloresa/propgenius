@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-09-28
+  type: 1
+  property_id: 1
+  ammount: 1.5
+  details: MyText
+
+two:
+  date: 2016-09-28
+  type: 1
+  property_id: 1
+  ammount: 1.5
+  details: MyText
