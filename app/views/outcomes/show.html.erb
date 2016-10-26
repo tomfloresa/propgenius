@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @outcome.date %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @outcome.type %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @outcome.property_id %>
+</p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @outcome.ammount %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @outcome.details %>
+</p>
+
+<%= link_to 'Edit', edit_outcome_path(@outcome) %> |
+<%= link_to 'Back', outcomes_path %>
