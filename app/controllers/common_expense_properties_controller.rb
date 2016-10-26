@@ -39,7 +39,15 @@ class CommonExpensePropertiesController < ApplicationController
           ces.water_charge = @common_expense_property.water * s.proration_percentage
           ces.gas_charge = @common_expense_property.gas * s.proration_percentage
           ces.others_charge = @common_expense_property.others * s.proration_percentage
+          ces.salary_payments = @common_expense_property.salary_payments * s.proration_percentage
+          ces.maintenace_payments = @common_expense_property.maintenace_payments * s.proration_percentage
           ces.payed = false
+          ces.total = (@common_expense_property.electricity * s.proration_percentage) +
+                      (@common_expense_property.water * s.proration_percentage) +
+                      (@common_expense_property.gas * s.proration_percentage) +
+                      (@common_expense_property.others * s.proration_percentage) +
+                      (@common_expense_property.salary_payments * s.proration_percentage) +
+                      (@common_expense_property.maintenace_payments * s.proration_percentage)
           ces.save!
         end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
