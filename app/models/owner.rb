@@ -5,6 +5,7 @@ class Owner < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :properties
+  has_many :subunits
 
   def owner_name_lastname
     "#{self.first_name} #{self.first_last_name}"

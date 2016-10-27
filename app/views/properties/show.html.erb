@@ -4,9 +4,14 @@
   <h3 class="text-center">Propietario: <%= @property.owner.owner_name_lastname %></h3>
   <div class="row">
     <div class="text-center">
-      <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default" %>
-      <%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default" %>
-      <%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default" %>
+      <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+      <%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+      <%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+      <%= link_to "Crear Cobros Arriendo", nil, class: "btn btn-default action-button" %>
     </div>
   </div>
 </div>

@@ -1,44 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Square meters:</strong>
-  <%= @subunit.square_meters %>
-</p>
-
-<p>
-  <strong>Property type:</strong>
-  <%= @subunit.property_type_id %>
-</p>
-
-<p>
-  <strong>Renter:</strong>
-  <%= @subunit.renter_id %>
-</p>
-
-<p>
-  <strong>Proration percentage:</strong>
-  <%= @subunit.proration_percentage %>
-</p>
-
-<p>
-  <strong>Rent value:</strong>
-  <%= @subunit.rent_value %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @subunit.number %>
-</p>
-
-<p>
-  <strong>Lease startdate:</strong>
-  <%= @subunit.lease_startdate %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @subunit.owner_id %>
-</p>
-
-<%= link_to 'Edit', edit_subunit_path(@subunit) %> |
-<%= link_to 'Back', subunits_path %>
+<%= render('transversals/navbar_admin') %>
+<div class="container">
+  <h1 class="text-center"><%= "#{@subunit.property.address}, Nº #{@subunit.number}" %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+      <h3><%= @subunit.property_type.description %></h3>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+      <h3><%= @subunit.owner.first_name %></h3>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+      <h3><%= @subunit.renter.first_name %></h3>
+    </div>
+  </div>
+</div>

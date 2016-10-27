@@ -10,6 +10,8 @@ class SubunitsController < ApplicationController
   # GET /subunits/1
   # GET /subunits/1.json
   def show
+    id = params[:id]
+    @common_expenses = CommonExpenseSubunit.find_by subunit_id: id
   end
 
   # GET /subunits/new
