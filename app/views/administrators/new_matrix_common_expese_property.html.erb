@@ -1,70 +1,76 @@
 <%= render('transversals/navbar_admin') %>
 <div class="container">
-  <h2>Información:</h2>
-  <p>
-    Creando el gasto común "madre" (es decir, de la propiedad que contiene las subunidades) creará los gastos comunes para todas las
-    subunidades. La creación se basa en el porcentaje de prorrateo que tiene cada subunidad.
-  </p>
-  <p>
-    Se creará gasto común para <%= @property.subunits.count %> subunidades.
-  </p>
-</div>
-<div class="container">
-  <%= form_for(@common_expense_property) do |f| %>
-    <% if @common_expense_property.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@common_expense_property.errors.count, "error") %> prohibited this common_expense_property from being saved:</h2>
+    <div class="col-lg-8 col-lg-offset-2">
+        <h2>Información:</h2>
+        <p>
+            Creando el gasto común "madre" (es decir, de la propiedad que contiene las subunidades) creará los gastos comunes para todas las subunidades. La creación se basa en el porcentaje de prorrateo que tiene cada subunidad.
+        </p>
+        <p>
+            Se creará gasto común para
+            <%= @property.subunits.count %>
+            subunidades.
+        </p>
+    </div>
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+            <%= form_for(@common_expense_property) do |f| %>
+            <% if @common_expense_property.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@common_expense_property.errors.count, "error") %>
+                    prohibited this common_expense_property from being saved:</h2>
 
-        <ul>
-        <% @common_expense_property.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+                <ul>
+                    <% @common_expense_property.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <% end %>
 
-    <div class="field">
-      <%= f.label :property_id %><br>
-      <%= f.number_field :property_id, :value => @property.id %>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :property_id %><br>
+                <%= f.number_field :property_id, :value => @property.id, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :period %><br>
+                <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :water %><br>
+                <%= f.text_field :water, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :gas %><br>
+                <%= f.text_field :gas, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :electricity %><br>
+                <%= f.text_field :electricity, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :salary_payments %><br>
+                <%= f.text_field :salary_payments, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :maintenance_payments %><br>
+                <%= f.text_field :maintenance_payments, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :others %><br>
+                <%= f.text_field :others, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :total %><br>
+                <%= f.text_field :total, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.label :details %><br>
+                <%= f.text_area :details, class: "form-control" %>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+                <%= f.submit "Crear gasto común", class: "btn btn-default btn-block" %>
+            </div>
+            <% end %>
+        </div>
     </div>
-    <div class="field">
-      <%= f.label :period %><br>
-      <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020} %>
-    </div>
-    <div class="field">
-      <%= f.label :water %><br>
-      <%= f.text_field :water %>
-    </div>
-    <div class="field">
-      <%= f.label :gas %><br>
-      <%= f.text_field :gas %>
-    </div>
-    <div class="field">
-      <%= f.label :electricity %><br>
-      <%= f.text_field :electricity %>
-    </div>
-    <div class="field">
-      <%= f.label :salary_payments %><br>
-      <%= f.text_field :salary_payments %>
-    </div>
-    <div class="field">
-      <%= f.label :maintenance_payments %><br>
-      <%= f.text_field :maintenance_payments %>
-    </div>
-    <div class="field">
-      <%= f.label :total %><br>
-      <%= f.text_field :total %>
-    </div>
-    <div class="field">
-      <%= f.label :others %><br>
-      <%= f.text_field :others %>
-    </div>
-    <div class="field">
-      <%= f.label :details %><br>
-      <%= f.text_area :details %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Crear gasto común propiedad y subunidades", class: "btn btn-default" %>
-    </div>
-  <% end %>
 </div>
