@@ -1,27 +1,27 @@
 Rails.application.routes.draw do
+  resources :outcome_categories
+  resources :outcome_categories
+  root 'index#index'
   resources :outcomes
   resources :common_expense_subunits
   resources :common_expense_properties
   resources :subunits
-  root 'index#index'
-
+  resources :outcomes
   resources :properties
   resources :property_types
 
   Rails.application.routes.draw do
+  resources :outcome_categories
+  resources :outcome_categories
   resources :outcomes
-  resources :common_expense_subunits
-  resources :common_expense_properties
-  resources :subunits
       devise_for :renters, controllers: {
         sessions: 'renters/sessions',
         registrations: 'renters/registrations'
       }
     end
   Rails.application.routes.draw do
-  resources :outcomes
-  resources :common_expense_subunits
-  resources :common_expense_properties
+  resources :outcome_categories
+  resources :outcome_categories
   resources :subunits
       devise_for :administrators, controllers: {
         sessions: 'administrators/sessions',
@@ -29,10 +29,7 @@ Rails.application.routes.draw do
       }
     end
   Rails.application.routes.draw do
-  resources :outcomes
-  resources :common_expense_subunits
-  resources :common_expense_properties
-  resources :subunits
+  resources :outcome_categories
       devise_for :owners, controllers: {
         sessions: 'owners/sessions',
         registrations: 'owners/registrations'

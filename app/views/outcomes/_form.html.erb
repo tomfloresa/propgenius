@@ -16,12 +16,12 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :type, "Tipo de Egreso" %><br>
-    <%= f.number_field :type %>
+    <%= f.label :outcome_category_id, "Tipo de Egreso" %><br>
+    <%= f.collection_select :outcome_category_id, OutcomeCategory.order(:name), :id, :name, {}, class: "" %>
   </div>
   <div class="field">
     <%= f.label :property_id %><br>
-    <%= f.number_field :property_id %>
+    <%= f.number_field :property_id, :value => @property_id %>
   </div>
   <div class="field">
     <%= f.label :ammount, "Monto Egreso" %><br>

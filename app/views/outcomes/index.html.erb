@@ -18,8 +18,8 @@
     <% @outcomes.each do |outcome| %>
       <tr>
         <td><%= outcome.date %></td>
-        <td><%= outcome.type %></td>
-        <td><%= outcome.property_id %></td>
+        <td><%= outcome.outcome_category.name %></td>
+        <td><%= outcome.property.address %></td>
         <td><%= outcome.ammount %></td>
         <td><%= outcome.details %></td>
         <td><%= link_to 'Show', outcome %></td>

@@ -1,0 +1,1 @@
+json.array! @outcome_categories, partial: 'outcome_categories/outcome_category', as: :outcome_category

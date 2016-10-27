@@ -14,6 +14,7 @@ class OutcomesController < ApplicationController
 
   # GET /outcomes/new
   def new
+    @property_id = params[:property_id]
     @outcome = Outcome.new
   end
 
@@ -69,6 +70,6 @@ class OutcomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def outcome_params
-      params.require(:outcome).permit(:date, :type, :property_id, :ammount, :details)
+      params.require(:outcome).permit(:date, :outcome_category_id, :property_id, :ammount, :details)
     end
 end

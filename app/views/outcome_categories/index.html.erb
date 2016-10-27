@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Outcome Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outcome_categories.each do |outcome_category| %>
+      <tr>
+        <td><%= outcome_category.name %></td>
+        <td><%= link_to 'Show', outcome_category %></td>
+        <td><%= link_to 'Edit', edit_outcome_category_path(outcome_category) %></td>
+        <td><%= link_to 'Destroy', outcome_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Outcome category', new_outcome_category_path %>

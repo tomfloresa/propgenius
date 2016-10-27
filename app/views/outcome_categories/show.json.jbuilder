@@ -1,0 +1,1 @@
+json.partial! "outcome_categories/outcome_category", outcome_category: @outcome_category
