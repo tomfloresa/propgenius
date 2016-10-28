@@ -1,3 +1,19 @@
 // Place all the styles related to the subunits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'https://fonts.googleapis.com/css?family=Biryani';
+@import 'https://fonts.googleapis.com/css?family=Oxygen';
+@import 'https://fonts.googleapis.com/css?family=Squada+One';
+
+$main-font: "Biryani";
+$second-font: "Oxygen";
+$bg: #4248B9;
+$nav: #2E3D51;
+
+$green: #4FC71A;
+$brussian: #24242B;
+$blue: #3354EC;
+
+#holder-subunit-general-info {
+  padding: 0 !important;
+}

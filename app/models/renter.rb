@@ -6,4 +6,8 @@ class Renter < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def renter_name_lastname
+    "#{self.first_name} #{self.first_last_name}"
+  end
 end

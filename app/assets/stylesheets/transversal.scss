@@ -25,6 +25,9 @@ h5,
 h6 {
   font-family: $main-font !important;
 }
+.light-subheader {
+  font-weight: 200 !important;
+}
 p {
   font-family: $second-font !important;
   font-size: 1.2em !important;
@@ -97,10 +100,16 @@ a:hover {
 .square-div {
   height: 200px;
   background-color: white;
-  margin: 5px;
+  margin: 3px;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 .holder-centered {
+}
+.btn-edit-subunit, .btn-edit-subunit:hover {
+  background-color: #00D0E3 !important;
+  border-color: #00D0E3 !important;
+  font-family: $second-font;
+  font-size: 1.4em !important;
 }
