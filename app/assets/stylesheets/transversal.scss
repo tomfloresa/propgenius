@@ -4,8 +4,9 @@
 
 $main-font: "Biryani";
 $second-font: "Oxygen";
-$bg: #4248B9;
-$nav: #2E3D51;
+$bg: #1D1F2E;
+$bg-contrast: #282840;
+$nav: #6A93FF;
 
 $green: #4FC71A;
 $brussian: #24242B;
@@ -24,9 +25,7 @@ h4,
 h5,
 h6 {
   font-family: $main-font !important;
-}
-.light-subheader {
-  font-weight: 200 !important;
+  color: #F76A9E !important;
 }
 p {
   font-family: $second-font !important;
@@ -38,6 +37,9 @@ a {
 }
 a:hover {
   background-color: transparent !important;
+}
+.separator {
+  height: 20px;
 }
 .navbar-default {
   background-color: $nav !important;
@@ -96,14 +98,6 @@ a:hover {
 .li-list-properties {
   font-size: 1.4em;
   line-height: 2em;
-}
-.square-div {
-  height: 200px;
-  background-color: white;
-  margin: 3px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
 }
 .holder-centered {
 }

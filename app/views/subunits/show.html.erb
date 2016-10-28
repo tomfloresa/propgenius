@@ -1,46 +1,18 @@
 <%= render('transversals/navbar_admin') %>
-<div class="container">
-    <h1 class="text-center"><%= "#{@subunit.property.address}, Nº #{@subunit.number}" %></h1>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-        <%= link_to "editar subunidad", edit_subunit_path(@subunit), class: "btn btn-default action-button btn-edit-subunit" %>
-    </div>
-</div>
-<div class="col-lg-8" id="holder-subunit-general-info">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div class="holder-centered">
-            <h2 class="text-center">Tipo:</h2>
-            <h3 class="text-center light-subheader"><%= @subunit.property_type.description %></h3>
+<div class="separator"></div>
+<div class="container-fluid">
+    <div class="col-lg-3">
+        <div class="holder-extern info-square">
+            <div class="holder-intern">
+                <h4><%= "#{@subunit.property.address}, Nº #{@subunit.number}" %></h4>
+                <h5 class="text-center light-subheader"><%= @subunit.property_type.description %></h5>
+            </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div class="holder-centered">
-            <h2 class="text-center">Propietario:</h2>
-            <h3 class="text-center light-subheader"><%= @subunit.owner.owner_name_lastname %></h3>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div class="holder-centered">
-            <h2 class="text-center">Arrendatario:</h2>
-            <h3 class="text-center light-subheader"><%= @subunit.renter.renter_name_lastname %></h3>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div class="holder-centered">
-            <h2 class="text-center">Arriendo:</h2>
-            <h3 class="text-center light-subheader"><%= number_to_currency(@subunit.rent_value, {precision: 0, delimiter: "."}) %></h3>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div>
-            <h2 class="text-center">Contrato:</h2>
-            <h3 class="text-center light-subheader"><%= @subunit.lease_startdate.strftime("%d/%m/%Y") %></h3>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 square-div">
-        <div>
-            <h2 class="text-center">% prorrateo:</h2>
-            <h3 class="text-center light-subheader"><%= number_to_percentage(@subunit.proration_percentage, {precision: 3}) %></h3>
+    <div class="col-lg-9 info-square holder-extern">
+        <div class="holder-intern">
+            <h4><%= "#{@subunit.property.address}, Nº #{@subunit.number}" %></h4>
+            <h5 class="text-center light-subheader"><%= @subunit.property_type.description %></h5>
         </div>
     </div>
 </div>
-<div class="container-fluid"></div>

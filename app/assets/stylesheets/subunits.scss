@@ -4,16 +4,24 @@
 @import 'https://fonts.googleapis.com/css?family=Biryani';
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
-
 $main-font: "Biryani";
 $second-font: "Oxygen";
-$bg: #4248B9;
-$nav: #2E3D51;
-
+$bg: #1D1F2E;
+$bg-contrast: #282840;
+$nav: #6A93FF;
 $green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
 
-#holder-subunit-general-info {
-  padding: 0 !important;
+.info-square {
+    height: 300px;
+}
+.holder-extern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.holder-intern {
 }
