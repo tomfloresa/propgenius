@@ -1,10 +1,11 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto+Slab';
+@import 'https://fonts.googleapis.com/css?family=Biryani';
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
 
-$main-font: "Roboto Slab";
+$main-font: "Biryani";
 $second-font: "Oxygen";
-$bg: #F2F6FA;
+$bg: #4248B9;
+$nav: #2E3D51;
 
 $green: #4FC71A;
 $brussian: #24242B;
@@ -30,17 +31,21 @@ p {
   line-height: 1.6em;
 }
 a {
-  color: $brussian !important;
+  color: #E7E9EB !important;
 }
 a:hover {
   background-color: transparent !important;
 }
+.navbar-default {
+  background-color: $nav !important;
+  border-color: $nav !important;
+}
 .brand-huge {
-  font-family: "Squada One" !important;
+  font-family: $main-font !important;
   font-size: 6em;
 }
 .navbar-brand {
-  font-family: "Squada One" !important;
+  font-family: $main-font !important;
   font-size: 2em !important;
 }
 .dropdown-toggle {
@@ -60,6 +65,7 @@ a:hover {
 }
 .action-button {
   margin: 10px;
+  border-radius: 200px !important;
 }
 .btn-go {
   font-family: $main-font;
@@ -87,4 +93,14 @@ a:hover {
 .li-list-properties {
   font-size: 1.4em;
   line-height: 2em;
+}
+.square-div {
+  height: 200px;
+  background-color: white;
+  margin: 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.holder-centered {
 }
