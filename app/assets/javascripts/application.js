@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min.js
-//= require chart.js/dist/Chart
+//= require chart.js/dist/Chart.bundle.min.js
 //= require_tree .
