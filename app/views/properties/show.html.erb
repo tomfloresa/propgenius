@@ -10,23 +10,38 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-9 info-square">
+    <div class="col-lg-3 col-md-9 col-sm-6 col-xs-12 info-square">
         <div class="holder-extern-no-verticality">
-            <div class="col-lg-6 square-divided-four">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
+                  <div class="text-center">
+                    <%= inline_svg("house") %>
+                  </div>
                     <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
                 </div>
             </div>
-            <div class="col-lg-6 square-divided-four">
-                <div><%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div>
+                  <div class="text-center">
+                    <%= inline_svg("document") %>
+                  </div>
+                  <%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
                 </div>
             </div>
-            <div class="col-lg-6 square-divided-four">
-                <div><%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div>
+                  <div class="text-center">
+                    <%= inline_svg("outcome") %>
+                  </div>
+                  <%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button" %>
                 </div>
             </div>
-            <div class="col-lg-6 square-divided-four">
-                <div><%= link_to "Crear Cobros Arriendo", nil, class: "btn btn-default action-button" %>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div>
+                  <div class="text-center">
+                    <%= inline_svg("money") %>
+                  </div>
+                  <%= link_to "Crear Cobros Arriendo", nil, class: "btn btn-default action-button" %>
                 </div>
             </div>
         </div>
