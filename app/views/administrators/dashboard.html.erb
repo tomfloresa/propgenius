@@ -3,16 +3,18 @@
 <div class="container-fluid container-squares">
     <div class="col-lg-4 col-md-4 info-square">
         <div class="holder-extern-no-verticality">
-          <div class="col-lg-6 properties-detail">
-            <di>
-              <h1 class="text-center"><%= @properties.count %></h1>
-              <h3 class="text-center">propiedades</h3>
-              <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
-            </di>
-          </div>
-          <div class="col-lg-6 properties-detail">
-            <canvas id="property-types-chart"></canvas>
-          </div>
+            <div class="col-lg-4 col-md-4 col-sm 4 col-xs-6 properties-detail">
+                <div>
+                    <h1 class="text-center"><%= @properties.count %></h1>
+                    <h4 class="text-center">propiedades</h4>
+                    <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm 8 col-xs-6 properties-detail">
+                <div>
+                    <canvas id="property-types-chart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 info-square">
