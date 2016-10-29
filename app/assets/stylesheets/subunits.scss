@@ -12,9 +12,13 @@ $nav: #6A93FF;
 $green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
-
+.sub-nav {
+  margin-bottom: 20px;
+}
+.container-squares {
+}
 .info-square {
-    height: 300px;
+  padding: 3px !important;
 }
 .holder-extern {
     display: flex;
@@ -22,6 +26,8 @@ $blue: #3354EC;
     align-items: center;
     height: 100%;
     width: 100%;
+    height: 300px;
+    background-color: $bg-contrast;
 }
 .holder-intern {
 }
