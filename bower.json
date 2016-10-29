@@ -14,5 +14,8 @@
     "vendor/assets/components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "chart.js": "^2.3.0"
+  }
 }

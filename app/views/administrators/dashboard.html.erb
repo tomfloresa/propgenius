@@ -1,28 +1,58 @@
 <%= render('transversals/navbar_admin') %>
-<div class="container-fluid">
-    <div class="col-lg-4">
-      <h3 class="text-center">Propiedades</h3>
-      <ul>
-        <% @properties.each do |p| %>
-        <li><%= link_to "#{p.address}", property_path(p) %></li>
-        <% end %>
-      </ul>
+<div class="sub-nav"></div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-4 col-md-4 info-square">
+        <div class="holder-extern-no-verticality">
+          <div class="col-lg-6 properties-detail">
+            <di>
+              <h1 class="text-center"><%= @properties.count %></h1>
+              <h3 class="text-center">propiedades</h3>
+              <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
+            </di>
+          </div>
+          <div class="col-lg-6 properties-detail">
+            <canvas id="property-types-chart"></canvas>
+          </div>
+        </div>
     </div>
-    <div class="col-lg-4">
-      <h3 class="text-center">Arrendatarios</h3>
-      <ul>
-        <% @renters.each do |r| %>
-        <li><%= "#{r.first_name} #{r.first_last_name}" %></li>
-        <% end %>
-      </ul>
+    <div class="col-lg-4 col-md-4 info-square">
+        <div class="holder-extern-no-verticality">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th class="table-header">NOMBRE</th>
+                        <th class="table-header">EMAIL</th>
+                        <th class="table-header">PROPIEDADES</th>
+                    </tr>
+                    <% @owners.each do |o| %>
+                    <tr>
+                        <td class="table-data"><%= o.owner_name_lastname %></td>
+                        <td class="table-data"><%= o.email %></td>
+                        <td class="table-data"><%= o.owner_name_lastname %></td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-4">
-      <h3 class="text-center">Propietarios</h3>
-      <ul>
-        <% @owners.each do |o| %>
-        <li><%= "#{o.first_name} #{o.first_last_name}" %></li>
-        <% end %>
-      </ul>
+    <div class="col-lg-4 col-md-4 info-square">
+        <div class="holder-extern-no-verticality">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th class="table-header">NOMBRE</th>
+                        <th class="table-header">EMAIL</th>
+                        <th class="table-header">PROPIEDADES</th>
+                    </tr>
+                    <% @renters.each do |r| %>
+                    <tr>
+                        <td class="table-data"><%= r.renter_name_lastname %></td>
+                        <td class="table-data"><%= r.email %></td>
+                        <td class="table-data"><%= r.renter_name_lastname %></td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-<div class="container-fluid"></div>
