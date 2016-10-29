@@ -1,39 +1,46 @@
+<%= render('transversals/navbar_admin') %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Properties</h1>
+<div class="container">
+  <h1 class="text-center">Listing Properties</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Square meters</th>
-      <th>Property type</th>
-      <th>Renter</th>
-      <th>Rent value</th>
-      <th>Number</th>
-      <th>Subunits number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='container'>
+  <div class="col-lg-10 col-lg-offset-1 col-md-4">
+      <div class="holder-extern-no-verticality">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-header">Dirección</th>
+                        <th class="table-header">Nº</th>
+                        <th class="table-header">M2</th>
+                        <th class="table-header">Tipo</th>
+                        <th class="table-header">Arrendador</th>
+                        <th class="table-header">Valor arriendo</th>
+                        <th class="table-header">Nº subunidades</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
 
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.address %></td>
-        <td><%= property.square_meters %></td>
-        <td><%= property.property_type_id %></td>
-        <td><%= property.renter_id %></td>
-        <td><%= property.rent_value %></td>
-        <td><%= property.number %></td>
-        <td><%= property.subunits_number %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Property', new_property_path %>
+                <tbody>
+                    <% @properties.each do |property| %>
+                    <tr>
+                        <td class="table-data"><%= property.address %></td>
+                        <td class="table-data"><%= property.number %></td>
+                        <td class="table-data"><%= property.square_meters %></td>
+                        <td class="table-data"><%= property.property_type_id %></td>
+                        <td class="table-data"><%= property.renter_id %></td>
+                        <td class="table-data"><%= property.rent_value %></td>
+                        <td class="table-data"><%= property.subunits_number %></td>
+                        <td class="table-data"><%= link_to 'Show', property %></td>
+                        <td class="table-data"><%= link_to 'Edit', edit_property_path(property) %></td>
+                        <td class="table-data"><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>

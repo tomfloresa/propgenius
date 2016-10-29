@@ -4,10 +4,11 @@ $(document).on('turbolinks:load', function() {
         $('#common_expense_property_period_1i').wrap("<div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'></div>");
     }
 });
+
 $(document).on('turbolinks:load', function() {
     var ctx = document.getElementById("property-types-chart");
     var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: [
                 "Red",

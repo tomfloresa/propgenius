@@ -21,38 +21,46 @@
         <div class="holder-extern-no-verticality">
             <div class="table-responsive">
                 <table class="table">
-                    <tr>
-                        <th class="table-header">NOMBRE</th>
-                        <th class="table-header">EMAIL</th>
-                        <th class="table-header">PROPIEDADES</th>
-                    </tr>
-                    <% @owners.each do |o| %>
-                    <tr>
-                        <td class="table-data"><%= o.owner_name_lastname %></td>
-                        <td class="table-data"><%= o.email %></td>
-                        <td class="table-data"><%= o.owner_name_lastname %></td>
-                    </tr>
-                    <% end %>
+                    <thead>
+                        <tr>
+                            <th class="table-header">NOMBRE</th>
+                            <th class="table-header">EMAIL</th>
+                            <th class="table-header">PROPIEDADES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @owners.each do |o| %>
+                        <tr>
+                            <td class="table-data"><%= o.owner_name_lastname %></td>
+                            <td class="table-data"><%= o.email %></td>
+                            <td class="table-data"><%= o.owner_name_lastname %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 info-square">
-        <div class="holder-extern-no-verticality">
+        <div class="holder-extern-no-verticality table-holder">
             <div class="table-responsive">
                 <table class="table">
                     <tr>
-                        <th class="table-header">NOMBRE</th>
-                        <th class="table-header">EMAIL</th>
-                        <th class="table-header">PROPIEDADES</th>
+                        <thead>
+                            <th class="table-header">NOMBRE</th>
+                            <th class="table-header">EMAIL</th>
+                            <th class="table-header">PROPIEDADES</th>
+                        </thead>
                     </tr>
-                    <% @renters.each do |r| %>
-                    <tr>
-                        <td class="table-data"><%= r.renter_name_lastname %></td>
-                        <td class="table-data"><%= r.email %></td>
-                        <td class="table-data"><%= r.renter_name_lastname %></td>
-                    </tr>
-                    <% end %>
+                    <tbody>
+                        <% @renters.each do |r| %>
+                        <tr>
+                            <td class="table-data"><%= r.renter_name_lastname %></td>
+                            <td class="table-data"><%= r.email %></td>
+                            <td class="table-data"><%= r.renter_name_lastname %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
                 </table>
             </div>
         </div>
