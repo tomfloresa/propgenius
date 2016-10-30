@@ -72,11 +72,25 @@ a:hover {
 }
 
 .input-header {
-    font-family: $second-font;
+    font-family: $main-font;
     font-size: 1.4em;
     font-weight: 200;
+    color: $nav;
+    text-transform: uppercase;
 }
-
+.form-control {
+  height: 40px !important;
+  border-radius: 0 !important;
+  border-color: $faded !important;
+  border-width: 2px !important;
+  background-color: $bg-contrast !important;
+  color: $nav !important;
+  font-family: $second-font !important;
+  font-size: 1.4em !important;
+}
+.form-control:focus {
+  border-color: $golden !important;
+}
 .div-for-input {
     margin: 10px 0;
 }

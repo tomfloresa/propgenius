@@ -1,6 +1,6 @@
 <div class="container container-login">
-  <h1 class="brand-huge text-center">propgenius</h1>
-  <h3 class="text-center">Accesso Arrendatario</h3>
+  <h1 class="text-center">propgenius</h1>
+  <h4 class="text-center">accesso arrendatario</h4>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :email, "email", class: "input-header" %><br/>
@@ -20,11 +20,11 @@
     <% end %>
 
     <div class="form-div col-md-6 col-md-offset-3">
-        <%= f.submit "ingresar", class: "btn btn-default btn-block btn-go" %>
+        <%= f.submit "INGRESAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
     </div>
 
     <div class="form-div col-md-6 col-md-offset-3">
-        <%= link_to "propietarios", new_owner_session_path, class: "btn btn-default btn-block btn-option" %>
+        <%= link_to "PROPIETARIOS", new_owner_session_path, class: "btn btn-default btn-block action-button faded-button" %>
     </div>
     <% end %>
 </div>
