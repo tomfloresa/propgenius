@@ -1,7 +1,7 @@
 <%= render("transversals/navbar_admin") %>
 <div class="sub-nav"></div>
 <div class="container-fluid container-squares">
-    <div class="col-lg-3 col-md-3 info-square">
+    <div class="col-lg-4 col-md-6 col-sm-6 info-square">
         <div class="holder-extern info-square">
             <div class="holder-intern">
                 <h2 class="text-center"><%= "#{@property.address}, Nº #{@property.number}" %></h2>
@@ -10,43 +10,43 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-9 col-sm-6 col-xs-12 info-square">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 info-square">
         <div class="holder-extern-no-verticality">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                   <div class="text-center">
-                    <%= inline_svg("house") %>
+                    <%= inline_svg("house", {class: "house"}) %>
                   </div>
-                    <%= link_to "Crear subunidad", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+                    <%= link_to "SUBUNIDAD", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                   <div class="text-center">
-                    <%= inline_svg("document") %>
+                    <%= inline_svg("document", {class: "paper-sheet"}) %>
                   </div>
-                  <%= link_to "Crear Gasto Común", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+                  <%= link_to "GASTO COMÚN", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center">
-                    <%= inline_svg("outcome") %>
+                  <div class="text-center holder-action-button">
+                    <%= inline_svg("outcome", {class: "outcome"}) %>
                   </div>
-                  <%= link_to "Crear Egresos", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button" %>
+                  <%= link_to "EGRESOS", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button faded-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center">
-                    <%= inline_svg("money") %>
+                  <div class="text-center holder-action-button">
+                    <%= inline_svg("money", class: "money") %>
                   </div>
-                  <%= link_to "Crear Cobros Arriendo", nil, class: "btn btn-default action-button" %>
+                  <%= link_to "ARRIENDO", nil, class: "btn btn-default action-button aquamarine-button" %>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-md-9 info-square">
+    <div class="col-lg-4 col-md-12 info-square">
         <div class="holder-extern info-square">
             <div class="holder-intern"></div>
         </div>

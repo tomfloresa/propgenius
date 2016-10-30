@@ -9,6 +9,10 @@ $nav: #6A93FF;
 $green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
+$aquamarine: #71FFE1;
+$golden: #FFDB74;
+$faded: #847DF3;
+$crimson: #FF6F97;
 
 html {
     background-color: $bg !important;
@@ -59,7 +63,7 @@ a:hover {
 
 .navbar-brand {
     font-family: $main-font !important;
-    font-size: 2em !important;
+    font-size: 1.4em !important;
 }
 
 .dropdown-toggle {
@@ -83,7 +87,28 @@ a:hover {
 
 .action-button {
     margin: 10px;
-    border-radius: 200px !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    border-width: 1px !important;
+    font-family: $main-font !important;
+    letter-spacing: 2px;
+    padding-top: 10px !important;
+}
+
+.money {
+    fill: $aquamarine !important;
+}
+
+.outcome {
+    fill: $faded !important;
+}
+
+.paper-sheet {
+    fill: $crimson !important;
+}
+
+.house {
+    fill: $golden !important;
 }
 
 .btn-go {
@@ -108,6 +133,26 @@ a:hover {
     border-color: $blue !important;
 }
 
+.aquamarine-button {
+    color: $aquamarine !important;
+    border-color: $aquamarine !important;
+}
+
+.golden-button {
+    color: $golden !important;
+    border-color: $golden !important;
+}
+
+.faded-button {
+    color: $faded !important;
+    border-color: $faded !important;
+}
+
+.crimson-button {
+    color: $crimson !important;
+    border-color: $crimson !important;
+}
+
 .form-div {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
@@ -129,14 +174,15 @@ a:hover {
 }
 
 .properties-detail {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #property-types-chart {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .table-header {
@@ -159,9 +205,9 @@ a:hover {
     border-top-color: transparent !important;
 }
 
-.table>thead>tr>th {
-  background-color: #31334E;
-  border-bottom-color: #31334E !important;
+.table > thead > tr > th {
+    background-color: #31334E;
+    border-bottom-color: #31334E !important;
 }
 
 .row-list {
