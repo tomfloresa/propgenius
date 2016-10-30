@@ -33,7 +33,7 @@
                         <tr>
                             <td class="table-data"><%= o.owner_name_lastname %></td>
                             <td class="table-data"><%= o.email %></td>
-                            <td class="table-data"><%= o.owner_name_lastname %></td>
+                            <td class="table-data"><%= o.properties.count %></td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -57,7 +57,7 @@
                         <tr>
                             <td class="table-data"><%= r.renter_name_lastname %></td>
                             <td class="table-data"><%= r.email %></td>
-                            <td class="table-data"><%= r.renter_name_lastname %></td>
+                            <td class="table-data"><%= r.properties.count %></td>
                         </tr>
                         <% end %>
                     </tbody>

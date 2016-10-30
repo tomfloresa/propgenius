@@ -10,6 +10,9 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    property_id = params[:id]
+    @subunits = Subunit.where(property_id: property_id)
+    puts @subunits.count
   end
 
   # GET /properties/new

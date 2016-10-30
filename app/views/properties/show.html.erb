@@ -14,48 +14,72 @@
         <div class="holder-extern-no-verticality">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center">
-                    <%= inline_svg("house", {class: "house"}) %>
-                  </div>
+                    <div class="text-center">
+                        <%= inline_svg("house", {class: "house"}) %>
+                    </div>
                     <%= link_to "SUBUNIDAD", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center">
-                    <%= inline_svg("document", {class: "paper-sheet"}) %>
-                  </div>
-                  <%= link_to "GASTO COMÚN", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
+                    <div class="text-center">
+                        <%= inline_svg("documents", {class: "paper-sheet"}) %>
+                    </div>
+                    <%= link_to "GASTO COMÚN", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center holder-action-button">
-                    <%= inline_svg("outcome", {class: "outcome"}) %>
-                  </div>
-                  <%= link_to "EGRESOS", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button faded-button" %>
+                    <div class="text-center holder-action-button">
+                        <%= inline_svg("outcome", {class: "outcome"}) %>
+                    </div>
+                    <%= link_to "EGRESOS", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button faded-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                  <div class="text-center holder-action-button">
-                    <%= inline_svg("money", class: "money") %>
-                  </div>
-                  <%= link_to "ARRIENDO", nil, class: "btn btn-default action-button aquamarine-button" %>
+                    <div class="text-center holder-action-button">
+                        <%= inline_svg("money", class: "money") %>
+                    </div>
+                    <%= link_to "ARRIENDO", nil, class: "btn btn-default action-button aquamarine-button" %>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-12 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
+        <div class="holder-extern-no-verticality">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">Nº</th>
+                          <th class="table-header">ARRENDADOR</th>
+                          <th class="table-header">% PRORRATEO</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @subunits.each do |s| %>
+                         <tr>
+                           <td class="table-data"><%= s.number %></td>
+                           <td class="table-data"><%= s.renter.renter_name_lastname %></td>
+                           <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
+                         </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
         </div>
     </div>
 </div>
 <div class="container-fluid container-squares">
-    <div class="col-lg-12 col-md-12 info-square">
+    <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern">
             <div class="holder-intern"></div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 info-square">
+        <div class="holder-extern">
+          <canvas id="common-expense-history"></canvas>
         </div>
     </div>
 </div>
