@@ -1,45 +1,48 @@
-<%= form_for(@property) do |f| %>
-  <% if @property.errors.any? %>
+<div class="container">
+  <%= form_for(@property) do |f| %>
+    <% if @property.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+        <h2><%= pluralize(@property.errors.count, "error") %>
+            prohibited this property from being saved:</h2>
 
-      <ul>
-      <% @property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% @property.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :address, "DIRECCIÓN", class: "input-header" %><br>
+        <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :square_meters, "M2", class: "input-header" %><br>
+        <%= f.text_field :square_meters, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :property_type_id, "TIPO", class: "input-header" %><br>
+        <%= f.number_field :property_type_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :renter_id, "ARRENDADOR", class: "input-header" %><br>
+        <%= f.number_field :renter_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
+        <%= f.text_field :rent_value, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :number, "Nº", class: "input-header" %><br>
+        <%= f.number_field :number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :subunits_number, "SUBUNIDADES", class: "input-header" %><br>
+        <%= f.number_field :subunits_number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.submit "ACTUALIZAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :square_meters %><br>
-    <%= f.text_field :square_meters %>
-  </div>
-  <div class="field">
-    <%= f.label :property_type_id %><br>
-    <%= f.number_field :property_type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :renter_id %><br>
-    <%= f.number_field :renter_id %>
-  </div>
-  <div class="field">
-    <%= f.label :rent_value %><br>
-    <%= f.text_field :rent_value %>
-  </div>
-  <div class="field">
-    <%= f.label :number %><br>
-    <%= f.number_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :subunits_number %><br>
-    <%= f.number_field :subunits_number %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

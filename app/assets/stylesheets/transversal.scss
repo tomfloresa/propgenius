@@ -13,6 +13,9 @@ $aquamarine: #71FFE1;
 $golden: #FFDB74;
 $faded: #847DF3;
 $crimson: #FF6F97;
+$sail: #B3E4FF;
+$msg: #08FFAE;
+$hawkes: #CDDBFF;
 
 html {
     background-color: $bg !important;
@@ -31,6 +34,10 @@ h5,
 h6 {
     font-family: $main-font !important;
     color: #F76A9E !important;
+}
+
+.header-nav {
+    color: $nav !important;
 }
 
 p {
@@ -78,19 +85,22 @@ a:hover {
     color: $nav;
     text-transform: uppercase;
 }
+
 .form-control {
-  height: 40px !important;
-  border-radius: 0 !important;
-  border-color: $faded !important;
-  border-width: 2px !important;
-  background-color: $bg-contrast !important;
-  color: $nav !important;
-  font-family: $second-font !important;
-  font-size: 1.4em !important;
+    height: 40px !important;
+    border-radius: 0 !important;
+    border-color: $faded !important;
+    border-width: 2px !important;
+    background-color: $bg-contrast !important;
+    color: $hawkes !important;
+    font-family: $second-font !important;
+    font-size: 1.4em !important;
 }
+
 .form-control:focus {
-  border-color: $golden !important;
+    border-color: $golden !important;
 }
+
 .div-for-input {
     margin: 10px 0;
 }
@@ -162,9 +172,19 @@ a:hover {
     border-color: $faded !important;
 }
 
+.sail-button {
+    color: $sail !important;
+    border-color: $sail !important;
+}
+
 .crimson-button {
     color: $crimson !important;
     border-color: $crimson !important;
+}
+
+.msg-button {
+    color: $msg !important;
+    border-color: $msg !important;
 }
 
 .form-div {
@@ -173,7 +193,7 @@ a:hover {
 }
 
 #holder-properties-list {
-  padding: 0px !important;
+    padding: 0 !important;
 }
 
 .li-list-properties {
@@ -222,6 +242,8 @@ a:hover {
     background-color: #31334E;
     border-bottom-color: #31334E !important;
 }
+
+.table > tbody > tr > td {}
 
 .row-list {
     border-top-color: #B8B9C8 !important;

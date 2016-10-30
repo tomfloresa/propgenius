@@ -27,7 +27,7 @@
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :property_type_id, "TIPO", class: "input-header" %><br>
-            <%= f.number_field :property_type_id, class: "form-control" %>
+            <%= f.collection_select :property_type_id, PropertyType.order(:description), :id, :description, {}, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :renter_id , "ARRENDADOR", class: "input-header" %><br>

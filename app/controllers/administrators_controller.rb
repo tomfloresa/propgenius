@@ -1,6 +1,7 @@
 class AdministratorsController < ApplicationController
   def dashboard
     @properties = Property.all
+    @subunits = Subunit.all
     @owners = Owner.all
     @renters = Renter.all
   end

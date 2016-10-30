@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     property_id = params[:id]
-    @subunits = Subunit.where(property_id: property_id)
+    @subunits = Subunit.where(property_id: property_id).order(number: :asc)
     puts @subunits.count
   end
 

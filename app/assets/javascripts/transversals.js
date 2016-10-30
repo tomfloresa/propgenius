@@ -73,6 +73,7 @@ $(document).on('turbolinks:load', function() {
           type: 'line',
           data: {
               labels: [
+                  "Aqua",
                   "Red",
                   "Blue",
                   "Yellow",
@@ -84,6 +85,7 @@ $(document).on('turbolinks:load', function() {
                   {
                       label: 'Historial Gastos Comunes',
                       data: [
+                          20,
                           12,
                           19,
                           3,
