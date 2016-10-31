@@ -16,6 +16,7 @@ $crimson: #FF6F97;
 $sail: #B3E4FF;
 $msg: #08FFAE;
 $hawkes: #CDDBFF;
+$chet: #7073AB;
 
 html {
     background-color: $bg !important;
@@ -53,7 +54,9 @@ a {
 a:hover {
     background-color: transparent !important;
 }
-
+select {
+  border-radius: 0 !important;
+}
 .separator {
     height: 20px;
 }
@@ -89,6 +92,7 @@ a:hover {
 .form-control {
     height: 40px !important;
     border-radius: 0 !important;
+    -webkit-border-radius: 0px !important;
     border-color: $faded !important;
     border-width: 2px !important;
     background-color: $bg-contrast !important;
@@ -219,7 +223,7 @@ a:hover {
 }
 
 .table-header {
-    color: $nav;
+    color: $chet;
     font-family: $main-font;
 }
 
