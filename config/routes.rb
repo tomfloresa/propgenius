@@ -48,6 +48,7 @@ end
 
 scope path: '/renters', controller: :renters do
   get 'dashboard' => 'renters#dashboard', :as => :renters_dashboard
+  get 'index' => 'renters#index', :as => :renters_index
 end
 
 

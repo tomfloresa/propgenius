@@ -8,132 +8,171 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
     var ctx = document.getElementById("property-types-chart");
     if (ctx) {
-      var myChart = new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-              labels: [
-                  "Red",
-                  "Blue",
-                  "Yellow",
-                  "Green",
-                  "Purple",
-                  "Orange"
-              ],
-              datasets: [
-                  {
-                      label: '# of Votes',
-                      data: [
-                          12,
-                          19,
-                          3,
-                          5,
-                          2,
-                          3
-                      ],
-                      backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(255, 206, 86, 0.2)',
-                          'rgba(75, 192, 192, 0.2)',
-                          'rgba(153, 102, 255, 0.2)',
-                          'rgba(255, 159, 64, 0.2)'
-                      ],
-                      borderColor: [
-                          'rgba(255,99,132,1)',
-                          'rgba(54, 162, 235, 1)',
-                          'rgba(255, 206, 86, 1)',
-                          'rgba(75, 192, 192, 1)',
-                          'rgba(153, 102, 255, 1)',
-                          'rgba(255, 159, 64, 1)'
-                      ],
-                      borderWidth: 1
-                  }
-              ]
-          },
-          options: {
-              scales: {
-                  yAxes: [
-                      {
-                          ticks: {
-                              beginAtZero: true
-                          }
-                      }
-                  ]
-              }
-          },
-          responsive: true
-      });
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    "Red",
+                    "Blue",
+                    "Yellow",
+                    "Green",
+                    "Purple",
+                    "Orange"
+                ],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [
+                        12,
+                        19,
+                        3,
+                        5,
+                        2,
+                        3
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            },
+            responsive: true
+        });
     }
 });
 
 $(document).on('turbolinks:load', function() {
     var ctx = document.getElementById("common-expense-history");
     if (ctx) {
-      var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-              labels: [
-                  "Aqua",
-                  "Red",
-                  "Blue",
-                  "Yellow",
-                  "Green",
-                  "Purple",
-                  "Orange"
-              ],
-              datasets: [
-                  {
-                      label: 'Egresos',
-                      data: [
-                          20,
-                          12,
-                          19,
-                          3,
-                          5,
-                          2,
-                          3
-                      ],
-                      backgroundColor: [
-                          'RGBA(255, 111, 151, 0.2)',
-                      ],
-                      borderColor: [
-                          'RGBA(255, 111, 151, 1.00)',
-                      ],
-                      borderWidth: 1
-                  },
-                  {
-                      label: 'Gastos Comunes',
-                      data: [
-                          34,
-                          5,
-                          30,
-                          14,
-                          17,
-                          9,
-                          6
-                      ],
-                      backgroundColor: [
-                          'RGBA(8, 255, 174, 0.2)',
-                      ],
-                      borderColor: [
-                          'RGBA(8, 255, 174, 1.00)',
-                      ],
-                      borderWidth: 1
-                  },
-              ]
-          },
-          options: {
-              scales: {
-                  yAxes: [
-                      {
-                          ticks: {
-                              beginAtZero: true
-                          }
-                      }
-                  ]
-              },
-              responsive: true
-          }
-      });
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    "Aqua",
+                    "Red",
+                    "Blue",
+                    "Yellow",
+                    "Green",
+                    "Purple",
+                    "Orange"
+                ],
+                datasets: [{
+                    label: 'Egresos',
+                    data: [
+                        20,
+                        12,
+                        19,
+                        3,
+                        5,
+                        2,
+                        3
+                    ],
+                    backgroundColor: [
+                        'RGBA(255, 111, 151, 0.2)',
+                    ],
+                    borderColor: [
+                        'RGBA(255, 111, 151, 1.00)',
+                    ],
+                    borderWidth: 1
+                }, {
+                    label: 'Gastos Comunes',
+                    data: [
+                        34,
+                        5,
+                        30,
+                        14,
+                        17,
+                        9,
+                        6
+                    ],
+                    backgroundColor: [
+                        'RGBA(8, 255, 174, 0.2)',
+                    ],
+                    borderColor: [
+                        'RGBA(8, 255, 174, 1.00)',
+                    ],
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                responsive: true
+            }
+        });
+    }
+});
+$(document).on('turbolinks:load', function() {
+    var ctx = document.getElementById("outcomes-history");
+    if (ctx) {
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    "Aqua",
+                    "Red",
+                    "Blue",
+                    "Yellow",
+                    "Green",
+                    "Purple",
+                    "Orange"
+                ],
+                datasets: [{
+                    label: 'Gastos Comunes',
+                    data: [
+                        745000,
+                        650200,
+                        856000,
+                        369000,
+                        612000,
+                        765000,
+                        587300
+                    ],
+                    backgroundColor: [
+                        'RGBA(132, 125, 243, 0.2)',
+                    ],
+                    borderColor: [
+                        'RGBA(132, 125, 243, 1.00)',
+                    ],
+                    borderWidth: 1
+                }, ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                responsive: true
+            }
+        });
     }
 });

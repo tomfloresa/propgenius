@@ -28,6 +28,7 @@ class CommonExpensePropertiesController < ApplicationController
 
     respond_to do |format|
       if @common_expense_property.save
+
         # If the common expense for the property is created, get all the subunutis of the property itself
         subunits = @common_expense_property.property.subunits
 
@@ -40,17 +41,18 @@ class CommonExpensePropertiesController < ApplicationController
           ces.gas_charge = @common_expense_property.gas * s.proration_percentage
           ces.others_charge = @common_expense_property.others * s.proration_percentage
           ces.salary_payments = @common_expense_property.salary_payments * s.proration_percentage
-          ces.maintenace_payments = @common_expense_property.maintenace_payments * s.proration_percentage
+          ces.maintenance_payments = @common_expense_property.maintenance_payments * s.proration_percentage
           ces.payed = false
           ces.total = (@common_expense_property.electricity * s.proration_percentage) +
                       (@common_expense_property.water * s.proration_percentage) +
                       (@common_expense_property.gas * s.proration_percentage) +
                       (@common_expense_property.others * s.proration_percentage) +
                       (@common_expense_property.salary_payments * s.proration_percentage) +
-                      (@common_expense_property.maintenace_payments * s.proration_percentage)
+                      (@common_expense_property.maintenance_payments * s.proration_percentage)
           ces.save!
 
           # When the common expense is saved, send mail to renter
+          GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(s.renter)
         end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }
@@ -93,6 +95,6 @@ class CommonExpensePropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_property_params
-      params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details, :period)
+      params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details, :period, :salary_payments, :maintenance_payments, :total)
     end
 end
