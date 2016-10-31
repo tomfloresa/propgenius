@@ -74,8 +74,29 @@
 </div>
 <div class="container-fluid container-squares">
     <div class="col-lg-6 col-md-12 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
+        <div class="holder-extern-no-verticality table-div">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">DATE</th>
+                          <th class="table-header">WATER</th>
+                          <th class="table-header">GAS</th>
+                          <th class="table-header">TOTAL</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @common_expenses.each do |c| %>
+                         <tr>
+                           <td class="table-data"><%= c.period %></td>
+                           <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
+                           <td class="table-data"><%= number_to_currency(c.gas, delimiter: ".", precision: 0) %></td>
+                           <td class="table-data"><%= number_to_currency(c.total, delimiter: ".", precision: 0) %></td>
+                         </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
         </div>
     </div>
     <div class="col-lg-6 col-md-12 info-square">
@@ -91,8 +112,25 @@
       </div>
   </div>
     <div class="col-lg-6 col-md-12 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
+        <div class="holder-extern-no-verticality table-div">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">DATE</th>
+                          <th class="table-header">AMOUNT</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @outcomes.each do |o| %>
+                         <tr>
+                           <td class="table-data"><%= o.date %></td>
+                           <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
+                         </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
         </div>
     </div>
 </div>
