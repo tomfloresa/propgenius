@@ -3,6 +3,6 @@ class GeneratedCommonExpenseJob < ActiveJob::Base
 
   def perform(renter)
     @renter = renter
-    GeneratedCommonExpenseMailer.generated_common_expenses(@renter).deliver_later
+    GeneratedCommonExpenseMailer.generated_common_expense(@renter).deliver_later
   end
 end

@@ -30,6 +30,8 @@ gem 'inline_svg'
 gem 'premailer-rails'
 # DelayedJob
 gem 'delayed_job_active_record'
+# Figaro gem. Store variables securely
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
