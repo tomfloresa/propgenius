@@ -49,6 +49,8 @@ class CommonExpensePropertiesController < ApplicationController
                       (@common_expense_property.salary_payments * s.proration_percentage) +
                       (@common_expense_property.maintenace_payments * s.proration_percentage)
           ces.save!
+
+          # When the common expense is saved, send mail to renter
         end
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }

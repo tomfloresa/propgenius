@@ -28,6 +28,8 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.0'
 gem 'inline_svg'
 # PreMailer
 gem 'premailer-rails'
+# DelayedJob
+gem 'delayed_job_active_record'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
