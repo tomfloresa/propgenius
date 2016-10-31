@@ -248,3 +248,10 @@ a:hover {
 .row-list {
     border-top-color: #B8B9C8 !important;
 }
+
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    border: transparent !important;
+  }
+}

@@ -1,37 +1,40 @@
-<%= form_for(@outcome) do |f| %>
-  <% if @outcome.errors.any? %>
+<div class="container">
+  <%= form_for(@outcome) do |f| %>
+    <% if @outcome.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@outcome.errors.count, "error") %> prohibited this outcome from being saved:</h2>
+        <h2><%= pluralize(@outcome.errors.count, "error") %>
+            prohibited this outcome from being saved:</h2>
 
-      <ul>
-      <% @outcome.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+            <% @outcome.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :date, "Fecha" %><br>
-    <%= f.date_select :date %>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :date, "FECHA", class: "input-header" %><br>
+        <%= f.date_select :date %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :outcome_category_id, "TIPO", class: "input-header" %><br>
+        <%= f.collection_select :outcome_category_id, OutcomeCategory.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :property_id %><br>
+        <%= f.number_field :property_id, :value => @property_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :ammount, "MONTO", class: "input-header" %><br>
+        <%= f.text_field :ammount, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :details, "DETALLES", class: "input-header" %><br>
+        <%= f.text_area :details, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.submit "ACEPTAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :outcome_category_id, "Tipo de Egreso" %><br>
-    <%= f.collection_select :outcome_category_id, OutcomeCategory.order(:name), :id, :name, {}, class: "" %>
-  </div>
-  <div class="field">
-    <%= f.label :property_id %><br>
-    <%= f.number_field :property_id, :value => @property_id %>
-  </div>
-  <div class="field">
-    <%= f.label :ammount, "Monto Egreso" %><br>
-    <%= f.text_field :ammount %>
-  </div>
-  <div class="field">
-    <%= f.label :details, "Detalles" %><br>
-    <%= f.text_area :details %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

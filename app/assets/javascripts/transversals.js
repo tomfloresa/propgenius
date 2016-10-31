@@ -83,7 +83,7 @@ $(document).on('turbolinks:load', function() {
               ],
               datasets: [
                   {
-                      label: 'Historial Gastos Comunes',
+                      label: 'Egresos',
                       data: [
                           20,
                           12,
@@ -100,7 +100,26 @@ $(document).on('turbolinks:load', function() {
                           'RGBA(255, 111, 151, 1.00)',
                       ],
                       borderWidth: 1
-                  }
+                  },
+                  {
+                      label: 'Gastos Comunes',
+                      data: [
+                          34,
+                          5,
+                          30,
+                          14,
+                          17,
+                          9,
+                          6
+                      ],
+                      backgroundColor: [
+                          'RGBA(8, 255, 174, 0.2)',
+                      ],
+                      borderColor: [
+                          'RGBA(8, 255, 174, 1.00)',
+                      ],
+                      borderWidth: 1
+                  },
               ]
           },
           options: {
