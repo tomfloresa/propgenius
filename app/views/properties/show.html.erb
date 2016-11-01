@@ -5,7 +5,8 @@
         <div class="holder-extern">
             <div class="holder-intern">
                 <h2 class="text-center"><%= "#{@property.address}, Nº #{@property.number}" %></h2>
-                <h3 class="text-center header-nav">Propietario: <%= @property.owner.owner_name_lastname %></h3>
+                <h3 class="text-center header-nav">Propietario:
+                    <%= @property.owner.owner_name_lastname %></h3>
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
                 <h5 class="text-center"><%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default action-button msg-button" %></h5>
             </div>
@@ -49,90 +50,92 @@
     </div>
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 info-square">
         <div class="holder-extern-no-verticality">
-          <div class="table-responsive">
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th class="table-header">Nº</th>
-                          <th class="table-header">ARRENDADOR</th>
-                          <th class="table-header">% PRORRATEO</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <% @subunits.each do |s| %>
-                         <tr>
-                           <td class="table-data"><%= s.number %></td>
-                           <td class="table-data"><%= s.renter.renter_name_lastname %></td>
-                           <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
-                         </tr>
-                      <% end %>
-                  </tbody>
-              </table>
-          </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Nº</th>
+                            <th class="table-header">ARRENDADOR</th>
+                            <th class="table-header">% PRORRATEO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @subunits.each do |s| %>
+                        <tr>
+                            <td class="table-data"><%= s.number %></td>
+                            <td class="table-data"><%= s.renter.renter_name_lastname %></td>
+                            <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 <div class="container-fluid container-squares">
     <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern-no-verticality table-div">
-          <div class="table-responsive">
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th class="table-header">FECHA</th>
-                          <th class="table-header">AGUA</th>
-                          <th class="table-header">GAS</th>
-                          <th class="table-header">TOTAL</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <% @common_expenses.each do |c| %>
-                         <tr>
-                           <td class="table-data"><%= c.period %></td>
-                           <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
-                           <td class="table-data"><%= number_to_currency(c.gas, delimiter: ".", precision: 0) %></td>
-                           <td class="table-data"><%= number_to_currency(c.total, delimiter: ".", precision: 0) %></td>
-                         </tr>
-                      <% end %>
-                  </tbody>
-              </table>
-          </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">FECHA</th>
+                            <th class="table-header">AGUA</th>
+                            <th class="table-header">GAS</th>
+                            <th class="table-header">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @common_expenses.each do |c| %>
+                        <tr>
+                            <td class="table-data"><%= c.period %></td>
+                            <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
+                            <td class="table-data"><%= number_to_currency(c.gas, delimiter: ".", precision: 0) %></td>
+                            <td class="table-data"><%= number_to_currency(c.total, delimiter: ".", precision: 0) %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern">
-          <canvas id="common-expense-history"></canvas>
+            <canvas id="common-expense-history"></canvas>
         </div>
     </div>
 </div>
 <div class="container-fluid container-squares">
-  <div class="col-lg-6 col-md-12 info-square">
-      <div class="holder-extern">
-        <canvas id="outcomes-history"></canvas>
-      </div>
-  </div>
+    <div class="col-lg-6 col-md-12 info-square">
+        <div class="holder-extern">
+            <canvas id="outcomes-history"></canvas>
+        </div>
+    </div>
     <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern-no-verticality table-div">
-          <div class="table-responsive">
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th class="table-header">FECHA</th>
-                          <th class="table-header">TOTAL</th>
-                          <th class="table-header">DETALLE</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <% @outcomes.each do |o| %>
-                         <tr>
-                           <td class="table-data"><%= o.date %></td>
-                           <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
-                           <td class="table-data"><%= truncate(o.details, :length => 60) %></td>
-                         </tr>
-                      <% end %>
-                  </tbody>
-              </table>
-          </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">FECHA</th>
+                            <th class="table-header">TOTAL</th>
+                            <th class="table-header">TIPO</th>
+                            <th class="table-header">DETALLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @outcomes.each do |o| %>
+                        <tr>
+                            <td class="table-data"><%= o.date %></td>
+                            <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
+                            <td class="table-data"><%= o.outcome_category.name %></td>
+                            <td class="table-data"><%= truncate(o.details, :length => 60) %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -153,3 +156,137 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("common-expense-history");
+        var date = new Date();
+        var monthNames = [
+            "ENE",
+            "FEB",
+            "MAR",
+            "ABR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AGO",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DIC"
+        ]
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        monthNames[date.getMonth()],
+                        monthNames[date.getMonth() - 1],
+                        monthNames[date.getMonth() - 2],
+                        monthNames[date.getMonth() - 3],
+                        monthNames[date.getMonth() - 4],
+                        monthNames[date.getMonth() - 5],
+                        monthNames[date.getMonth() - 6],
+                        monthNames[date.getMonth() - 7],
+                        monthNames[date.getMonth() - 8],
+                        monthNames[date.getMonth() - 9],
+                        monthNames[date.getMonth() - 10],
+                        monthNames[date.getMonth() + 1],
+                        monthNames[date.getMonth()]
+                    ],
+                    datasets: [
+                        {
+                            label: 'GASTO COMÚN',
+                            data: [
+                                20,
+                                12,
+                                19,
+                                3,
+                                5,
+                                2,
+                                3
+                            ],
+                            backgroundColor: ['RGBA(8, 255, 174, 0.2)'],
+                            borderColor: ['RGBA(8, 255, 174, 1.00)'],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    },
+                    responsive: true
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("outcomes-history");
+        var date = new Date();
+        var monthNames = [
+            "ENE",
+            "FEB",
+            "MAR",
+            "ABR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AGO",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DIC"
+        ]
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        monthNames[date.getMonth()],
+                        monthNames[date.getMonth() - 1],
+                        monthNames[date.getMonth() - 2],
+                        monthNames[date.getMonth() - 3],
+                        monthNames[date.getMonth() - 4],
+                        monthNames[date.getMonth() - 5],
+                        monthNames[date.getMonth() - 6],
+                        monthNames[date.getMonth() - 7],
+                        monthNames[date.getMonth() - 8],
+                        monthNames[date.getMonth() - 9],
+                        monthNames[date.getMonth() - 10],
+                        monthNames[date.getMonth() + 1],
+                        monthNames[date.getMonth()]
+                    ],
+                    datasets: [
+                        {
+                            label: 'EGRESOS',
+                            data: [],
+                            backgroundColor: ['RGBA(132, 125, 243, 0.2)'],
+                            borderColor: ['RGBA(132, 125, 243, 1.00)'],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    },
+                    responsive: true
+                }
+            });
+        }
+    });
+</script>

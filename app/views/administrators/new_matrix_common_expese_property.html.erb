@@ -37,31 +37,31 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :water %><br>
-                <%= f.text_field :water, class: "form-control" %>
+                <%= f.number_field :water, class: "form-control", id: "water_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :gas %><br>
-                <%= f.text_field :gas, class: "form-control" %>
+                <%= f.number_field :gas, class: "form-control", id: "gas_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :electricity %><br>
-                <%= f.text_field :electricity, class: "form-control" %>
+                <%= f.number_field :electricity, class: "form-control", id: "electricity_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :salary_payments %><br>
-                <%= f.text_field :salary_payments, class: "form-control" %>
+                <%= f.number_field :salary_payments, class: "form-control", id: "salary_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :maintenance_payments %><br>
-                <%= f.text_field :maintenance_payments, class: "form-control" %>
+                <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :others %><br>
-                <%= f.text_field :others, class: "form-control" %>
+                <%= f.number_field :others, class: "form-control", id: "others_field", placeholder: 0 %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :total %><br>
-                <%= f.text_field :total, class: "form-control" %>
+                <%= f.number_field :total, value: 0, class: "form-control", id: "total_field" %>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
                 <%= f.label :details %><br>
@@ -74,3 +74,25 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).on('turbolinks:load', function () {
+        $('#water_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+        $('#gas_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+        $('#electricity_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+        $('#others_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+        $('#salary_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+        $('#maintenance_field').bind('input', function () {
+          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+        });
+    });
+</script>

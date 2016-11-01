@@ -2,7 +2,7 @@
 <div class="container-fluid container-squares">
   <%= form_tag url_for(:controller => 'administrators', :action => 'create_rent_for_subunits') do %>
     <% @subunits.each do |s| %>
-    <div class="col-lg-3 col-md-6 col-sm-6 info-square">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 info-square">
         <div class="holder-extern">
             <div class="holder-intern">
               <h3><%= s.renter.renter_name_lastname %></h3>
@@ -13,7 +13,7 @@
               </div>
               <div class="form-div">
                 <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
-                <%= text_field_tag("subunit_rents[][amount]", s.rent_value, {class: "form-control"}) %>
+                <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
               </div>
             </div>
         </div>

@@ -30,6 +30,10 @@
         <%= f.number_field :renter_id, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :owner_id, "PROPIETARIO", class: "input-header" %><br>
+        <%= f.number_field :owner_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
         <%= f.text_field :rent_value, class: "form-control" %>
     </div>

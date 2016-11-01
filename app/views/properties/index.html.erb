@@ -22,14 +22,13 @@
                 <tbody>
                     <% @properties.each do |property| %>
                     <tr>
-                        <td class="table-data"><%= property.address %></td>
+                        <td class="table-data"><%= link_to "#{property.address}", property %></td>
                         <td class="table-data"><%= property.number %></td>
                         <td class="table-data"><%= property.square_meters %></td>
                         <td class="table-data"><%= property.property_type.description %></td>
                         <td class="table-data"><%= property.renter.renter_name_lastname %></td>
                         <td class="table-data"><%= number_to_currency(property.rent_value, {precision: 0, delimiter: "."}) %></td>
                         <td class="table-data"><%= property.subunits.count %></td>
-                        <td class="table-data"><%= link_to 'Show', property %></td>
                         <td class="table-data"><%= link_to 'Edit', edit_property_path(property) %></td>
                         <td class="table-data"><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>

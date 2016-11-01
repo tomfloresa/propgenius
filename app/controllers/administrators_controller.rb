@@ -18,7 +18,7 @@ class AdministratorsController < ApplicationController
 
   def rent_for_subunits
     @property = Property.find(params[:property_id])
-    @subunits = @property.subunits
+    @subunits = @property.subunits.order(number: :asc)
   end
 
   def create_rent_for_subunits
@@ -34,7 +34,7 @@ class AdministratorsController < ApplicationController
       rent.payed = false
 
       if rent.save!
-        
+
       end
     end
   end
