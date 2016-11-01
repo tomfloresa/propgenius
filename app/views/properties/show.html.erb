@@ -42,7 +42,7 @@
                     <div class="text-center holder-action-button">
                         <%= inline_svg("money", class: "money") %>
                     </div>
-                    <%= link_to "ARRIENDO", nil, class: "btn btn-default action-button aquamarine-button" %>
+                    <%= link_to "ARRIENDO", rent_for_subunits_path(:property_id => @property.id), class: "btn btn-default action-button aquamarine-button" %>
                 </div>
             </div>
         </div>
@@ -79,8 +79,8 @@
               <table class="table">
                   <thead>
                       <tr>
-                          <th class="table-header">DATE</th>
-                          <th class="table-header">WATER</th>
+                          <th class="table-header">FECHA</th>
+                          <th class="table-header">AGUA</th>
                           <th class="table-header">GAS</th>
                           <th class="table-header">TOTAL</th>
                       </tr>
@@ -117,8 +117,9 @@
               <table class="table">
                   <thead>
                       <tr>
-                          <th class="table-header">DATE</th>
-                          <th class="table-header">AMOUNT</th>
+                          <th class="table-header">FECHA</th>
+                          <th class="table-header">TOTAL</th>
+                          <th class="table-header">DETALLE</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -126,6 +127,7 @@
                          <tr>
                            <td class="table-data"><%= o.date %></td>
                            <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
+                           <td class="table-data"><%= truncate(o.details, :length => 60) %></td>
                          </tr>
                       <% end %>
                   </tbody>

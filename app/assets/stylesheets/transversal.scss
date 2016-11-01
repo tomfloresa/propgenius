@@ -1,7 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
-$main-font: "Open Sans";
+$main-font: "Raleway";
 $second-font: "Oxygen";
 $bg: #1D1F2E;
 $bg-contrast: #282840;
@@ -53,6 +53,9 @@ a {
 
 a:hover {
     background-color: transparent !important;
+}
+li.dropdown-toggle {
+  font-family: $second-font !important;
 }
 select {
   border-radius: 0 !important;

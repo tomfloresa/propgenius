@@ -1,0 +1,29 @@
+<%= form_for(@subunit_rent) do |f| %>
+  <% if @subunit_rent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subunit_rent.errors.count, "error") %> prohibited this subunit_rent from being saved:</h2>
+
+      <ul>
+      <% @subunit_rent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subunit_id %><br>
+    <%= f.number_field :subunit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :payed %><br>
+    <%= f.check_box :payed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

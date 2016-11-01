@@ -1,0 +1,1 @@
+json.array! @subunit_rents, partial: 'subunit_rents/subunit_rent', as: :subunit_rent

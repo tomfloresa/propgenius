@@ -1,0 +1,1 @@
+json.partial! "subunit_rents/subunit_rent", subunit_rent: @subunit_rent

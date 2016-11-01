@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subunit:</strong>
+  <%= @subunit_rent.subunit_id %>
+</p>
+
+<p>
+  <strong>Amoun:</strong>
+  <%= @subunit_rent.amoun %>
+</p>
+
+<p>
+  <strong>Payed:</strong>
+  <%= @subunit_rent.payed %>
+</p>
+
+<%= link_to 'Edit', edit_subunit_rent_path(@subunit_rent) %> |
+<%= link_to 'Back', subunit_rents_path %>

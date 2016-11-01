@@ -12,8 +12,8 @@ class PropertiesController < ApplicationController
   def show
     property_id = params[:id]
     @subunits = Subunit.where(property_id: property_id).order(number: :asc)
-    @common_expenses = CommonExpenseProperty.where(property_id: property_id)
-    @outcomes = Outcome.where(property_id: property_id)
+    @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20)
+    @outcomes = Outcome.where(property_id: property_id).limit(20)
   end
 
   # GET /properties/new

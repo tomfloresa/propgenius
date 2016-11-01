@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subunit_id: 1
+  amoun: 1.5
+  payed: false
+
+two:
+  subunit_id: 1
+  amoun: 1.5
+  payed: false
