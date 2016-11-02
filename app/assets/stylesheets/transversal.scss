@@ -271,6 +271,14 @@ select {
     border-top-color: #B8B9C8 !important;
 }
 
+// CHARTS
+.chart-holder {
+  height: 90%;
+  width: 90%;
+}
+#outcomes-history {
+}
+
 
 @media screen and (max-width: 767px) {
   .table-responsive {

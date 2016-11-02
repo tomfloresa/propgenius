@@ -51,7 +51,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
-    css_parser (1.4.5)
+    css_parser (1.4.6)
       addressable
     debug_inspector (0.0.2)
     delayed_job (4.1.2)
@@ -177,7 +177,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.1.0)
+    unicorn (5.2.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     warden (1.2.6)
