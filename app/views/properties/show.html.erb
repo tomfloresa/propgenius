@@ -17,7 +17,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                     <div class="text-center">
-                        <%= inline_svg("house", {class: "house"}) %>
+                        <%= inline_svg("house.svg", {class: "house"}) %>
                     </div>
                     <%= link_to "SUBUNIDAD", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                     <div class="text-center">
-                        <%= inline_svg("documents", {class: "paper-sheet"}) %>
+                        <%= inline_svg("documents.svg", {class: "paper-sheet"}) %>
                     </div>
                     <%= link_to "GASTO COMÚN", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
                 </div>
@@ -33,7 +33,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                     <div class="text-center holder-action-button">
-                        <%= inline_svg("outcome", {class: "outcome"}) %>
+                        <%= inline_svg("outcome.svg", {class: "outcome"}) %>
                     </div>
                     <%= link_to "EGRESOS", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button faded-button" %>
                 </div>
@@ -41,7 +41,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
                     <div class="text-center holder-action-button">
-                        <%= inline_svg("money", class: "money") %>
+                        <%= inline_svg("money.svg", class: "money") %>
                     </div>
                     <%= link_to "ARRIENDO", rent_for_subunits_path(:property_id => @property.id), class: "btn btn-default action-button aquamarine-button" %>
                 </div>
