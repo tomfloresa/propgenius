@@ -271,6 +271,17 @@ select {
     border-top-color: #B8B9C8 !important;
 }
 
+// CHARTS
+.chart-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96%;
+  width: 96%;
+}
+#outcomes-history {
+}
+
 
 @media screen and (max-width: 767px) {
   .table-responsive {
