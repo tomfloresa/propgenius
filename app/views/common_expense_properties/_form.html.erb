@@ -15,6 +15,10 @@
     <%= f.label :property_id %><br>
     <%= f.number_field :property_id %>
   </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+      <%= f.label :period %><br>
+      <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
+  </div>
   <div class="field">
     <%= f.label :water %><br>
     <%= f.text_field :water %>

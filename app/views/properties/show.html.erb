@@ -80,18 +80,22 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="table-header">FECHA</th>
+                            <th class="table-header">PERIODO</th>
                             <th class="table-header">AGUA</th>
                             <th class="table-header">GAS</th>
+                            <th class="table-header">LUZ</th>
+                            <th class="table-header">OTROS</th>
                             <th class="table-header">TOTAL</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @common_expenses.each do |c| %>
                         <tr>
-                            <td class="table-data"><%= c.period %></td>
+                            <td class="table-data"><%= c.period.strftime("%m/%Y") %></td>
                             <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
                             <td class="table-data"><%= number_to_currency(c.gas, delimiter: ".", precision: 0) %></td>
+                            <td class="table-data"><%= number_to_currency(c.electricity, delimiter: ".", precision: 0) %></td>
+                            <td class="table-data"><%= number_to_currency(c.others, delimiter: ".", precision: 0) %></td>
                             <td class="table-data"><%= number_to_currency(c.total, delimiter: ".", precision: 0) %></td>
                         </tr>
                         <% end %>

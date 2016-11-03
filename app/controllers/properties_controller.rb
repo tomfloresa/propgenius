@@ -12,8 +12,11 @@ class PropertiesController < ApplicationController
   def show
     property_id = params[:id]
     @subunits = Subunit.where(property_id: property_id).order(number: :asc)
-    @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20)
+    @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20).order(created_at: :desc)
     @outcomes = Outcome.where(property_id: property_id).limit(20)
+
+    @common_expenses_within_year = CommonExpenseProperty.where(property_id: property_id)
+    @common_expenses_within_year = @common_expenses_within_year.where("created_at >= ?", 1.year.ago)
   end
 
   # GET /properties/new
