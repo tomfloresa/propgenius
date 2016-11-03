@@ -8,7 +8,7 @@
                 <h3 class="text-center header-nav">Propietario:
                     <%= @property.owner.owner_name_lastname %></h3>
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
-                <h5 class="text-center"><%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default action-button msg-button" %></h5>
+                <h5 class="text-center"><%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default action-button chet-button" %></h5>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
                         <% @subunits.each do |s| %>
                         <tr>
                             <td class="table-data"><%= s.number %></td>
-                            <td class="table-data"><%= s.renter.renter_name_lastname %></td>
+                            <td class="table-data"><%= link_to "#{s.renter.renter_name_lastname}", renter_profile_path(:renter_id => s.renter.id) %></td>
                             <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
                         </tr>
                         <% end %>
@@ -205,7 +205,7 @@
                         {
                             label: 'GASTO COMÚN',
                             data: [
-                                20,
+                                20000,
                                 12,
                                 19,
                                 3,

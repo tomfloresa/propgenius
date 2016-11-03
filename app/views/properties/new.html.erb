@@ -1,1 +1,54 @@
-<h1>Nueva Propiedad</h1>
+<%= render("transversals/navbar_admin") %>
+<h1 class="text-center">Nueva Propiedad</h1>
+<div class="container">
+  <%= form_for(@property) do |f| %>
+    <% if @property.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@property.errors.count, "error") %>
+            prohibited this property from being saved:</h2>
+
+        <ul>
+            <% @property.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :address, "DIRECCIÓN", class: "input-header" %><br>
+        <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :square_meters, "M2", class: "input-header" %><br>
+        <%= f.text_field :square_meters, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :property_type_id, "TIPO", class: "input-header" %><br>
+        <%= f.number_field :property_type_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :renter_id, "ARRENDADOR", class: "input-header" %><br>
+        <%= f.number_field :renter_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :owner_id, "PROPIETARIO", class: "input-header" %><br>
+        <%= f.number_field :owner_id, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
+        <%= f.text_field :rent_value, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :number, "Nº", class: "input-header" %><br>
+        <%= f.number_field :number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :subunits_number, "SUBUNIDADES", class: "input-header" %><br>
+        <%= f.number_field :subunits_number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.submit "CREAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+    </div>
+    <% end %>
+  </div>

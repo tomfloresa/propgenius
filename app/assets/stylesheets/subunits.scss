@@ -14,10 +14,13 @@ $brussian: #24242B;
 $blue: #3354EC;
 
 .sub-nav {
-    margin-bottom: 20px;
+    margin-bottom:5px;
 }
 
-.container-squares {}
+.container-squares {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
 
 .info-square {
     padding: 5px !important;

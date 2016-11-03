@@ -69,6 +69,10 @@ select {
     border-color: $nav !important;
 }
 
+.li-navbar {
+  font-family: $main-font !important;
+}
+
 .brand-huge {
     font-family: $main-font !important;
     font-size: 6em;
@@ -80,8 +84,12 @@ select {
 }
 
 .dropdown-toggle {
-    font-family: $second-font !important;
+    font-family: $main-font !important;
     font-size: 1.4em;
+}
+
+.dropdown-menu {
+  background-color: $nav !important;
 }
 
 .input-header {
@@ -187,6 +195,11 @@ select {
 .crimson-button {
     color: $crimson !important;
     border-color: $crimson !important;
+}
+
+.chet-button {
+    color: $chet !important;
+    border-color: $chet !important;
 }
 
 .msg-button {
