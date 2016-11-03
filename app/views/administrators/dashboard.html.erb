@@ -57,7 +57,7 @@
                     <tbody>
                         <% @renters.each do |r| %>
                         <tr>
-                            <td class="table-data"><%= r.renter_name_lastname %></td>
+                            <td class="table-data"><%= link_to "#{r.renter_name_lastname}", renter_profile_path(:renter_id => r.id) %></td>
                             <td class="table-data"><%= r.email %></td>
                             <td class="table-data"><%= r.properties.count %></td>
                         </tr>

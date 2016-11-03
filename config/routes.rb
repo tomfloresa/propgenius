@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     get 'new_matrix_common_expese_property/:property_id' => 'administrators#new_matrix_common_expese_property', :as => :new_matrix_common_expese_property
     get 'rent_for_subunits/:property_id' => 'administrators#rent_for_subunits', :as => :rent_for_subunits
     post 'create_rent_for_subunits' => 'administrators#create_rent_for_subunits', :as => :create_rent_for_subunits
+    get 'renter_profile/:renter_id' => 'administrators#renter_profile', :as => :renter_profile
   end
 
   scope path: '/renters', controller: :renters do

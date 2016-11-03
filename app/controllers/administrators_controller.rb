@@ -22,7 +22,7 @@ class AdministratorsController < ApplicationController
   end
 
   def create_rent_for_subunits
-    # Rescue the hash wil all the rents generated for property's subunits
+    # Rescue the hash with all the rents generated for property's subunits
     subunit_rents = params[:subunit_rents]
 
     # Iterate through each of the elements of the array
@@ -34,8 +34,14 @@ class AdministratorsController < ApplicationController
       rent.payed = false
 
       if rent.save!
-
+        # When the rent is saved, send mail to renter
+        CreatedRentChargeJob.set(wait: 5.seconds).perform_later(r.renter, rent)
       end
     end
+  end
+
+  def renter_profile
+    renter_id = params[:renter_id]
+    @renter = Renter.find(renter_id)
   end
 end
