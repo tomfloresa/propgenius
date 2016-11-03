@@ -273,8 +273,11 @@ select {
 
 // CHARTS
 .chart-holder {
-  height: 90%;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  width: 95%;
 }
 #outcomes-history {
 }
