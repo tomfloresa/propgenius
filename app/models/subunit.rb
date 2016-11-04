@@ -6,4 +6,8 @@ class Subunit < ActiveRecord::Base
   has_many :common_expense_subunits
   has_many :rent_payments
   has_many :common_expense_payments
+
+  def address_and_number
+    "#{self.property.address} Nº#{self.number}, #{self.number}"
+  end
 end

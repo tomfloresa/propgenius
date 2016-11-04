@@ -62,7 +62,7 @@
                     <tbody>
                         <% @subunits.each do |s| %>
                         <tr>
-                            <td class="table-data"><%= s.number %></td>
+                            <td class="table-data"><%= link_to "#{s.number}", subunit_path(s) %></td>
                             <td class="table-data"><%= link_to "#{s.renter.renter_name_lastname}", renter_profile_path(:renter_id => s.renter.id) %></td>
                             <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
                         </tr>
