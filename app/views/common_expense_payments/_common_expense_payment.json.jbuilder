@@ -1,0 +1,2 @@
+json.extract! common_expense_payment, :id, :renter_id, :subunit_id, :amount, :payment_method_id, :common_expense_subunit_id, :receipt_number, :created_at, :updated_at
+json.url common_expense_payment_url(common_expense_payment, format: :json)

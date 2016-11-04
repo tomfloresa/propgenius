@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Renter:</strong>
+  <%= @rent_payment.renter_id %>
+</p>
+
+<p>
+  <strong>Subunit:</strong>
+  <%= @rent_payment.subunit_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @rent_payment.amount %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @rent_payment.payment_method_id %>
+</p>
+
+<p>
+  <strong>Subunit rent:</strong>
+  <%= @rent_payment.subunit_rent_id %>
+</p>
+
+<p>
+  <strong>Receipt number:</strong>
+  <%= @rent_payment.receipt_number %>
+</p>
+
+<%= link_to 'Edit', edit_rent_payment_path(@rent_payment) %> |
+<%= link_to 'Back', rent_payments_path %>

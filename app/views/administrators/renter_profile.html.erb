@@ -16,7 +16,29 @@
           </div>
         </div>
     </div>
-    <div class="col-lg-8 col-md-4 info-square">
+    <div class="col-lg-4 col-md-4 info-square">
+      <div class="holder-extern-no-verticality">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">NOMBRE</th>
+                          <th class="table-header">EMAIL</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @subunits.each do |s| %>
+                      <tr>
+                          <td class="table-data"><%= s.property.address %></td>
+                          <td class="table-data"><%= s.square_meters %></td>
+                      </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 info-square">
         <div class="holder-extern">
             <div class="holder-intern"></div>
         </div>

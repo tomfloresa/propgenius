@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :common_expense_payments
+  resources :rent_payments
+  resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
   resources :outcome_categories
@@ -12,6 +15,9 @@ Rails.application.routes.draw do
   resources :property_types
 
   Rails.application.routes.draw do
+  resources :common_expense_payments
+  resources :rent_payments
+  resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
   resources :outcome_categories
@@ -22,6 +28,9 @@ Rails.application.routes.draw do
       }
     end
   Rails.application.routes.draw do
+  resources :common_expense_payments
+  resources :rent_payments
+  resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
   resources :outcome_categories
@@ -32,6 +41,8 @@ Rails.application.routes.draw do
       }
     end
   Rails.application.routes.draw do
+  resources :common_expense_payments
+  resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
       devise_for :owners, controllers: {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101020731) do
+ActiveRecord::Schema.define(version: 20161104022647) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20161101020731) do
 
   add_index "administrators", ["email"], name: "index_administrators_on_email", unique: true
   add_index "administrators", ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
+
+  create_table "common_expense_payments", force: :cascade do |t|
+    t.integer  "renter_id"
+    t.integer  "subunit_id"
+    t.float    "amount"
+    t.integer  "payment_method_id"
+    t.integer  "common_expense_subunit_id"
+    t.string   "receipt_number"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "common_expense_properties", force: :cascade do |t|
     t.integer  "property_id"
@@ -151,6 +162,17 @@ ActiveRecord::Schema.define(version: 20161101020731) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "rent_payments", force: :cascade do |t|
+    t.integer  "renter_id"
+    t.integer  "subunit_id"
+    t.float    "amount"
+    t.integer  "payment_method_id"
+    t.integer  "subunit_rent_id"
+    t.string   "receipt_number"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "renters", force: :cascade do |t|

@@ -43,5 +43,6 @@ class AdministratorsController < ApplicationController
   def renter_profile
     renter_id = params[:renter_id]
     @renter = Renter.find(renter_id)
+    @subunits = @renter.subunits
   end
 end

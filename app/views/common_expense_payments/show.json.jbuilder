@@ -1,0 +1,1 @@
+json.partial! "common_expense_payments/common_expense_payment", common_expense_payment: @common_expense_payment

@@ -1,0 +1,2 @@
+module CommonExpensePaymentsHelper
+end

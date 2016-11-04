@@ -5,4 +5,8 @@ class Property < ActiveRecord::Base
   has_many :subunits
   has_many :common_expense_properties
   has_many :outcomes
+
+  def address_and_number
+    "#{self.address} Nº#{self.number}"
+  end
 end

@@ -1,0 +1,2 @@
+json.extract! rent_payment, :id, :renter_id, :subunit_id, :amount, :payment_method_id, :subunit_rent_id, :receipt_number, :created_at, :updated_at
+json.url rent_payment_url(rent_payment, format: :json)

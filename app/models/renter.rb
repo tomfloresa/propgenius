@@ -3,6 +3,8 @@ class Renter < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :properties
   has_many :subunits
+  has_many :rent_payments
+  has_many :common_expense_payments
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

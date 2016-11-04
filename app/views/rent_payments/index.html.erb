@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rent Payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Renter</th>
+      <th>Subunit</th>
+      <th>Amount</th>
+      <th>Payment method</th>
+      <th>Subunit rent</th>
+      <th>Receipt number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rent_payments.each do |rent_payment| %>
+      <tr>
+        <td><%= rent_payment.renter_id %></td>
+        <td><%= rent_payment.subunit_id %></td>
+        <td><%= rent_payment.amount %></td>
+        <td><%= rent_payment.payment_method_id %></td>
+        <td><%= rent_payment.subunit_rent_id %></td>
+        <td><%= rent_payment.receipt_number %></td>
+        <td><%= link_to 'Show', rent_payment %></td>
+        <td><%= link_to 'Edit', edit_rent_payment_path(rent_payment) %></td>
+        <td><%= link_to 'Destroy', rent_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rent payment', new_rent_payment_path %>

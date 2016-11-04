@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Renter:</strong>
+  <%= @common_expense_payment.renter_id %>
+</p>
+
+<p>
+  <strong>Subunit:</strong>
+  <%= @common_expense_payment.subunit_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @common_expense_payment.amount %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @common_expense_payment.payment_method_id %>
+</p>
+
+<p>
+  <strong>Common expense subunit:</strong>
+  <%= @common_expense_payment.common_expense_subunit_id %>
+</p>
+
+<p>
+  <strong>Receipt number:</strong>
+  <%= @common_expense_payment.receipt_number %>
+</p>
+
+<%= link_to 'Edit', edit_common_expense_payment_path(@common_expense_payment) %> |
+<%= link_to 'Back', common_expense_payments_path %>

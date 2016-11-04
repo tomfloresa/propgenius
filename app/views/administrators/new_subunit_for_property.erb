@@ -17,10 +17,7 @@
         </div>
         <% end %>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-            <%= f.label :property_id, "Propiedad madre", class: "input-header" %><br>
-            <%= f.text_field :property_id, :value => @property.id, class: "form-control" %>
-        </div>
+        <%= f.hidden_field :property_id, :value => @property.id %>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :square_meters, "METROS CUADRADOS", class: "input-header" %><br>
             <%= f.text_field :square_meters, class: "form-control" %>
