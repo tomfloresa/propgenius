@@ -24,18 +24,20 @@ class AdministratorsController < ApplicationController
   def create_rent_for_subunits
     # Rescue the hash with all the rents generated for property's subunits
     subunit_rents = params[:subunit_rents]
+    period_rents = params[:period_rents]
 
     # Iterate through each of the elements of the array
     subunit_rents.each do |s|
       rent = SubunitRent.new
-
+      
       rent.subunit_id = (s[:subunit_id]).to_i
       rent.amount = (s[:amount]).to_f
+      rent.period = Date.new(params[:period_rents]["(1i)"].to_i, params[:period_rents]["(2i)"].to_i)
       rent.payed = false
 
       if rent.save!
         # When the rent is saved, send mail to renter
-        CreatedRentChargeJob.set(wait: 5.seconds).perform_later(r.renter, rent)
+        ## CreatedRentChargeJob.set(wait: 5.seconds).perform_later(r.renter, rent)
       end
     end
   end

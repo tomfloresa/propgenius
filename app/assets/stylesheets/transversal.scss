@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url( 'https://fonts.googleapis.com/css?family=Raleway');
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
 $main-font: "Raleway";
@@ -54,12 +54,15 @@ a {
 a:hover {
     background-color: transparent !important;
 }
+
 li.dropdown-toggle {
-  font-family: $second-font !important;
+    font-family: $second-font !important;
 }
+
 select {
-  border-radius: 0 !important;
+    border-radius: 0 !important;
 }
+
 .separator {
     height: 20px;
 }
@@ -70,7 +73,7 @@ select {
 }
 
 .li-navbar {
-  font-family: $main-font !important;
+    font-family: $main-font !important;
 }
 
 .brand-huge {
@@ -89,7 +92,7 @@ select {
 }
 
 .dropdown-menu {
-  background-color: $nav !important;
+    background-color: $nav !important;
 }
 
 .input-header {
@@ -100,10 +103,16 @@ select {
     text-transform: uppercase;
 }
 
+.header-view {
+    height: auto !important;
+}
+#rent_period_holder {
+  padding: 20px 0 !important;
+}
 .form-control {
     height: 40px !important;
     border-radius: 0 !important;
-    -webkit-border-radius: 0px !important;
+    -webkit-border-radius: 0 !important;
     border-color: $faded !important;
     border-width: 2px !important;
     background-color: $bg-contrast !important;
@@ -237,9 +246,11 @@ select {
     justify-content: center;
     align-items: center;
 }
+
 .table-div {
-  overflow: auto;
+    overflow: auto;
 }
+
 .table-div::-webkit-scrollbar {
     width: 12px;
 }
@@ -253,6 +264,7 @@ select {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
+
 .table-header {
     color: $chet;
     font-family: $main-font;
@@ -278,26 +290,27 @@ select {
     border-bottom-color: #31334E !important;
 }
 
+.navbar-default .navbar-nav > .open > a {
+    background-color: $nav !important;
+}
+
 .table > tbody > tr > td {}
 
 .row-list {
     border-top-color: #B8B9C8 !important;
 }
-
 // CHARTS
 .chart-holder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 96%;
-  width: 96%;
-}
-#outcomes-history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 96%;
+    width: 96%;
 }
 
-
+#outcomes-history {}
 @media screen and (max-width: 767px) {
-  .table-responsive {
-    border: transparent !important;
-  }
+    .table-responsive {
+        border: transparent !important;
+    }
 }

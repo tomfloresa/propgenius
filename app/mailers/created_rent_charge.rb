@@ -4,6 +4,6 @@ class CreatedRentCharge < ApplicationMailer
   def created_rent_charge(renter, rent)
     @renter = renter
     @rent = rent
-    mail(to: @renter.email, subject: "Arriendo mes de #{@rent}")
+    mail(to: @renter.email, subject: "Arriendo mes de #{@rent.created_at}")
   end
 end

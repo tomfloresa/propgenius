@@ -1,26 +1,45 @@
 <%= render('transversals/navbar_admin') %>
+<%= form_tag url_for(:controller => 'administrators', :action => 'create_rent_for_subunits') do %>
 <div class="container-fluid container-squares">
-  <%= form_tag url_for(:controller => 'administrators', :action => 'create_rent_for_subunits') do %>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 info-square header-view">
+        <div class="holder-extern">
+            <div class="holder-intern" id="rent_period_holder">
+                <%= date_select :period_rents, nil, {:default => Date.today - 1.month, :discard_day => true} %>
+            </div>
+        </div>
+    </div>
     <% @subunits.each do |s| %>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 info-square">
         <div class="holder-extern">
-            <div class="holder-intern">
-              <h3><%= s.renter.renter_name_lastname %></h3>
-              <h3><%= "Nº #{s.number}" %></h3>
-              <div class="form-div">
-                <%= label_tag("SUBUNIDAD", nil, {class: "input-header"}) %><br>
-                <%= number_field_tag("subunit_rents[][subunit_id]", s.id, {class: "form-control"}) %>
-              </div>
-              <div class="form-div">
-                <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
-                <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
-              </div>
+            <div class="holder-intern" id="<%= s.id %>">
+                <!-- <h3><%= s.renter.renter_name_lastname %></h3> -->
+                <h3><%= "Nº #{s.number}" %></h3>
+                <div class="form-div">
+                    <%= label_tag("SUBUNIDAD", nil, {class: "input-header"}) %><br>
+                    <%= number_field_tag("subunit_rents[][subunit_id]", s.id, {class: "form-control"}) %>
+                </div>
+                <div class="form-div">
+                    <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                    <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
+                </div>
+                <div class="form-div">
+                    <button class="btn btn-default btn-block action-button crimson-button prevent-charge-to-subunit" type="button" div-id="<%= s.id %>">NO GENERAR ARRIENDO</button>
+                </div>
             </div>
         </div>
     </div>
     <% end %>
     <div class="form-div">
-      <%= submit_tag "CREAR COBROS ARRIENDO", class: "btn btn-default btn-block action-button aquamarine-button" %>
+        <%= submit_tag "CREAR COBROS ARRIENDO", class: "btn btn-default btn-block action-button aquamarine-button" %>
     </div>
-  <% end %>
+    <% end %>
 </div>
+
+<script>
+    $(document).on('turbolinks:load', function () {
+      $(".prevent-charge-to-subunit").click(function() {
+        var idToDestroy = $(this).attr('div-id');
+        $("#" + idToDestroy).replaceWith("<h3>SUBUNIDAD ELIMINADA</h3>");
+      })
+    });
+</script>
