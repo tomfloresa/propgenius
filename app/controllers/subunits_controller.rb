@@ -12,6 +12,7 @@ class SubunitsController < ApplicationController
   def show
     id = params[:id]
     @common_expenses = CommonExpenseSubunit.where(subunit_id: id)
+    @subunit_rents = SubunitRent.where(subunit_id: id).order(period: :desc)
   end
 
   # GET /subunits/new

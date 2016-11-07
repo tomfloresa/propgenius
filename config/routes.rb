@@ -1,55 +1,30 @@
 Rails.application.routes.draw do
+  root 'index#index'
+
+  resources :payment_methods
   resources :common_expense_payments
-  resources :rent_payments
   resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
-  resources :outcome_categories
-  root 'index#index'
   resources :outcomes
   resources :common_expense_subunits
   resources :common_expense_properties
   resources :subunits
-  resources :outcomes
   resources :properties
   resources :property_types
 
-  Rails.application.routes.draw do
-  resources :common_expense_payments
-  resources :rent_payments
-  resources :rent_payments
-  resources :subunit_rents
-  resources :outcome_categories
-  resources :outcome_categories
-  resources :outcomes
-      devise_for :renters, controllers: {
-        sessions: 'renters/sessions',
-        registrations: 'renters/registrations'
-      }
-    end
-  Rails.application.routes.draw do
-  resources :common_expense_payments
-  resources :rent_payments
-  resources :rent_payments
-  resources :subunit_rents
-  resources :outcome_categories
-  resources :outcome_categories
-  resources :subunits
-      devise_for :administrators, controllers: {
-        sessions: 'administrators/sessions',
-        registrations: 'administrators/registrations'
-      }
-    end
-  Rails.application.routes.draw do
-  resources :common_expense_payments
-  resources :rent_payments
-  resources :subunit_rents
-  resources :outcome_categories
-      devise_for :owners, controllers: {
-        sessions: 'owners/sessions',
-        registrations: 'owners/registrations'
-      }
-    end
+  devise_for :renters, controllers: {
+    sessions: 'renters/sessions',
+    registrations: 'renters/registrations'
+  }
+  devise_for :administrators, controllers: {
+    sessions: 'administrators/sessions',
+    registrations: 'administrators/registrations'
+  }
+  devise_for :owners, controllers: {
+    sessions: 'owners/sessions',
+    registrations: 'owners/registrations'
+  }
 
   scope path: '/index', controller: :index do
     get 'index' => 'index#index', :as => :index

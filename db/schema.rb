@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106180357) do
+ActiveRecord::Schema.define(version: 20161107014108) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -134,6 +134,12 @@ ActiveRecord::Schema.define(version: 20161106180357) do
 
   add_index "owners", ["email"], name: "index_owners_on_email", unique: true
   add_index "owners", ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "properties", force: :cascade do |t|
     t.string   "address"

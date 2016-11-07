@@ -1,17 +1,22 @@
-// Place all the styles related to the subunits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import 'https://fonts.googleapis.com/css?family=Biryani';
+@import url( 'https://fonts.googleapis.com/css?family=Raleway');
 @import 'https://fonts.googleapis.com/css?family=Oxygen';
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
-$main-font: "Biryani";
+$main-font: "Raleway";
 $second-font: "Oxygen";
 $bg: #1D1F2E;
 $bg-contrast: #282840;
 $nav: #6A93FF;
-$green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
+$aquamarine: #71FFE1;
+$golden: #FFDB74;
+$faded: #847DF3;
+$crimson: #FF6F97;
+$sail: #B3E4FF;
+$msg: #08FFAE;
+$hawkes: #CDDBFF;
+$chet: #7073AB;
+
 
 .sub-nav {
     margin-bottom:5px;
@@ -40,4 +45,12 @@ $blue: #3354EC;
     height: 100%;
     width: 100%;
     background-color: $bg-contrast;
+}
+
+.payed-rent {
+  color: $msg !important;
+}
+
+.not-payed-rent {
+  color: $crimson !important;
 }

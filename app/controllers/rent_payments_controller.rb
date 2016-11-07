@@ -14,6 +14,9 @@ class RentPaymentsController < ApplicationController
 
   # GET /rent_payments/new
   def new
+    subunit_rent_id = params[:subunit_rent_id]
+
+    @subunit_rent = SubunitRent.find(subunit_rent_id)
     @rent_payment = RentPayment.new
   end
 
@@ -28,7 +31,12 @@ class RentPaymentsController < ApplicationController
 
     respond_to do |format|
       if @rent_payment.save
-        format.html { redirect_to @rent_payment, notice: 'Rent payment was successfully created.' }
+
+        @rent_payment.subunit_rent.payed = true
+        @rent_payment.subunit_rent.save!
+
+
+        format.html { redirect_to subunit_path(@rent_payment.subunit), notice: 'Rent payment was successfully created.' }
         format.json { render :show, status: :created, location: @rent_payment }
       else
         format.html { render :new }
