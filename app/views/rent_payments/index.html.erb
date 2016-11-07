@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>id</th>
       <th>Renter</th>
       <th>Subunit</th>
       <th>Amount</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @rent_payments.each do |rent_payment| %>
       <tr>
+        <td><%= rent_payment.id %></td>
         <td><%= rent_payment.renter_id %></td>
         <td><%= rent_payment.subunit_id %></td>
         <td><%= rent_payment.amount %></td>

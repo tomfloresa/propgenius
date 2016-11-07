@@ -50,7 +50,7 @@ class RentPaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @rent_payment.update(rent_payment_params)
-        format.html { redirect_to @rent_payment, notice: 'Rent payment was successfully updated.' }
+        format.html { redirect_to subunit_path(@rent_payment.subunit), notice: 'Rent payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @rent_payment }
       else
         format.html { render :edit }
@@ -62,9 +62,19 @@ class RentPaymentsController < ApplicationController
   # DELETE /rent_payments/1
   # DELETE /rent_payments/1.json
   def destroy
+    ## Get the id of subunit in order to redirect once payment is deleted
+    subunit = @rent_payment.subunit
+
+    ## As payment is being deleted, change status of rent charge to false
+    subunit_rent = @rent_payment.subunit_rent
+    subunit_rent.payed = false
+    subunit_rent.save!
+
+    ## Destroy the payment
     @rent_payment.destroy
+
     respond_to do |format|
-      format.html { redirect_to rent_payments_url, notice: 'Rent payment was successfully destroyed.' }
+      format.html { redirect_to subunit_path(subunit), notice: 'Rent payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
