@@ -36,7 +36,7 @@
                           <% if !s.payed? %>
                           <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
                           <% else %>
-                          <td class="table-data"><%= link_to "EDITAR", edit_rent_payment_path(s, :subunit_rent_id => s.id) %></td>
+                          <td class="table-data"><%= link_to "EDITAR", edit_rent_payment_path(s.rent_payment, :subunit_rent_id => s.id) %></td>
                           <td class="table-data"><%= link_to "DETALLE", rent_payment_path(s.rent_payment) %></td>
                           <% end %>
                       </tr>
