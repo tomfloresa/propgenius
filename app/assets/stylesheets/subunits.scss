@@ -3,9 +3,10 @@
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
 $main-font: "Raleway";
 $second-font: "Oxygen";
-$bg: #1D1F2E;
-$bg-contrast: #282840;
-$nav: #6A93FF;
+$bg: #F4F5F6;
+$bg-contrast: white;
+$nav: #515072;
+$green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
 $aquamarine: #71FFE1;
@@ -16,6 +17,11 @@ $sail: #B3E4FF;
 $msg: #08FFAE;
 $hawkes: #CDDBFF;
 $chet: #7073AB;
+$borders: #F3F3F4;
+$malibu: #82BEFC;
+$submarine: #C0C5CA;
+$regent: #87919B;
+$liliac: #E7E7E7;
 
 
 .sub-nav {
@@ -39,12 +45,16 @@ $chet: #7073AB;
     height: 100%;
     width: 100%;
     background-color: $bg-contrast;
+    border-color: $borders !important;
+    border-width: 1px !important;
 }
 
 .holder-extern-no-verticality {
     height: 100%;
     width: 100%;
     background-color: $bg-contrast;
+    border-color: $borders !important;
+    border-width: 1px !important;
 }
 
 .payed-rent {

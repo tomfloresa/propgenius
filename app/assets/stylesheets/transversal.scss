@@ -3,9 +3,9 @@
 @import 'https://fonts.googleapis.com/css?family=Squada+One';
 $main-font: "Raleway";
 $second-font: "Oxygen";
-$bg: #1D1F2E;
-$bg-contrast: #282840;
-$nav: #6A93FF;
+$bg: #F4F5F6;
+$bg-contrast: white;
+$nav: white;
 $green: #4FC71A;
 $brussian: #24242B;
 $blue: #3354EC;
@@ -17,6 +17,11 @@ $sail: #B3E4FF;
 $msg: #08FFAE;
 $hawkes: #CDDBFF;
 $chet: #7073AB;
+$borders: #F3F3F4;
+$malibu: #82BEFC;
+$submarine: #C0C5CA;
+$regent: #87919B;
+$liliac: #E7E7E7;
 
 html {
     background-color: $bg !important;
@@ -34,11 +39,11 @@ h4,
 h5,
 h6 {
     font-family: $main-font !important;
-    color: #F76A9E !important;
+    color: $malibu !important;
 }
 
 .header-nav {
-    color: $nav !important;
+    color: $brussian !important;
 }
 
 p {
@@ -48,7 +53,7 @@ p {
 }
 
 a {
-    color: #E7E9EB !important;
+    color: $regent !important;
 }
 
 a:hover {
@@ -82,6 +87,7 @@ select {
 }
 
 .navbar-brand {
+    color: $malibu !important;
     font-family: $main-font !important;
     font-size: 1.6em !important;
 }
@@ -99,24 +105,26 @@ select {
     font-family: $main-font;
     font-size: 1.4em;
     font-weight: 200;
-    color: $nav;
+    color: $regent;
     text-transform: uppercase;
 }
 
 .header-view {
     height: auto !important;
 }
+
 #rent_period_holder {
-  padding: 20px 0 !important;
+    padding: 20px 0 !important;
 }
+
 .form-control {
     height: 40px !important;
     border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
-    border-color: $faded !important;
+    border-color: $submarine !important;
     border-width: 2px !important;
     background-color: $bg-contrast !important;
-    color: $hawkes !important;
+    color: $brussian !important;
     font-family: $second-font !important;
     font-size: 1.4em !important;
 }
@@ -181,39 +189,46 @@ select {
     border-color: $blue !important;
 }
 
-.aquamarine-button {
-    color: $aquamarine !important;
+.aquamarine-button, .aquamarine-button:hover {
+    color: white !important;
     border-color: $aquamarine !important;
+    background-color: $aquamarine !important;
 }
 
-.golden-button {
-    color: $golden !important;
+.golden-button, .golden-button:hover {
+    color: white !important;
     border-color: $golden !important;
+    background-color: $golden !important;
 }
 
-.faded-button {
-    color: $faded !important;
+.faded-button, .faded-button:hover {
+    color: white !important;
     border-color: $faded !important;
+    background-color: $faded !important;
 }
 
-.sail-button {
-    color: $sail !important;
+.sail-button, .sail-button:hover {
+    color: white !important;
     border-color: $sail !important;
+    background-color: $sail !important;
 }
 
-.crimson-button {
-    color: $crimson !important;
+.crimson-button, .crimson-button:hover {
+    color: white !important;
     border-color: $crimson !important;
+    background-color: $crimson !important;
 }
 
-.chet-button {
-    color: $chet !important;
+.chet-button, .chet-button:hover {
+    color: white !important;
     border-color: $chet !important;
+    background-color: $chet !important;
 }
 
-.msg-button {
-    color: $msg !important;
+.msg-button, .msg-button:hover {
+    color: white !important;
     border-color: $msg !important;
+    background-color: $msg !important;
 }
 
 .form-div {
@@ -266,12 +281,12 @@ select {
 }
 
 .table-header {
-    color: $chet;
+    color: $submarine;
     font-family: $main-font;
 }
 
 .table-data {
-    color: #DCDEEB;
+    color: $regent;
     font-family: $second-font;
     font-size: 1.2em;
 }
@@ -286,8 +301,8 @@ select {
 }
 
 .table > thead > tr > th {
-    background-color: #31334E;
-    border-bottom-color: #31334E !important;
+    background-color: $nav;
+    border-bottom-color: $nav !important;
 }
 
 .navbar-default .navbar-nav > .open > a {
@@ -300,6 +315,7 @@ select {
     border-top-color: #B8B9C8 !important;
 }
 // CHARTS
+
 .chart-holder {
     display: flex;
     justify-content: center;
