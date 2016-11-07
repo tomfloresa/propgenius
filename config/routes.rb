@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :banks
   root 'index#index'
 
   resources :payment_methods

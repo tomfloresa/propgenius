@@ -82,3 +82,8 @@ Property.create(address: "Lord Cochrane 173",
                 comune_id: 1,
                 lease_startdate: Date.today
                 )
+Bank.create(name: "Banco de Chile")
+Bank.create(name: "Banco Santander")
+Bank.create(name: "Banco de Crédito e Inversiones")
+Bank.create(name: "Banco Santander Banefe")
+Bank.create(name: "Scotiabank")

@@ -1,98 +1,87 @@
 <%= render('transversals/navbar_admin') %>
+<div class="sub-nav"></div>
+<h1 class="text-center">Creando Gasto Común</h1>
+<h3 class="text-center"><%= @property.address_and_number %></h3>
+
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2">
-        <h2>Información:</h2>
-        <p>
-            Creando el gasto común "madre" (es decir, de la propiedad que contiene las subunidades) creará los gastos comunes para todas las subunidades. La creación se basa en el porcentaje de prorrateo que tiene cada subunidad.
-        </p>
-        <p>
-            Se creará gasto común para
-            <%= @property.subunits.count %>
-            subunidades.
-        </p>
-    </div>
-    <div class="container">
-        <div class="col-lg-8 col-lg-offset-2">
-            <%= form_for(@common_expense_property) do |f| %>
-            <% if @common_expense_property.errors.any? %>
-            <div id="error_explanation">
-                <h2><%= pluralize(@common_expense_property.errors.count, "error") %>
-                    prohibited this common_expense_property from being saved:</h2>
+        <%= form_for(@common_expense_property) do |f| %>
+        <% if @common_expense_property.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@common_expense_property.errors.count, "error") %>
+                prohibited this common_expense_property from being saved:</h2>
 
-                <ul>
-                    <% @common_expense_property.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                </ul>
-            </div>
-            <% end %>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :property_id %><br>
-                <%= f.number_field :property_id, :value => @property.id, class: "form-control" %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :period %><br>
-                <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :water %><br>
-                <%= f.number_field :water, class: "form-control", id: "water_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :gas %><br>
-                <%= f.number_field :gas, class: "form-control", id: "gas_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :electricity %><br>
-                <%= f.number_field :electricity, class: "form-control", id: "electricity_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :salary_payments %><br>
-                <%= f.number_field :salary_payments, class: "form-control", id: "salary_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :maintenance_payments %><br>
-                <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :others %><br>
-                <%= f.number_field :others, class: "form-control", id: "others_field", placeholder: 0 %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :total %><br>
-                <%= f.number_field :total, value: 0, class: "form-control", id: "total_field" %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :details %><br>
-                <%= f.text_area :details, class: "form-control" %>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button" %>
-            </div>
-            <% end %>
+            <ul>
+                <% @common_expense_property.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
         </div>
+        <% end %>
+
+        <%= f.hidden_field :property_id, :value => @property.id%>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :period, "PERIODO", class: "input-header" %><br>
+            <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :water, "AGUA", class: "input-header" %><br>
+            <%= f.number_field :water, class: "form-control", id: "water_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :gas, "GAS", class: "input-header" %><br>
+            <%= f.number_field :gas, class: "form-control", id: "gas_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :electricity, "ELECTRICIDAD", class: "input-header" %><br>
+            <%= f.number_field :electricity, class: "form-control", id: "electricity_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :salary_payments, "SALARIOS", class: "input-header" %><br>
+            <%= f.number_field :salary_payments, class: "form-control", id: "salary_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :maintenance_payments, "MANTENIMIENTO", class: "input-header" %><br>
+            <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :others, "OTROS", class: "input-header" %><br>
+            <%= f.number_field :others, class: "form-control", id: "others_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :total, "TOTAL", class: "input-header" %><br>
+            <%= f.number_field :total, value: 0, class: "form-control", id: "total_field" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :details, "DETALLE", class: "input-header" %><br>
+            <%= f.text_area :details, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button" %>
+        </div>
+        <% end %>
     </div>
 </div>
+</div>
 <script>
-    $(document).on('turbolinks:load', function () {
-        $('#water_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
-        $('#gas_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
-        $('#electricity_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
-        $('#others_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
-        $('#salary_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
-        $('#maintenance_field').bind('input', function () {
-          $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
-        });
+$(document).on('turbolinks:load', function () {
+    $('#water_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
     });
+    $('#gas_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+    });
+    $('#electricity_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+    });
+    $('#others_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+    });
+    $('#salary_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+    });
+    $('#maintenance_field').bind('input', function () {
+        $('#total_field').val(parseInt($('#water_field').val() || 0) + parseInt($('#gas_field').val() || 0) + parseInt($('#electricity_field').val() || 0) + parseInt($('#maintenance_field').val() || 0) + parseInt($('#salary_field').val() || 0) + parseInt($('#others_field').val() || 0))
+    });
+});
 </script>

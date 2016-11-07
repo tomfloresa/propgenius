@@ -48,6 +48,14 @@
         <%= f.number_field :subunits_number, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :bank_id, "BANCO", class: "input-header" %><br>
+        <%= f.collection_select :bank_id, Bank.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :bank_account_number, "Nº CUENTA", class: "input-header" %><br>
+        <%= f.text_field :bank_account_number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.submit "CREAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
     </div>
     <% end %>

@@ -29,7 +29,7 @@ class AdministratorsController < ApplicationController
     # Iterate through each of the elements of the array
     subunit_rents.each do |s|
       rent = SubunitRent.new
-      
+
       rent.subunit_id = (s[:subunit_id]).to_i
       rent.amount = (s[:amount]).to_f
       rent.period = Date.new(params[:period_rents]["(1i)"].to_i, params[:period_rents]["(2i)"].to_i)
@@ -37,7 +37,7 @@ class AdministratorsController < ApplicationController
 
       if rent.save!
         # When the rent is saved, send mail to renter
-        ## CreatedRentChargeJob.set(wait: 5.seconds).perform_later(r.renter, rent)
+        ## CreatedRentChargeJob.set(wait: 5.seconds).perform_later(s.subunit.renter, rent, s.subunit.property)
       end
     end
   end

@@ -4,9 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @renter.first_name %></h1>
+    <h1>Hola <%= @renter.first_name %></h1>
     <p>
-      Sample mail sent using smtp.
+      Te enviamos el presente para avisarte que se ha creado el cobro de arriendo de tu propiedad.
+    </p>
+    <p>
+      El total a pagar es de <%= number_to_currency(@rent.amount, :precision => 0, :delimiter => ".") %>
+    </p>
+    <p>
+      Recuerda depositar en la cuenta Nº <%= @property.bank_account_number %> del <%= @property.bank.name %>
     </p>
   </body>
 </html>

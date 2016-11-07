@@ -22,8 +22,9 @@
               <table class="table table-fixed">
                   <thead>
                       <tr>
-                          <th class="table-header">NOMBRE</th>
-                          <th class="table-header">EMAIL</th>
+                          <th class="table-header">SUBUNIDAD</th>
+                          <th class="table-header">M2</th>
+                          <th class="table-header">ARRENDADOR</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -31,6 +32,7 @@
                       <tr>
                           <td class="table-data"><%= link_to "#{s.property.address}", property_path(s) %></td>
                           <td class="table-data"><%= s.square_meters %></td>
+                          <td class="table-data"><%= s.renter.renter_name_lastname %></td>
                       </tr>
                       <% end %>
                   </tbody>
