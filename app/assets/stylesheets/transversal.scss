@@ -72,6 +72,12 @@ select {
     height: 20px;
 }
 
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar-default {
     background-color: $nav !important;
     border-bottom-color: $submarine !important;
@@ -130,7 +136,7 @@ select {
 }
 
 .form-control:focus {
-    border-color: $golden !important;
+    border-color: $malibu !important;
 }
 
 .div-for-input {
@@ -167,6 +173,10 @@ select {
     fill: $golden !important;
 }
 
+.chart {
+  fill: $malibu !important;
+}
+
 .btn-go {
     font-family: $main-font;
     font-size: 1.4em !important;
@@ -189,43 +199,50 @@ select {
     border-color: $blue !important;
 }
 
-.aquamarine-button, .aquamarine-button:hover {
+.aquamarine-button,
+.aquamarine-button:hover {
     color: white !important;
     border-color: $aquamarine !important;
     background-color: $aquamarine !important;
 }
 
-.golden-button, .golden-button:hover {
+.golden-button,
+.golden-button:hover {
     color: white !important;
     border-color: $golden !important;
     background-color: $golden !important;
 }
 
-.faded-button, .faded-button:hover {
+.faded-button,
+.faded-button:hover {
     color: white !important;
     border-color: $faded !important;
     background-color: $faded !important;
 }
 
-.sail-button, .sail-button:hover {
+.sail-button,
+.sail-button:hover {
     color: white !important;
     border-color: $sail !important;
     background-color: $sail !important;
 }
 
-.crimson-button, .crimson-button:hover {
+.crimson-button,
+.crimson-button:hover {
     color: white !important;
     border-color: $crimson !important;
     background-color: $crimson !important;
 }
 
-.chet-button, .chet-button:hover {
+.chet-button,
+.chet-button:hover {
     color: white !important;
     border-color: $chet !important;
     background-color: $chet !important;
 }
 
-.msg-button, .msg-button:hover {
+.msg-button,
+.msg-button:hover {
     color: white !important;
     border-color: $msg !important;
     background-color: $msg !important;
@@ -313,6 +330,14 @@ select {
 
 .row-list {
     border-top-color: #B8B9C8 !important;
+}
+
+.half-square {
+    height: 50%;
+}
+.map-square {
+  height: 20px !important;
+  width: 20px !important;
 }
 // CHARTS
 
