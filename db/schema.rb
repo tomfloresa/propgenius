@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107175346) do
+ActiveRecord::Schema.define(version: 20161108024517) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -99,6 +99,13 @@ ActiveRecord::Schema.define(version: 20161107175346) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
+  create_table "important_numerical_values", force: :cascade do |t|
+    t.string   "name"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "outcome_categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -153,7 +160,6 @@ ActiveRecord::Schema.define(version: 20161107175346) do
     t.integer  "property_type_id"
     t.integer  "renter_id"
     t.float    "rent_value"
-    t.integer  "number"
     t.integer  "subunits_number"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :important_numerical_values
   resources :banks
   root 'index#index'
 

@@ -1,0 +1,1 @@
+json.array! @important_numerical_values, partial: 'important_numerical_values/important_numerical_value', as: :important_numerical_value

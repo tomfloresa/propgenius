@@ -1,0 +1,1 @@
+json.partial! "important_numerical_values/important_numerical_value", important_numerical_value: @important_numerical_value

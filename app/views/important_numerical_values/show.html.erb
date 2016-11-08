@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @important_numerical_value.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @important_numerical_value.value %>
+</p>
+
+<%= link_to 'Edit', edit_important_numerical_value_path(@important_numerical_value) %> |
+<%= link_to 'Back', important_numerical_values_path %>

@@ -3,4 +3,8 @@ class Administrator < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def self.uf_value
+    25678
+  end
 end

@@ -1,0 +1,25 @@
+<%= form_for(@important_numerical_value) do |f| %>
+  <% if @important_numerical_value.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@important_numerical_value.errors.count, "error") %> prohibited this important_numerical_value from being saved:</h2>
+
+      <ul>
+      <% @important_numerical_value.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -8,6 +8,6 @@ class Property < ActiveRecord::Base
   has_many :outcomes
 
   def address_and_number
-    "#{self.address}, Nº#{self.number}"
+    "#{self.address}"
   end
 end

@@ -4,11 +4,11 @@
     <div class="col-lg-4 col-md-6 col-sm-6 info-square">
         <div class="holder-extern">
             <div class="holder-intern">
-                <h2 class="text-center"><%= "#{@property.address}, Nº #{@property.number}" %></h2>
+                <h2 class="text-center"><%= "#{@property.address}" %></h2>
                 <h3 class="text-center header-nav">Propietario:
                     <%= @property.owner.owner_name_lastname %></h3>
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
-                <h5 class="text-center"><%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default action-button chet-button" %></h5>
+                <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default action-button chet-button" %>
             </div>
         </div>
     </div>

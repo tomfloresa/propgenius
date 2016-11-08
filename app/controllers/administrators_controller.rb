@@ -4,6 +4,7 @@ class AdministratorsController < ApplicationController
     @subunits = Subunit.all
     @owners = Owner.all
     @renters = Renter.all
+    @uf = ImportantNumericalValue.find(1)
   end
 
   def new_subunit_for_property

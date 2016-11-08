@@ -1,40 +1,16 @@
 <%= render('transversals/navbar_admin') %>
 <div class="sub-nav"></div>
-<div class='container-fluid' id="holder-properties-list">
-  <div class="col-lg-12 col-md-12">
-      <div class="holder-extern-no-verticality">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="table-header">DIRECCIÓN</th>
-                        <th class="table-header">Nº</th>
-                        <th class="table-header">M2</th>
-                        <th class="table-header">TIPO</th>
-                        <th class="table-header">ARRENDADOR</th>
-                        <th class="table-header">VALOR ARRIENDO</th>
-                        <th class="table-header">SUBUNIDADES</th>
-                        <th colspan="3"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @properties.each do |property| %>
-                    <tr>
-                        <td class="table-data"><%= link_to "#{property.address}", property %></td>
-                        <td class="table-data"><%= property.number %></td>
-                        <td class="table-data"><%= property.square_meters %></td>
-                        <td class="table-data"><%= property.property_type.description %></td>
-                        <td class="table-data"><%= property.renter.renter_name_lastname %></td>
-                        <td class="table-data"><%= number_to_currency(property.rent_value, {precision: 0, delimiter: "."}) %></td>
-                        <td class="table-data"><%= property.subunits.count %></td>
-                        <td class="table-data"><%= link_to 'Edit', edit_property_path(property) %></td>
-                        <td class="table-data"><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
+<div class="container-fluid container-squares">
+  <% @properties.each do |p| %>
+  <div class="col-lg-4 col-md-6 col-sm-6 info-square">
+      <div class="holder-extern">
+          <div class="holder-intern">
+              <h2 class="text-center"><%= "#{p.address}" %></h2>
+              <h3 class="text-center header-nav"><%= "#{p.subunits.count} subunidades" %></h3>
+              <%= link_to "VER", property_path(p), class: "btn btn-default btn-block action-button aquamarine-button" %>
+              <%= link_to "EDITAR PROPIEDAD", edit_property_path(p), class: "btn btn-default btn-block action-button chet-button" %>
+          </div>
       </div>
   </div>
+  <% end %>
 </div>

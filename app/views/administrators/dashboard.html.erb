@@ -3,20 +3,32 @@
 <div class="container-fluid container-squares">
     <div class="col-lg-4 col-md-4 info-square">
         <div class="holder-extern-no-verticality">
-            <div class="col-lg-6 col-md-4 col-sm 4 col-xs-6 properties-detail">
-                <div>
-                    <h1 class="text-center"><%= @properties.count %></h1>
-                    <h4 class="text-center">propiedades</h4>
-                    <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div class="col-lg-6 col-md-4 col-sm 4 col-xs-6 properties-detail">
+                    <div>
+                        <h1 class="text-center"><%= @properties.count %></h1>
+                        <h3 class="text-center">propiedades</h3>
+                        <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 col-sm 4 col-xs-6 properties-detail">
-                <div>
-                    <h1 class="text-center"><%= @subunits.count %></h1>
-                    <h4 class="text-center">subunidades</h4>
-                    <h5 class="text-center"><%= link_to "ver todas", subunits_path, class: "" %></h5>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div class="col-lg-6 col-md-4 col-sm 4 col-xs-6 properties-detail">
+                    <div>
+                        <h1 class="text-center"><%= @subunits.count %></h1>
+                        <h3 class="text-center">subunidades</h3>
+                        <h5 class="text-center"><%= link_to "ver todas", subunits_path, class: "" %></h5>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+                <div>
+                    <h1 class="text-center"><%= number_to_currency(@uf.value, :precision => 0, :delimiter => ".") %></h1>
+                    <h3 class="text-center">valor UF</h3>
+                    <h5 class="text-center"><%= link_to "cambiar", edit_important_numerical_value_path(@uf) %></h5>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four"></div>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 info-square">
@@ -130,17 +142,8 @@
                     ]
                 },
                 options: {
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }
-                        ]
-                    }
-                },
-                responsive: true
+                  responsive: true
+                }
             });
         }
     });

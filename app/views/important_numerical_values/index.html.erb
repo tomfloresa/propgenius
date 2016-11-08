@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Important Numerical Values</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @important_numerical_values.each do |important_numerical_value| %>
+      <tr>
+        <td><%= important_numerical_value.name %></td>
+        <td><%= important_numerical_value.value %></td>
+        <td><%= link_to 'Show', important_numerical_value %></td>
+        <td><%= link_to 'Edit', edit_important_numerical_value_path(important_numerical_value) %></td>
+        <td><%= link_to 'Destroy', important_numerical_value, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Important numerical value', new_important_numerical_value_path %>
