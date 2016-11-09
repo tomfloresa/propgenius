@@ -80,8 +80,8 @@
                 <div class="text-center">
                     <%= inline_svg("chart.svg", {class: "chart"}) %>
                 </div>
-                <%= link_to "HISTORIAL EGRESOS", nil, class: "btn btn-default btn-block action-button faded-button" %>
-                <%= link_to "HISTORIAL GASTO COMÚN", nil, class: "btn btn-default btn-block action-button crimson-button" %>
+                <%= link_to "HISTORIAL EGRESOS", outcomes_path, class: "btn btn-default btn-block action-button faded-button" %>
+                <%= link_to "HISTORIAL GASTO COMÚN", history_common_expenses_property_common_expense_properties_path(@property.id), class: "btn btn-default btn-block action-button crimson-button" %>
             </div>
         </div>
     </div>
@@ -303,6 +303,7 @@
             zoom: 16,
             center: new google.maps.LatLng(-33.440794, -70.655469),
             streetViewControl: false,
+            scrollwheel: false,
             styles: [
                 {
                     "featureType": "poi",

@@ -87,6 +87,11 @@ class CommonExpensePropertiesController < ApplicationController
     end
   end
 
+  ## Custom methods
+  def history_common_expenses_property
+    @property = Property.find(params[:property_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_common_expense_property

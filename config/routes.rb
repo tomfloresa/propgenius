@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :outcome_categories
   resources :outcomes
   resources :common_expense_subunits
-  resources :common_expense_properties
+  resources :common_expense_properties do
+    collection do
+      get 'history_common_expenses_property/:property_id' => 'common_expense_properties#history_common_expenses_property', :as => :history_common_expenses_property
+    end
+  end
   resources :subunits
   resources :properties
   resources :property_types

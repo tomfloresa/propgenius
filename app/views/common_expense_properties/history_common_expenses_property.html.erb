@@ -1,0 +1,110 @@
+<%= render("transversals/navbar_admin") %>
+<div class="sub-nav"></div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-4 col-md-12 info-square">
+        <div class="holder-extern">
+            <div class="holder-inter">
+                <h2 class="text-center">Periodo</h2>
+                <%= form_for :ce_period_search do |f| %>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-div">
+                    <%= f.date_select :period, {:discard_day => true}, {class: "form-control"} %>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-div">
+                    <%= f.submit "BUSCAR", class: "btn btn-default btn-block action-button crimson-button" %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-12 info-square">
+        <div class="holder-extern"></div>
+    </div>
+</div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-7 col-md-12 info-square">
+        <div class="holder-extern">
+            <div class="chart-holder">
+                <canvas id="common-expense-history"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("common-expense-history");
+        var date = new Date();
+        var monthNames = [
+            "ENE",
+            "FEB",
+            "MAR",
+            "ABR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AGO",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DIC"
+        ]
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        monthNames[date.getMonth()],
+                        monthNames[date.getMonth() - 1],
+                        monthNames[date.getMonth() - 2],
+                        monthNames[date.getMonth() - 3],
+                        monthNames[date.getMonth() - 4],
+                        monthNames[date.getMonth() - 5],
+                        monthNames[date.getMonth() - 6],
+                        monthNames[date.getMonth() - 7],
+                        monthNames[date.getMonth() - 8],
+                        monthNames[date.getMonth() - 9],
+                        monthNames[date.getMonth() - 10],
+                        monthNames[date.getMonth() + 1],
+                        monthNames[date.getMonth()]
+                    ],
+                    datasets: [
+                        {
+                            label: 'GASTO COMÚN',
+                            data: [
+                                20000,
+                                12,
+                                19,
+                                3,
+                                5,
+                                2,
+                                3
+                            ],
+                            backgroundColor: ['RGBA(8, 255, 174, 0.2)'],
+                            borderColor: ['RGBA(8, 255, 174, 1.00)'],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).on('turbolinks:load', function () {
+        if ($('#common_expense_property_period_2i') && $('#common_expense_property_period_1i')) {
+            $('#ce_period_search_period_2i').wrap("<div class='col-lg-8 col-md-6 col-sm-6 col-xs-12'></div>");
+            $('#ce_period_search_period_1i').wrap("<div class='col-lg-4 col-md-6 col-sm-6 col-xs-12'></div>");
+        }
+    });
+</script>

@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
   def show
     property_id = params[:id]
     @subunits = Subunit.where(property_id: property_id).order(number: :asc)
-    @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20).order(created_at: :desc)
+    @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20).order(created_at: :asc)
     @outcomes = Outcome.where(property_id: property_id).limit(20)
 
     @common_expenses_within_year = CommonExpenseProperty.where(property_id: property_id)
