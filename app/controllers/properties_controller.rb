@@ -17,6 +17,12 @@ class PropertiesController < ApplicationController
 
     @common_expenses_within_year = CommonExpenseProperty.where(property_id: property_id)
     @common_expenses_within_year = @common_expenses_within_year.where("created_at >= ?", 1.year.ago)
+
+    @array_of_ce_for_chart = Array.new
+
+    @common_expenses_within_year.each do |c|
+      @array_of_ce_for_chart.push(c.total)
+    end
   end
 
   # GET /properties/new

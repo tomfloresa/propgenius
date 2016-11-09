@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   scope path: '/administrators', controller: :administrators do
     get 'dashboard' => 'administrators#dashboard', :as => :administrators_dashboard
     get 'new_subunit_for_property/:property_id' => 'administrators#new_subunit_for_property', :as => :new_subunit_for_property
-    get 'new_matrix_common_expese_property/:property_id' => 'administrators#new_matrix_common_expese_property', :as => :new_matrix_common_expese_property
+    get 'new_matrix_common_expense_property/:property_id' => 'administrators#new_matrix_common_expense_property', :as => :new_matrix_common_expense_property
     get 'rent_for_subunits/:property_id' => 'administrators#rent_for_subunits', :as => :rent_for_subunits
     post 'create_rent_for_subunits' => 'administrators#create_rent_for_subunits', :as => :create_rent_for_subunits
     get 'renter_profile/:renter_id' => 'administrators#renter_profile', :as => :renter_profile

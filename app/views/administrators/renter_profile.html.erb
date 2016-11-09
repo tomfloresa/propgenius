@@ -30,7 +30,7 @@
                   <tbody>
                       <% @subunits.each do |s| %>
                       <tr>
-                          <td class="table-data"><%= link_to "#{s.property.address}", property_path(s) %></td>
+                          <td class="table-data"><%= link_to "#{s.property.address}, Nº#{s.number}", subunit_path(s) %></td>
                           <td class="table-data"><%= s.square_meters %></td>
                           <td class="table-data"><%= s.renter.renter_name_lastname %></td>
                       </tr>

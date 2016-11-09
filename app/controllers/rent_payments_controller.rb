@@ -14,9 +14,7 @@ class RentPaymentsController < ApplicationController
 
   # GET /rent_payments/new
   def new
-    subunit_rent_id = params[:subunit_rent_id]
-
-    @subunit_rent = SubunitRent.find(subunit_rent_id)
+    @subunit_rent = SubunitRent.find(subunit_rent_id = params[:subunit_rent_id])
     @rent_payment = RentPayment.new
   end
 
@@ -34,7 +32,6 @@ class RentPaymentsController < ApplicationController
 
         @rent_payment.subunit_rent.payed = true
         @rent_payment.subunit_rent.save!
-
 
         format.html { redirect_to subunit_path(@rent_payment.subunit), notice: 'Rent payment was successfully created.' }
         format.json { render :show, status: :created, location: @rent_payment }
@@ -87,6 +84,6 @@ class RentPaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_payment_params
-      params.require(:rent_payment).permit(:renter_id, :subunit_id, :amount, :payment_method_id, :subunit_rent_id, :receipt_number)
+      params.require(:rent_payment).permit(:renter_id, :subunit_id, :amount, :payment_method_id, :subunit_rent_id, :receipt_number, :payment_date)
     end
 end

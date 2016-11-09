@@ -46,6 +46,10 @@ h6 {
     color: $brussian !important;
 }
 
+.icon-bar {
+  background-color: $malibu !important;
+}
+
 p {
     font-family: $second-font !important;
     font-size: 1.2em !important;
@@ -83,6 +87,13 @@ select {
     border-bottom-color: $submarine !important;
 }
 
+.navbar-default .navbar-toggle {
+  border-color: transparent !important;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent !important;
+}
 .li-navbar {
     font-family: $main-font !important;
 }

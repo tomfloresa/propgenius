@@ -1,5 +1,42 @@
-<h1>New Common Expense Payment</h1>
+<%= render("transversals/navbar_admin") %>
+<h1 class="text-center">Registro de Pago</h1>
 
-<%= render 'form' %>
+<div class="container">
+  <%= form_for(@common_expense_payment) do |f| %>
+    <% if @common_expense_payment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@common_expense_payment.errors.count, "error") %> prohibited this common_expense_payment from being saved:</h2>
 
-<%= link_to 'Back', common_expense_payments_path %>
+        <ul>
+        <% @common_expense_payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :renter_id, :value => @common_expense_subunit.subunit.renter.id %>
+    <%= f.hidden_field :subunit_id, :value => @common_expense_subunit.subunit.id %>
+    <%= f.hidden_field :common_expense_subunit_id, :value => @common_expense_subunit.id %>
+
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :amount, "MONTO", class: "input-header" %><br>
+      <%= f.text_field :amount, :value => @common_expense_subunit.total, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :payment_date, "FECHA PAGO", class: "input-header" %><br>
+        <%= f.date_select :payment_date, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :payment_method_id, "MÉTODO PAGO", class: "input-header" %><br>
+      <%= f.collection_select :payment_method_id, PaymentMethod.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :receipt_number, "RECIBO", class: "input-header" %><br>
+      <%= f.text_field :receipt_number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.submit "REGISTRAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+    </div>
+  <% end %>
+</div>

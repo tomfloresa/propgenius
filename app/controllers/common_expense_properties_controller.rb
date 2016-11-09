@@ -42,6 +42,7 @@ class CommonExpensePropertiesController < ApplicationController
           ces.others_charge = @common_expense_property.others * s.proration_percentage
           ces.salary_payments = @common_expense_property.salary_payments * s.proration_percentage
           ces.maintenance_payments = @common_expense_property.maintenance_payments * s.proration_percentage
+          ces.period = @common_expense_property.period
           ces.payed = false
           ces.total = (@common_expense_property.electricity * s.proration_percentage) +
                       (@common_expense_property.water * s.proration_percentage) +

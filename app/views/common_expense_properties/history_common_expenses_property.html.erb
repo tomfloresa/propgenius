@@ -24,14 +24,14 @@
     <div class="col-lg-7 col-md-12 info-square">
         <div class="holder-extern">
             <div class="chart-holder">
-                <canvas id="common-expense-history"></canvas>
+                <canvas id="common-expense-history-detail"></canvas>
             </div>
         </div>
     </div>
 </div>
 <script>
     $(document).on('turbolinks:load', function () {
-        var ctx = document.getElementById("common-expense-history");
+        var ctx = document.getElementById("common-expense-history-detail");
         var date = new Date();
         var monthNames = [
             "ENE",

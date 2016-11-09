@@ -1,6 +1,44 @@
-<h1>Editing Common Expense Payment</h1>
+<%= render('transversals/navbar_admin') %>
+<div class="sub-nav"></div>
 
-<%= render 'form' %>
+<h1 class="text-center">Editando pago</h1>
 
-<%= link_to 'Show', @common_expense_payment %> |
-<%= link_to 'Back', common_expense_payments_path %>
+<div class="container">
+  <%= form_for(@common_expense_payment) do |f| %>
+    <% if @common_expense_payment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@common_expense_payment.errors.count, "error") %> prohibited this common_expense_payment from being saved:</h2>
+
+        <ul>
+        <% @common_expense_payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :renter_id %>
+    <%= f.hidden_field :subunit_id %>
+    <%= f.hidden_field :common_expense_subunit_id %>
+
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :amount, "MONTO", class: "input-header" %><br>
+      <%= f.text_field :amount, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :payment_method_id, "MÉTODO PAGO", class: "input-header" %><br>
+      <%= f.collection_select :payment_method_id, PaymentMethod.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.label :receipt_number, "RECIBO", class: "input-header" %><br>
+      <%= f.text_field :receipt_number, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
+      <%= f.submit "ACTUALIZAR REGISTRO", class: "btn btn-default btn-block action-button aquamarine-button" %>
+    </div>
+  <% end %>
+
+  <div class="form-div col-md-6 col-md-offset-3">
+    <%= link_to("ELIMINAR REGISTRO", @common_expense_payment, method: :delete, data: { confirm: 'Esta segúro que desea eliminar el registro?' }, class: "btn btn-default btn-block action-button crimson-button") %>
+  </div>
+</div>

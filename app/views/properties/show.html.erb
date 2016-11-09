@@ -27,7 +27,7 @@
                     <div class="text-center">
                         <%= inline_svg("documents.svg", {class: "paper-sheet"}) %>
                     </div>
-                    <%= link_to "G.COMÚN", new_matrix_common_expese_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
+                    <%= link_to "G.COMÚN", new_matrix_common_expense_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
@@ -167,6 +167,7 @@
     $(document).on('turbolinks:load', function () {
         var ctx = document.getElementById("common-expense-history");
         var date = new Date();
+        var dataArray = <%= raw @array_of_ce_for_chart.to_json %>;
         var monthNames = [
             "ENE",
             "FEB",
@@ -203,17 +204,9 @@
                     datasets: [
                         {
                             label: 'GASTO COMÚN',
-                            data: [
-                                20000,
-                                12,
-                                19,
-                                3,
-                                5,
-                                2,
-                                3
-                            ],
-                            backgroundColor: ['RGBA(8, 255, 174, 0.2)'],
-                            borderColor: ['RGBA(8, 255, 174, 1.00)'],
+                            data: dataArray,
+                            backgroundColor: 'RGBA(8, 255, 174, 0.2)',
+                            borderColor: 'RGBA(8, 255, 174, 1.00)',
                             borderWidth: 1
                         }
                     ]
@@ -275,8 +268,8 @@
                         {
                             label: 'EGRESOS',
                             data: [],
-                            backgroundColor: ['RGBA(132, 125, 243, 0.2)'],
-                            borderColor: ['RGBA(132, 125, 243, 1.00)'],
+                            backgroundColor: 'RGBA(132, 125, 243, 0.2)',
+                            borderColor: 'RGBA(132, 125, 243, 1.00)',
                             borderWidth: 1
                         }
                     ]
