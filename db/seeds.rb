@@ -44,7 +44,6 @@ Property.create(address: "Santa Rosa 2",
                 owner_id: 1,
                 renter_id: 1,
                 rent_value: 5300000,
-                number: 2,
                 subunits_number: 0,
                 comune_id: 1,
                 lease_startdate: Date.today
@@ -55,7 +54,6 @@ Property.create(address: "Povidencia 123",
                 property_type_id: 2,
                 renter_id: 1,
                 rent_value: 450200,
-                number: 606,
                 subunits_number: 20,
                 comune_id: 1,
                 lease_startdate: Date.today
@@ -87,3 +85,6 @@ Bank.create(name: "Banco Santander")
 Bank.create(name: "Banco de Crédito e Inversiones")
 Bank.create(name: "Banco Santander Banefe")
 Bank.create(name: "Scotiabank")
+
+ImportantNumericValues.create(name: "UF", value: "26981")
+ImportantNumericValues.create(name: "IVA", value: "19")
