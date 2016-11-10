@@ -189,6 +189,22 @@ select {
   fill: $malibu !important;
 }
 
+.water {
+  fill: #4580DE !important;
+}
+
+.gas {
+  fill: #FD9596 !important;
+}
+
+.others {
+  fill: #161743 !important;
+}
+
+.category-header {
+  color: $submarine !important;
+}
+
 .btn-go {
     font-family: $main-font;
     font-size: 1.4em !important;
