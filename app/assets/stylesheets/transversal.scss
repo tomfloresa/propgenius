@@ -307,11 +307,11 @@ select {
     align-items: center;
 }
 
-.table-div {
+.table-div, .holder-categories {
     overflow: auto;
 }
 
-.table-div::-webkit-scrollbar {
+.table-div::-webkit-scrollbar, .holder-categories::-webkit-scrollbar {
     width: 12px;
 }
 
