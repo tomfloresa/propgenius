@@ -377,9 +377,47 @@ select {
     width: 96%;
 }
 
-#outcomes-history {}
 @media screen and (max-width: 767px) {
     .table-responsive {
         border: transparent !important;
     }
 }
+
+/*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+      .info-square {
+          padding: 6px !important;
+          height: 60vh;
+      }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+      .info-square {
+          padding: 6px !important;
+          height: 70vh;
+      }
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 480px) {
+      .info-square {
+          padding: 6px !important;
+          height: 60vh;
+      }
+    }
+
+    /* Custom, iPhone Retina */
+    @media only screen and (max-width : 320px) {
+      .info-square {
+          padding: 6px !important;
+          height: 70vh;
+      }
+    }
