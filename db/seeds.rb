@@ -84,5 +84,5 @@ Bank.create(name: "Banco de Crédito e Inversiones")
 Bank.create(name: "Banco Santander Banefe")
 Bank.create(name: "Scotiabank")
 
-ImportantNumericalValues.create(name: "UF", value: "26981")
-ImportantNumericalValues.create(name: "IVA", value: "19")
+ImportantNumericalValue.create(name: "UF", value: "26981")
+ImportantNumericalValue.create(name: "IVA", value: "19")
