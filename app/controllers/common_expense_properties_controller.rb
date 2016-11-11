@@ -91,6 +91,7 @@ class CommonExpensePropertiesController < ApplicationController
   ## Custom methods
   def history_common_expenses_property
     @property = Property.find(params[:property_id])
+    subunits = @property.subunits
   end
 
   private

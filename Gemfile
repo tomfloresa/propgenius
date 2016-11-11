@@ -32,6 +32,8 @@ gem 'premailer-rails'
 gem 'delayed_job_active_record'
 # Figaro gem. Store variables securely
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+# Wicked PDF
+gem 'wicked_pdf'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

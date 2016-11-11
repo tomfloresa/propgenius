@@ -1,10 +1,11 @@
 class CreatedRentChargeJob < ActiveJob::Base
   queue_as :default
 
-  def perform(renter, rent, property)
+  def perform(renter, rent, property, pdf_string)
     @renter = renter
     @rent = rent
     @property = property
-    CreatedRentChargeMailer.created_rent_charge(@renter, @rent, @property).deliver_later
+    @pdf_string = pdf_string
+    CreatedRentCharge.created_rent_charge(@renter, @rent, @property, @pdf_string).deliver_later
   end
 end

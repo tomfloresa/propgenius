@@ -29,16 +29,19 @@ class AdministratorsController < ApplicationController
 
     # Iterate through each of the elements of the array
     subunit_rents.each do |s|
-      rent = SubunitRent.new
+      @rent = SubunitRent.new
 
-      rent.subunit_id = (s[:subunit_id]).to_i
-      rent.amount = (s[:amount]).to_f
-      rent.period = Date.new(params[:period_rents]["(1i)"].to_i, params[:period_rents]["(2i)"].to_i)
-      rent.payed = false
+      @rent.subunit_id = (s[:subunit_id]).to_i
+      @rent.amount = (s[:amount]).to_f
+      @rent.period = Date.new(params[:period_rents]["(1i)"].to_i, params[:period_rents]["(2i)"].to_i)
+      @rent.payed = false
 
-      if rent.save!
+      if @rent.save!
+        # create a pdf from a string
+        @pdf_string = render_to_string template: "administrators/pdf_rent_charge", layout: "layouts/pdf.html.erb", encoding: "utf-8"
+
         # When the rent is saved, send mail to renter
-        ## CreatedRentChargeJob.set(wait: 5.seconds).perform_later(s.subunit.renter, rent, s.subunit.property)
+        CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@rent.subunit.renter, @rent, @rent.subunit.property, @pdf_string)
       end
     end
   end
