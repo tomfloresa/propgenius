@@ -292,7 +292,9 @@
 </script>
 <script>
     $(document).on('turbolinks:load', function () {
+        var map = null;
         var mapOptions = {
+          disableDefaultUI: true,
             zoom: 16,
             center: new google.maps.LatLng(-33.440794, -70.655469),
             streetViewControl: false,
