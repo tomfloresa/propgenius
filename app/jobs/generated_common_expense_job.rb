@@ -1,8 +1,11 @@
 class GeneratedCommonExpenseJob < ActiveJob::Base
   queue_as :default
 
-  def perform(renter)
+  def perform(renter, pdf_string, common_expense_property)
     @renter = renter
-    GeneratedCommonExpenseMailer.generated_common_expense(@renter).deliver_later
+    @pdf_string = pdf_string
+    @common_expense_property = common_expense_property
+
+    GeneratedCommonExpenseMailer.generated_common_expense(@renter, @pdf_string, @common_expense_property).deliver_later
   end
 end

@@ -328,6 +328,7 @@ select {
 .table-header {
     color: $submarine;
     font-family: $main-font;
+    text-transform: uppercase;
 }
 
 .table-data {
@@ -375,6 +376,40 @@ select {
     align-items: center;
     height: 96%;
     width: 96%;
+}
+
+// PDF
+
+#pdf_header {
+  height: auto !important;
+}
+
+#pdf_body {
+  height: 200 !important;
+}
+
+.header-info-pdf {
+  color: $faded !important;
+}
+
+#money-figure {
+  color: $brussian !important;
+  font-family: $second-font !important;
+}
+
+#notice-this {
+  color: $crimson !important;
+  text-transform: uppercase;
+  font-family: $second-font !important;
+}
+.info-pdf {
+  font-family: $second-font !important;
+  color: $submarine !important;
+}
+
+.payment-methods {
+  font-family: $second-font !important;
+  font-size: 1.4em;
 }
 
 @media screen and (max-width: 767px) {

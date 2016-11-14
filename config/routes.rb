@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     get 'rent_for_subunits/:property_id' => 'administrators#rent_for_subunits', :as => :rent_for_subunits
     post 'create_rent_for_subunits' => 'administrators#create_rent_for_subunits', :as => :create_rent_for_subunits
     get 'renter_profile/:renter_id' => 'administrators#renter_profile', :as => :renter_profile
+    get 'test_pdf_rent_charge' => 'administrators#test_pdf_rent_charge', :as => :test_pdf_rent_charge
+    get 'test_pdf_common_expense_charge' => 'administrators#test_pdf_common_expense_charge', :as => :test_pdf_common_expense_charge
   end
 
   scope path: '/renters', controller: :renters do

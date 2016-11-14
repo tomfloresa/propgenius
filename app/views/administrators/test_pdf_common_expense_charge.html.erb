@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+    </head>
+    <body>
+        <div class="container container-squares">
+            <div class="col-lg-12 info-square" id="pdf_header">
+                <div class="holder-extern">
+                    <div class="holder-intern">
+                        <h3 class="text-center">RECIBO DE GASTO COMÚN</h3>
+                        <h3 class="text-center"><%= @subunit.address_and_number %></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-squares">
+            <div class="col-lg-12 info-square" id="pdf_header">
+                <div class="holder-extern">
+                    <div class="holder-intern">
+                        <div class="col-lg-8">
+                            <h4 class="header-info-pdf">ARRENDADOR:
+                                <span class="info-pdf"><%= @renter.renter_name_lastname %></span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4 class="header-info-pdf">PERIODO:
+                                <span class="info-pdf"><%= @common_expense_subunit.period.strftime('%b-%Y') %></span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h4 class="header-info-pdf">INICIO ARRIENDO:
+                                <span class="info-pdf"><%= @subunit.lease_startdate.strftime('%d-%m-%Y') %></span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4 class="header-info-pdf">M2:
+                                <span class="info-pdf"><%= @subunit.square_meters %></span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-squares">
+            <div class="col-lg-8 info-square" id="pdf_body">
+                <div class="holder-extern-no-verticality table-div">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">CATEGORÍA</th>
+                                    <th class="table-header">PROPIEDAD</th>
+                                    <th class="table-header"><%= @subunit.address_and_number %></th>
+                                    <th class="table-header">TOTAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-data">ELECTRICIDAD</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.electricity, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.electricity_charge, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">AGUA</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.water, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.water_charge, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">GAS</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.gas, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.gas_charge, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">MANTENIMIENTO</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.maintenance_payments, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.maintenance_payments, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">SALARIOS</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.salary_payments, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.salary_payments, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">OTROS</td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_property.others, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="table-data"><%= number_to_currency(@common_expense_subunit.others_charge, :delimiter => '.', :precision => 0) %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 info-square" id="pdf_body">
+                <div class="holder-extern-no-verticality">
+                    <div class="holder-intern">
+                        <div class="col-lg-12">
+                            <h3 class="text-center">FORMAS DE PAGO</h3>
+                            <ul>
+                                <li class="payment-methods">Efectivo</li>
+                                <li class="payment-methods">Transferencia Bancaria*</li>
+                                <li class="payment-methods">Cheque al día**</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12">
+                            <h4>* Favor enviar comprobante de transferencia a contacto@valprop.cl</h4>
+                            <h4>** Girar cheque a nombre de VALPROP LTDA.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-squares">
+            <div class="col-lg-12 info-square" id="pdf_header">
+                <div class="holder-extern">
+                    <div class="holder-intern">
+                      <h3>TOTAL A PAGAR: <%= number_to_currency(@common_expense_subunit.total, :delimiter => '.', :precision => 0) %></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

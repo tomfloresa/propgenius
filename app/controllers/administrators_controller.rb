@@ -51,4 +51,24 @@ class AdministratorsController < ApplicationController
     @renter = Renter.find(renter_id)
     @subunits = @renter.subunits
   end
+
+  def test_pdf_rent_charge
+    @renter = Renter.first
+    @property = @renter.subunits.first.property
+    @rent = @renter.subunits.first.subunit_rents.first
+    @subunit = @rent.subunit
+  end
+
+  def test_pdf_common_expense_charge
+    @renter = Renter.first
+    puts @renter
+    @property = @renter.subunits.first.property
+    puts @property
+    @common_expense_property = @property.common_expense_properties.first
+    puts @common_expense_property
+    @common_expense_subunit = @common_expense_property.common_expense_subunits.first
+    puts @common_expense_subunit.total
+    @subunit = @common_expense_subunit.subunit
+    puts @subunit
+  end
 end
