@@ -437,7 +437,7 @@ select {
     @media only screen and (max-width : 768px) {
       .info-square {
           padding: 6px !important;
-          height: 70vh;
+          height: 40vh;
       }
     }
 
@@ -445,7 +445,10 @@ select {
     @media only screen and (max-width : 480px) {
       .info-square {
           padding: 6px !important;
-          height: 70vh;
+          height: 60vh;
+      }
+      #map-holder {
+        height: 20vh;
       }
     }
 
