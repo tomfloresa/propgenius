@@ -7,11 +7,29 @@
                 <h2 class="text-center"><%= @subunit.address_and_number %></h2>
                 <h3 class="text-center header-nav">Arrendador:
                     <%= @subunit.renter.renter_name_lastname %></h3>
-                    <h3 class="text-center header-nav"><%= "#{@subunit.square_meters} m2" %></h3>
+                <h3 class="text-center header-nav"><%= "#{@subunit.square_meters} m2" %></h3>
                 <h5 class="text-center"><%= link_to "EDITAR SUBUNIDAD", edit_subunit_path(@subunit), class: "btn btn-default action-button chet-button" %></h5>
             </div>
         </div>
     </div>
+    <div class="col-lg-4 col-md-3 info-square">
+        <div class="holder-extern">
+            <div class="holder-intern">
+                <div class="text-center">
+                    <%= inline_svg("document.svg", {class: "chart"}) %>
+                </div>
+                <%= link_to "GASTO COMÚN", outcomes_path, class: "btn btn-default btn-block action-button faded-button" %>
+                <%= link_to "ARRIENDO", new_subunit_rent_path(:subunit_id => @subunit.id), class: "btn btn-default btn-block action-button aquamarine-button" %>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-3 info-square">
+        <div class="holder-extern">
+            <div class="holder-intern"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-squares">
     <div class="col-lg-4 col-md-9 info-square">
         <div class="holder-extern-no-verticality table-div">
             <div class="table-responsive">
@@ -80,13 +98,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid container-squares">
-    <div class="col-lg-12 col-md-12 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
         </div>
     </div>
 </div>

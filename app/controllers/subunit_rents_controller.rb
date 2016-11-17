@@ -15,6 +15,7 @@ class SubunitRentsController < ApplicationController
   # GET /subunit_rents/new
   def new
     @subunit_rent = SubunitRent.new
+    @subunit = Subunit.find(params[:subunit_id])
   end
 
   # GET /subunit_rents/1/edit
@@ -28,7 +29,13 @@ class SubunitRentsController < ApplicationController
 
     respond_to do |format|
       if @subunit_rent.save
-        format.html { redirect_to @subunit_rent, notice: 'Subunit rent was successfully created.' }
+        # create a pdf from a string
+        @pdf_string = render_to_string template: "administrators/pdf_rent_charge", layout: "layouts/pdf.html.erb", encoding: "utf-8"
+
+        # When the rent is saved, send mail to renter
+        CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@subunit_rent.subunit.renter, @subunit_rent, @subunit_rent.subunit.property, @pdf_string)
+
+        format.html { redirect_to subunit_path(@subunit_rent.subunit), notice: 'Subunit rent was successfully created.' }
         format.json { render :show, status: :created, location: @subunit_rent }
       else
         format.html { render :new }
@@ -69,6 +76,6 @@ class SubunitRentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subunit_rent_params
-      params.require(:subunit_rent).permit(:subunit_id, :amoun, :payed)
+      params.require(:subunit_rent).permit(:subunit_id, :amount, :payed, :period)
     end
 end
