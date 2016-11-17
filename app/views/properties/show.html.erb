@@ -7,6 +7,8 @@
                 <h2 class="text-center"><%= "#{@property.address}" %></h2>
                 <h3 class="text-center header-nav">Propietario:
                     <%= @property.owner.owner_name_lastname %></h3>
+                    <!-- <h4 class="text-center"><%= @property.bank.name %></h4>
+                    <h4 class="text-center"><%= @property.bank_account_number %></h4> -->
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
                 <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default btn-block action-button chet-button" %>
             </div>
