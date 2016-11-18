@@ -15,6 +15,7 @@ class CommonExpenseSubunitsController < ApplicationController
   # GET /common_expense_subunits/new
   def new
     @common_expense_subunit = CommonExpenseSubunit.new
+    @subunit = Subunit.find(params[:subunit_id])
   end
 
   # GET /common_expense_subunits/1/edit
@@ -28,6 +29,12 @@ class CommonExpenseSubunitsController < ApplicationController
 
     respond_to do |format|
       if @common_expense_subunit.save
+        # create a pdf from a string
+        @pdf_string = render_to_string template: "administrators/pdf_common_expense_charge.html.erb", layout: "layouts/pdf.html.erb", encoding: "utf-8"
+
+        # When the common expense is saved, send mail to renter
+        GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(s.renter, @pdf_string, @common_expense_property)
+
         format.html { redirect_to @common_expense_subunit, notice: 'Common expense subunit was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_subunit }
       else

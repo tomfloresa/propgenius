@@ -19,7 +19,7 @@
                 <div class="text-center">
                     <%= inline_svg("document.svg", {class: "chart"}) %>
                 </div>
-                <%= link_to "GASTO COMÚN", outcomes_path, class: "btn btn-default btn-block action-button faded-button" %>
+                <%= link_to "GASTO COMÚN", new_common_expense_subunit_path(:subunit_id => @subunit.id), class: "btn btn-default btn-block action-button faded-button" %>
                 <%= link_to "ARRIENDO", new_subunit_rent_path(:subunit_id => @subunit.id), class: "btn btn-default btn-block action-button aquamarine-button" %>
             </div>
         </div>
