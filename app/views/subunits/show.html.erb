@@ -7,6 +7,7 @@
                 <h2 class="text-center"><%= @subunit.address_and_number %></h2>
                 <h3 class="text-center header-nav">Arrendador:
                     <%= @subunit.renter.renter_name_lastname %></h3>
+                    <h4 class="text-center"><%= @subunit.renter.email %></h4>
                 <h3 class="text-center header-nav"><%= "#{@subunit.square_meters} m2" %></h3>
                 <h5 class="text-center"><%= link_to "EDITAR SUBUNIDAD", edit_subunit_path(@subunit), class: "btn btn-default action-button chet-button" %></h5>
             </div>
