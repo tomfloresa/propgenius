@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118185724) do
+ActiveRecord::Schema.define(version: 20161119143805) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 20161118185724) do
     t.float    "water_charge"
     t.float    "gas_charge"
     t.float    "others_charge"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "payed"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.boolean  "payed",                      default: false
     t.float    "salary_payments"
     t.float    "maintenance_payments"
     t.float    "total"
@@ -227,9 +227,9 @@ ActiveRecord::Schema.define(version: 20161118185724) do
   create_table "subunit_rents", force: :cascade do |t|
     t.integer  "subunit_id"
     t.float    "amount"
-    t.boolean  "payed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "payed",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.date     "period"
   end
 

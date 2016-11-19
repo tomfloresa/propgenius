@@ -19,20 +19,36 @@
         <% end %>
         <%= f.hidden_field :subunit_id, :value => @subunit.id %>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :period, "PERIODO", class: "input-header" %><br>
+            <%= f.number_field :period, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :electricity_charge, "ELECTRICIDAD", class: "input-header" %><br>
-            <%= f.text_field :electricity_charge, class: "form-control" %>
+            <%= f.number_field :electricity_charge, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :water_charge, "AGUA", class: "input-header" %><br>
-            <%= f.text_field :water_charge, class: "form-control" %>
+            <%= f.number_field :water_charge, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :gas_charge, "GAS", class: "input-header" %><br>
-            <%= f.text_field :gas_charge, class: "form-control" %>
+            <%= f.number_field :gas_charge, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :maintentance_payments, "MANTENIMIENTO", class: "input-header" %><br>
+            <%= f.number_field :maintentance_payments, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :salary_payments, "SALARIOS", class: "input-header" %><br>
+            <%= f.number_field :salary_payments, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :others_charge, "OTROS", class: "input-header" %><br>
-            <%= f.text_field :others_charge, class: "form-control" %>
+            <%= f.number_field :others_charge, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :total, "TOTAL", class: "input-header" %><br>
+            <%= f.number_field :total, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button" %>

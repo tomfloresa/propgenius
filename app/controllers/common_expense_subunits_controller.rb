@@ -33,7 +33,7 @@ class CommonExpenseSubunitsController < ApplicationController
         @pdf_string = render_to_string template: "administrators/pdf_common_expense_charge.html.erb", layout: "layouts/pdf.html.erb", encoding: "utf-8"
 
         # When the common expense is saved, send mail to renter
-        GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(s.renter, @pdf_string, @common_expense_property)
+        GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@common_expense_subunit.subunit.renter, @pdf_string, @common_expense_subunit.common_expense_property)
 
         format.html { redirect_to @common_expense_subunit, notice: 'Common expense subunit was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_subunit }
@@ -76,6 +76,6 @@ class CommonExpenseSubunitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_subunit_params
-      params.require(:common_expense_subunit).permit(:subunit_id, :electricity_charge, :water_charge, :gas_charge, :others_charge)
+      params.require(:common_expense_subunit).permit(:subunit_id, :electricity_charge, :water_charge, :gas_charge, :others_charge, :period)
     end
 end

@@ -40,6 +40,7 @@
                             <th class="table-header">PERIODO</th>
                             <th class="table-header">MONTO</th>
                             <th class="table-header">PAGADO</th>
+                            <th class="table-header">MORA</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
@@ -52,8 +53,9 @@
                             <td class="table-data payed-rent">SI</td>
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
-                            <% end %>
-                            <% if !s.payed? %>
+                            <td class="table-data"><%= number_to_currency(s.get_overdue_charge, :precision => 0, :delimiter => ".") %></td>
+                        <% end %>
+                        <% if !s.payed? %>
                             <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
                         <% else %>
                             <td class="table-data"><%= link_to "EDITAR", edit_rent_payment_path(s.rent_payment, :subunit_rent_id => s.id) %></td>
