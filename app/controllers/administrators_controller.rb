@@ -69,14 +69,32 @@ class AdministratorsController < ApplicationController
 
   def search_id_for_rent_charge
     id = params[:subunit_rent_identifier][:identifier]
-    subunit_rent = SubunitRent.find(id)
 
-    if subunit_rent.payed?
-      redirect_to rent_payment_path(subunit_rent.rent_payment.id)
+    begin
+      subunit_rent = SubunitRent.find(id)
+    rescue ActiveRecord::RecordNotFound
+      render :template => '/administrators/no_rent_found'
       return
     else
-      redirect_to new_rent_payment_path(:subunit_rent_id => subunit_rent.id)
-      return
+      if subunit_rent.payed?
+        redirect_to rent_payment_path(subunit_rent.rent_payment.id)
+        return
+      else
+        redirect_to new_rent_payment_path(:subunit_rent_id => subunit_rent.id)
+        return
+      end
     end
+
+    # if !subunit_rent
+    #   render :template => 'no_rent_found.js.erb'
+    # end
+
+    # if subunit_rent.payed?
+    #   redirect_to rent_payment_path(subunit_rent.rent_payment.id)
+    #   return
+    # else
+    #   redirect_to new_rent_payment_path(:subunit_rent_id => subunit_rent.id)
+    #   return
+    # end
   end
 end
