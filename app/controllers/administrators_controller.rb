@@ -61,22 +61,22 @@ class AdministratorsController < ApplicationController
 
   def test_pdf_common_expense_charge
     @renter = Renter.first
-    puts @renter
     @property = @renter.subunits.first.property
-    puts @property
     @common_expense_property = @property.common_expense_properties.first
-    puts @common_expense_property
     @common_expense_subunit = @common_expense_property.common_expense_subunits.first
-    puts @common_expense_subunit.total
     @subunit = @common_expense_subunit.subunit
-    puts @subunit
   end
 
-  def search_rent_charge
-    #code
-  end
+  def search_id_for_rent_charge
+    id = params[:subunit_rent_identifier][:identifier]
+    subunit_rent = SubunitRent.find(id)
 
-  def search_common_expense_charge
-    #code
+    if subunit_rent.payed?
+      redirect_to rent_payment_path(subunit_rent.rent_payment.id)
+      return
+    else
+      redirect_to new_rent_payment_path(:subunit_rent_id => subunit_rent.id)
+      return
+    end
   end
 end

@@ -2,10 +2,10 @@
 <div class="sub-nav"></div>
 <div class="container">
   <h1 class="text-center">Ingrese identificador de cobro</h1>
-  <%= form_for :subunit_rent_identifier  do |f| %>
+  <%= form_for :subunit_rent_identifier, :url => {:action => 'search_id_for_rent_charge'}  do |f| %>
     <div class="form-div col-md-6 col-md-offset-3">
-      <%= f.label :amount, "IDENTIFICADOR", class: "input-header" %><br>
-      <%= f.text_field :field, class: "form-control" %>
+      <%= f.label :identifier, "IDENTIFICADOR", class: "input-header" %><br>
+      <%= f.text_field :identifier, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
       <%= f.submit "BUSCAR", class: "btn btn-default btn-block action-button aquamarine-button" %>

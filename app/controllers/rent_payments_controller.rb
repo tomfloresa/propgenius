@@ -14,7 +14,7 @@ class RentPaymentsController < ApplicationController
 
   # GET /rent_payments/new
   def new
-    @subunit_rent = SubunitRent.find(subunit_rent_id = params[:subunit_rent_id])
+    @subunit_rent = SubunitRent.find(params[:subunit_rent_id])
     @rent_payment = RentPayment.new
   end
 
