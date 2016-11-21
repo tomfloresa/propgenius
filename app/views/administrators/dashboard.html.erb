@@ -28,10 +28,30 @@
                     <h5 class="text-center"><%= link_to "cambiar", edit_important_numerical_value_path(@uf) %></h5>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
+              <div>
+              </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-6 info-square">
+        <div class="holder-extern">
+          <div class="holder-inter">
+            <div class="text-center">
+                <%= inline_svg("more-money.svg", {class: "money"}) %>
+            </div>
+            <%= link_to "PAGAR ARRIENDO", search_rent_charge_path, class: "btn btn-default btn-block action-button aquamarine-button" %>
+            <%= link_to "PAGAR GASTO COMÚN", search_common_expense_charge_path, class: "btn btn-default btn-block action-button faded-button" %>
+          </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 info-square">
+        <div class="holder-extern">
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-6 col-md-6 info-square">
         <div class="holder-extern-no-verticality">
             <div class="table-responsive">
                 <table class="table">
@@ -55,7 +75,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6 info-square">
+    <div class="col-lg-6 col-md-6 info-square">
         <div class="holder-extern-no-verticality table-holder">
             <div class="table-responsive">
                 <table class="table">

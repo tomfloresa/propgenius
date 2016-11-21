@@ -71,4 +71,12 @@ class AdministratorsController < ApplicationController
     @subunit = @common_expense_subunit.subunit
     puts @subunit
   end
+
+  def search_rent_charge
+    #code
+  end
+
+  def search_common_expense_charge
+    #code
+  end
 end

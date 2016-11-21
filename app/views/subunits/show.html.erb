@@ -31,13 +31,14 @@
     </div>
 </div>
 <div class="container-fluid container-squares">
-    <div class="col-lg-4 col-md-9 info-square">
+    <div class="col-lg-6 col-md-9 info-square">
         <div class="holder-extern-no-verticality table-div">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th class="table-header">PERIODO</th>
+                            <th class="table-header">#</th>
                             <th class="table-header">MONTO</th>
                             <th class="table-header">PAGADO</th>
                             <th class="table-header">MORA</th>
@@ -48,6 +49,7 @@
                         <% @subunit_rents.each do |s| %>
                         <tr>
                             <td class="table-data"><%= s.period.strftime("%m/%Y") %></td>
+                            <td class="table-data"><%= s.id %></td>
                             <td class="table-data"><%= number_to_currency(s.amount, :precision => 0, :delimiter => ".") %></td>
                             <% if s.payed? %>
                             <td class="table-data payed-rent">SI</td>
@@ -58,6 +60,7 @@
                         <% if !s.payed? %>
                             <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
                         <% else %>
+                            <td class="table-data"><%= number_to_currency(0, :precision => 0, :delimiter => ".") %></td>
                             <td class="table-data"><%= link_to "EDITAR", edit_rent_payment_path(s.rent_payment, :subunit_rent_id => s.id) %></td>
                             <td class="table-data"><%= link_to "DETALLE", rent_payment_path(s.rent_payment) %></td>
                             <% end %>
@@ -68,14 +71,16 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-9 info-square">
+    <div class="col-lg-6 col-md-9 info-square">
         <div class="holder-extern-no-verticality table-div">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th class="table-header">PERIODO</th>
-                            <th class="table-header">MONTO</th>
+                            <th class="table-header">AGUA</th>
+                            <th class="table-header">ELECTRICIDAD</th>
+                            <th class="table-header">TOTAL</th>
                             <th class="table-header">PAGADO</th>
                             <th colspan="2"></th>
                         </tr>
@@ -84,6 +89,8 @@
                         <% @common_expenses.each do |c| %>
                         <tr>
                             <td class="table-data"><%= c.period.strftime("%m/%Y") %></td>
+                            <td class="table-data"><%= number_to_currency(c.water_charge,:precision => 0, :delimiter => ".") %></td>
+                            <td class="table-data"><%= number_to_currency(c.electricity_charge,:precision => 0, :delimiter => ".") %></td>
                             <td class="table-data"><%= number_to_currency(c.total, :precision => 0, :delimiter => ".") %></td>
                             <% if c.payed? %>
                             <td class="table-data payed-rent">SI</td>
