@@ -2,13 +2,13 @@
 <html>
     <head>
         <meta charset='utf-8'/>
+        <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
         <%= javascript_include_tag "https://code.jquery.com/jquery-3.1.1.min.js" %>
-        <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
         <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
         <style media="screen">
             @import url("https://fonts.googleapis.com/css?family=Raleway");
-            @import "https://fonts.googleapis.com/css?family=Oxygen";
-            @import "https://fonts.googleapis.com/css?family=Squada+One";
+            @import url("https://fonts.googleapis.com/css?family=Oxygen");
+            @import url("https://fonts.googleapis.com/css?family=Squada+One");
             html {
                 background-color: #F4F5F6 !important;
             }
@@ -377,6 +377,51 @@
             .payment-methods {
                 font-family: "Oxygen" !important;
                 font-size: 1.4em;
+            }
+
+            .sub-nav {
+                margin-bottom:5px;
+            }
+
+            .container-squares {
+              padding-left: 5px !important;
+              padding-right: 5px !important;
+            }
+
+            .info-square {
+                padding: 6px !important;
+                height: 50vh;
+            }
+
+            .holder-extern {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                background-color: white;
+                border-color: #C0C5CA !important;
+                border-style: solid;
+                border-width: 1px !important;
+                border-radius: 3px !important;
+            }
+
+            .holder-extern-no-verticality {
+                height: 100%;
+                width: 100%;
+                background-color: white;
+                border-color: #C0C5CA !important;
+                border-style: solid;
+                border-width: 1px !important;
+                border-radius: 3px !important;
+            }
+
+            .payed-rent {
+              color: #08FFAE !important;
+            }
+
+            .not-payed-rent {
+              color: #FF6F97 !important;
             }
         </style>
     </head>
