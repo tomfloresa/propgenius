@@ -34,31 +34,33 @@ class CommonExpensePropertiesController < ApplicationController
 
         # For every subunit conforming the property, create a subunit common expense
         subunits.each do |s|
-          ces = CommonExpenseSubunit.new
-          ces.subunit_id = s.id
-          ces.common_expense_property_id = @common_expense_property.id
-          ces.electricity_charge = @common_expense_property.electricity * s.proration_percentage
-          ces.water_charge = @common_expense_property.water * s.proration_percentage
-          ces.gas_charge = @common_expense_property.gas * s.proration_percentage
-          ces.others_charge = @common_expense_property.others * s.proration_percentage
-          ces.salary_payments = @common_expense_property.salary_payments * s.proration_percentage
-          ces.maintenance_payments = @common_expense_property.maintenance_payments * s.proration_percentage
-          ces.period = @common_expense_property.period
-          ces.payed = false
-          ces.total = (@common_expense_property.electricity * s.proration_percentage) +
+          @ces = CommonExpenseSubunit.new
+          @ces.subunit_id = s.id
+          @ces.common_expense_property_id = @common_expense_property.id
+          @ces.electricity_charge = @common_expense_property.electricity * s.proration_percentage
+          @ces.water_charge = @common_expense_property.water * s.proration_percentage
+          @ces.gas_charge = @common_expense_property.gas * s.proration_percentage
+          @ces.others_charge = @common_expense_property.others * s.proration_percentage
+          @ces.salary_payments = @common_expense_property.salary_payments * s.proration_percentage
+          @ces.maintenance_payments = @common_expense_property.maintenance_payments * s.proration_percentage
+          @ces.period = @common_expense_property.period
+          @ces.payed = false
+          @ces.total = (@common_expense_property.electricity * s.proration_percentage) +
                       (@common_expense_property.water * s.proration_percentage) +
                       (@common_expense_property.gas * s.proration_percentage) +
                       (@common_expense_property.others * s.proration_percentage) +
                       (@common_expense_property.salary_payments * s.proration_percentage) +
                       (@common_expense_property.maintenance_payments * s.proration_percentage)
-          ces.save!
+          @ces.save!
+          @renter = s.renter
 
           # create a pdf from a string
           @pdf_string = render_to_string template: "administrators/pdf_common_expense_charge.html.erb", layout: "layouts/pdf.html.erb", encoding: "utf-8"
 
           # When the common expense is saved, send mail to renter
-          GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(s.renter, @pdf_string, @common_expense_property)
+          GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_property, @ces)
         end
+
         format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }
       else
