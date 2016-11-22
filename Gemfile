@@ -30,6 +30,8 @@ gem 'inline_svg'
 gem 'premailer-rails'
 # DelayedJob
 gem 'delayed_job_active_record'
+# Daemon for delayed_jobs
+gem 'daemons', '~> 1.2', '>= 1.2.3'
 # Figaro gem. Store variables securely
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Wicked PDF
