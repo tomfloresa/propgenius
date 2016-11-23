@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119152238) do
+ActiveRecord::Schema.define(version: 20161123020754) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -247,6 +247,8 @@ ActiveRecord::Schema.define(version: 20161119152238) do
     t.integer  "property_id"
     t.float    "proration_percentage"
     t.string   "company"
+    t.integer  "lease_duration"
+    t.date     "lease_end_date"
   end
 
 end
