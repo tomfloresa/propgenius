@@ -1,4 +1,6 @@
 class Subunit < ActiveRecord::Base
+  before_create :set_lease_end_date
+
   belongs_to :owner
   belongs_to :renter
   belongs_to :property
@@ -10,5 +12,9 @@ class Subunit < ActiveRecord::Base
 
   def address_and_number
     "#{self.property.address}, Nº#{self.number}"
+  end
+
+  def set_lease_end_date
+    self.lease_end_date = self.lease_startdate + self.lease_duration.months
   end
 end
