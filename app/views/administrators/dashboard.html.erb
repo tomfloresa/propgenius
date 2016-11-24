@@ -58,7 +58,7 @@
                     <tbody>
                         <% @subunits_end_lease.each do |s| %>
                         <tr>
-                          <td class="table-data"><%= s.address_and_number %></td>
+                          <td class="table-data"><%= link_to "#{s.address_and_number}", subunit_path(s) %></td>
                           <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
                           <td class="table-data"><%= s.renter.renter_name_lastname %></td>
                         </tr>
@@ -120,7 +120,7 @@
     </div>
 </div>
 <div class="container-fluid container-squares">
-    <div class="col-lg-6 col-md-6 info-square">
+    <div class="col-lg-3 col-md-6 info-square">
         <div class="holder-extern">
             <div class="chart-holder">
                 <canvas id="property-types-chart"></canvas>
@@ -132,6 +132,13 @@
             <div class="holder-intern"></div>
         </div>
     </div>
+    <div class="col-lg-3 col-md-6 info-square">
+        <div class="holder-extern">
+            <div class="chart-holder">
+                <canvas id="property-types-chart"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -139,7 +146,7 @@
         var ctx = document.getElementById("property-types-chart");
         if (ctx) {
             var myChart = new Chart(ctx, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: [
                         "Red",
