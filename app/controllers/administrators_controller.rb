@@ -5,6 +5,9 @@ class AdministratorsController < ApplicationController
     @owners = Owner.all
     @renters = Renter.all
     @uf = ImportantNumericalValue.find(1)
+
+    ## Get all subunits due to end lease within next three months
+    @subunits_end_lease = Subunit.where('lease_end_date < ?', 3.month.from_now).order(lease_end_date: :asc)
   end
 
   def new_subunit_for_property
