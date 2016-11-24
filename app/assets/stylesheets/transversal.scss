@@ -385,15 +385,15 @@ select {
 // PDF
 
 #pdf_header {
-  height: auto !important;
+  height: 120px !important;
 }
 
 #pdf_body {
-  height: 200 !important;
+  height: 360px !important;
 }
 
 .header-info-pdf {
-  color: $faded !important;
+  color: $brussian !important;
 }
 
 #money-figure {
@@ -413,6 +413,25 @@ select {
 
 .payment-methods {
   font-family: $second-font !important;
+  font-size: 1.4em;
+}
+
+.table-header-pdf {
+    color: $malibu;
+    font-family: $main-font;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.table-data-pdf {
+    color: $brussian;
+    font-family: $second-font;
+    font-size: 1.2em;
+}
+
+.total-pdf {
+  color: $malibu;
+  font-family: $second-font;
   font-size: 1.4em;
 }
 

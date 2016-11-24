@@ -61,7 +61,7 @@ class CommonExpensePropertiesController < ApplicationController
           GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_property, @ces)
         end
 
-        format.html { redirect_to @common_expense_property, notice: 'Common expense property was successfully created.' }
+        format.html { redirect_to property_path(@common_expense_property.property.id), notice: 'Common expense property was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_property }
       else
         format.html { render :new }
