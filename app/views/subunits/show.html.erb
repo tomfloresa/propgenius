@@ -7,9 +7,9 @@
                 <h2 class="text-center"><%= @subunit.address_and_number %></h2>
                 <h3 class="text-center header-nav">Arrendador:
                     <%= @subunit.renter.renter_name_lastname %></h3>
-                    <!-- <h4 class="text-center"><%= @subunit.renter.email %></h4> -->
-                <h3 class="text-center header-nav"><%= "#{@subunit.square_meters} m2" %></h3>
                 <h4 class="text-center alert-header"><%= "Hasta #{@subunit.lease_end_date.strftime("%d/%m/%Y")}" %></h4>
+                <!-- <h4 class="text-center"><%= @subunit.renter.email %></h4> -->
+                <h3 class="text-center header-nav"><%= "#{@subunit.square_meters} m2" %></h3>
                 <h5 class="text-center"><%= link_to "EDITAR SUBUNIDAD", edit_subunit_path(@subunit), class: "btn btn-default action-button chet-button" %></h5>
             </div>
         </div>
@@ -57,8 +57,8 @@
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
                             <td class="table-data"><%= number_to_currency(s.get_overdue_charge, :precision => 0, :delimiter => ".") %></td>
-                        <% end %>
-                        <% if !s.payed? %>
+                            <% end %>
+                            <% if !s.payed? %>
                             <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
                         <% else %>
                             <td class="table-data"><%= number_to_currency(0, :precision => 0, :delimiter => ".") %></td>
