@@ -10,16 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :name, "NAME", class: "input-header" %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :value, "VALOR", class: "input-header" %><br>
+        <%= f.text_field :value, class: "form-control" %>
+      </div>
+      <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.submit nil, class: "btn btn-default btn-block action-button aquamarine-button" %>
+      </div>
+    </div>
   </div>
 <% end %>

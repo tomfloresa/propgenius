@@ -56,7 +56,8 @@
                         <tr>
                             <th class="table-header">Nº</th>
                             <th class="table-header">ARRENDADOR</th>
-                            <th class="table-header">% PRORRATEO</th>
+                            <th class="table-header">%</th>
+                            <th class="table-header">FIN</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +66,7 @@
                             <td class="table-data"><%= link_to "#{s.number}", subunit_path(s) %></td>
                             <td class="table-data"><%= link_to "#{s.renter.renter_name_lastname}", renter_profile_path(:renter_id => s.renter.id) %></td>
                             <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
+                            <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
                         </tr>
                         <% end %>
                     </tbody>
