@@ -1,34 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Renter:</strong>
-  <%= @rent_payment.renter_id %>
-</p>
-
-<p>
-  <strong>Subunit:</strong>
-  <%= @rent_payment.subunit_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @rent_payment.amount %>
-</p>
-
-<p>
-  <strong>Payment method:</strong>
-  <%= @rent_payment.payment_method_id %>
-</p>
-
-<p>
-  <strong>Subunit rent:</strong>
-  <%= @rent_payment.subunit_rent_id %>
-</p>
-
-<p>
-  <strong>Receipt number:</strong>
-  <%= @rent_payment.receipt_number %>
-</p>
-
-<%= link_to 'Edit', edit_rent_payment_path(@rent_payment) %> |
-<%= link_to 'Back', rent_payments_path %>
+<%= render('transversals/navbar_admin') %>
+<div class="sub-nav"></div>
+<h1 class="text-center">Detalle de Pago</h1>
+<h3 class="text-center"><%= @rent_payment.subunit.address_and_number %></h3>
+<h3 class="text-center">Periodo: <%= @rent_payment.subunit_rent.period.strftime("%m/%Y") %></h3>
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+        <ul>
+            <li class="list-item"><span class="li-title">Arrendador</span>:
+                <%= @rent_payment.renter.renter_name_lastname %></li>
+            <li class="list-item"><span class="li-title">Monto pagado</span>:
+                <%= number_to_currency(@rent_payment.amount, :precision => 0, :delimiter => ".") %></li>
+            <li class="list-item"><span class="li-title">Fecha pago</span>:
+                <%= @rent_payment.payment_date.strftime("%d/%m/%Y") %></li>
+            <li class="list-item"><span class="li-title">Forma pago</span>:
+                <%= @rent_payment.payment_method.name %></li>
+            <li class="list-item"><span class="li-title">Nº de recibo</span>:
+                <%= @rent_payment.receipt_number %></li>
+        </ul>
+    </div>
+</div>

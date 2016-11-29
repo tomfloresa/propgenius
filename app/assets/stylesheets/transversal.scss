@@ -42,18 +42,29 @@ h6 {
     color: $malibu !important;
 }
 
+.list-item {
+  font-family: $main-font !important;
+  font-size: 1.8em !important;
+  line-height: 2em;
+}
+
+.li-title {
+  font-family: $main-font;
+  color: $malibu;
+}
+
 .header-nav {
     color: $brussian !important;
     font-family: $second-font !important;
 }
 
 .alert-header {
-  color: $crimson !important;
-  font-family: $second-font !important;
+    color: $crimson !important;
+    font-family: $second-font !important;
 }
 
 .icon-bar {
-  background-color: $malibu !important;
+    background-color: $malibu !important;
 }
 
 p {
@@ -94,12 +105,14 @@ select {
 }
 
 .navbar-default .navbar-toggle {
-  border-color: transparent !important;
+    border-color: transparent !important;
 }
 
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-  background-color: transparent !important;
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent !important;
 }
+
 .li-navbar {
     font-family: $main-font !important;
     font-size: 1.2em;
@@ -192,23 +205,23 @@ select {
 }
 
 .chart {
-  fill: $malibu !important;
+    fill: $malibu !important;
 }
 
 .water {
-  fill: #4580DE !important;
+    fill: #4580DE !important;
 }
 
 .gas {
-  fill: #FD9596 !important;
+    fill: #FD9596 !important;
 }
 
 .others {
-  fill: #161743 !important;
+    fill: #161743 !important;
 }
 
 .category-header {
-  color: $submarine !important;
+    color: $submarine !important;
 }
 
 .btn-go {
@@ -313,11 +326,13 @@ select {
     align-items: center;
 }
 
-.table-div, .holder-categories {
+.holder-categories,
+.table-div {
     overflow: auto;
 }
 
-.table-div::-webkit-scrollbar, .holder-categories::-webkit-scrollbar {
+.holder-categories::-webkit-scrollbar,
+.table-div::-webkit-scrollbar {
     width: 12px;
 }
 
@@ -342,6 +357,10 @@ select {
     color: $regent;
     font-family: $second-font;
     font-size: 1.2em;
+}
+
+.alert-data {
+  color: $crimson !important;
 }
 
 .table > tbody > tr > td,
@@ -371,9 +390,10 @@ select {
 .half-square {
     height: 50%;
 }
+
 .map-square {
-  height: 20px !important;
-  width: 20px !important;
+    height: 20px !important;
+    width: 20px !important;
 }
 // CHARTS
 
@@ -384,39 +404,38 @@ select {
     height: 96%;
     width: 96%;
 }
-
 // PDF
-
 #pdf_header {
-  height: 120px !important;
+    height: 120px !important;
 }
 
 #pdf_body {
-  height: 360px !important;
+    height: 360px !important;
 }
 
 .header-info-pdf {
-  color: $brussian !important;
+    color: $brussian !important;
 }
 
 #money-figure {
-  color: $brussian !important;
-  font-family: $second-font !important;
+    color: $brussian !important;
+    font-family: $second-font !important;
 }
 
 #notice-this {
-  color: $crimson !important;
-  text-transform: uppercase;
-  font-family: $second-font !important;
+    color: $crimson !important;
+    text-transform: uppercase;
+    font-family: $second-font !important;
 }
+
 .info-pdf {
-  font-family: $second-font !important;
-  color: $submarine !important;
+    font-family: $second-font !important;
+    color: $submarine !important;
 }
 
 .payment-methods {
-  font-family: $second-font !important;
-  font-size: 1.4em;
+    font-family: $second-font !important;
+    font-size: 1.4em;
 }
 
 .table-header-pdf {
@@ -433,55 +452,47 @@ select {
 }
 
 .total-pdf {
-  color: $malibu;
-  font-family: $second-font;
-  font-size: 1.4em;
+    color: $malibu;
+    font-family: $second-font;
+    font-size: 1.4em;
 }
-
 @media screen and (max-width: 767px) {
     .table-responsive {
         border: transparent !important;
     }
 }
-
 /*==========  Non-Mobile First Method  ==========*/
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (max-width : 1200px) {
-
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .info-square {
+        padding: 6px !important;
+        height: 60vh;
+    }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .info-square {
+        padding: 6px !important;
+        height: 40vh;
+    }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    .info-square {
+        padding: 6px !important;
+        height: 60vh;
     }
 
-    /* Medium Devices, Desktops */
-    @media only screen and (max-width : 992px) {
-      .info-square {
-          padding: 6px !important;
-          height: 60vh;
-      }
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (max-width : 768px) {
-      .info-square {
-          padding: 6px !important;
-          height: 40vh;
-      }
-    }
-
-    /* Extra Small Devices, Phones */
-    @media only screen and (max-width : 480px) {
-      .info-square {
-          padding: 6px !important;
-          height: 60vh;
-      }
-      #map-holder {
+    #map-holder {
         height: 20vh;
-      }
     }
-
-    /* Custom, iPhone Retina */
-    @media only screen and (max-width : 320px) {
-      .info-square {
-          padding: 6px !important;
-          height: 70vh;
-      }
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    .info-square {
+        padding: 6px !important;
+        height: 70vh;
     }
+}

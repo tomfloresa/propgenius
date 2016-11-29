@@ -1,5 +1,29 @@
-<h1>New Property Type</h1>
+<%= render('transversals/navbar_admin') %>
+<div class="sub-nav"></div>
 
-<%= render 'form' %>
+<h1 class="text-center">Nuevo tipo de propiedad</h1>
 
-<%= link_to 'Back', property_types_path %>
+<div class="container">
+  <div class="col-lg-8 col-lg-offset-2">
+    <%= form_for(@property_type) do |f| %>
+      <% if @property_type.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@property_type.errors.count, "error") %> prohibited this property_type from being saved:</h2>
+          <ul>
+          <% @property_type.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :description, "DESCRIPCIÓN", class: "input-header" %><br>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "CREAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

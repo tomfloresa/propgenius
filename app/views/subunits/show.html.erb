@@ -50,7 +50,7 @@
                         <% @subunit_rents.each do |s| %>
                         <tr>
                             <td class="table-data"><%= s.period.strftime("%m/%Y") %></td>
-                            <td class="table-data"><%= s.id %></td>
+                            <td class="table-data"><%= link_to s.id, subunit_rent_path(s.id) %></td>
                             <td class="table-data"><%= number_to_currency(s.amount, :precision => 0, :delimiter => ".") %></td>
                             <% if s.payed? %>
                             <td class="table-data payed-rent">SI</td>

@@ -36,6 +36,8 @@ gem 'daemons', '~> 1.2', '>= 1.2.3'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Wicked PDF
 gem 'wicked_pdf'
+# Simple Calendar
+gem "simple_calendar", "~> 2.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -40,7 +40,7 @@
                     <%= inline_svg("more-money.svg", {class: "money"}) %>
                 </div>
                 <%= link_to "PAGAR ARRIENDO", search_rent_charge_path, class: "btn btn-default btn-block action-button aquamarine-button" %>
-                <%= link_to "PAGAR GASTO COMÚN", search_common_expense_charge_path, class: "btn btn-default btn-block action-button faded-button" %>
+                <%= link_to "PAGAR GASTO COMÚN", search_common_expense_subunit_path, class: "btn btn-default btn-block action-button faded-button" %>
             </div>
         </div>
     </div>
@@ -59,9 +59,13 @@
                     <tbody>
                         <% @subunits_end_lease.each do |s| %>
                         <tr>
-                          <td class="table-data"><%= link_to "#{s.address_and_number}", subunit_path(s) %></td>
-                          <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
-                          <td class="table-data"><%= s.renter.renter_name_lastname %></td>
+                            <td class="table-data"><%= link_to "#{s.address_and_number}", subunit_path(s) %></td>
+                            <% if s.lease_end_date - Date.today <= 30 %>
+                              <td class="table-data alert-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
+                            <% else %>
+                              <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
+                            <% end %>
+                            <td class="table-data"><%= s.renter.renter_name_lastname %></td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -69,11 +73,11 @@
             </div>
         </div>
     </div>
-    <% else %>
+<% else %>
     <div class="col-lg-4 col-md-6 info-square">
         <div class="holder-extern">
             <div class="holder-inter">
-              <h3 class="text-center">No hay subunidades que reajusten pronto.</h3>
+                <h3 class="text-center">No hay subunidades que reajusten pronto.</h3>
             </div>
         </div>
     </div>
@@ -138,8 +142,7 @@
         </div>
     </div>
     <div class="col-lg-6 col-md-6 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
+        <div class="holder-extern-no-verticality">
         </div>
     </div>
     <div class="col-lg-3 col-md-6 info-square">

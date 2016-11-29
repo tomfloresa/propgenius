@@ -87,17 +87,24 @@ class AdministratorsController < ApplicationController
         return
       end
     end
+  end
 
-    # if !subunit_rent
-    #   render :template => 'no_rent_found.js.erb'
-    # end
+  def search_id_for_common_expense_subunit
+    id = params[:common_expense_subunit_identifier][:identifier]
 
-    # if subunit_rent.payed?
-    #   redirect_to rent_payment_path(subunit_rent.rent_payment.id)
-    #   return
-    # else
-    #   redirect_to new_rent_payment_path(:subunit_rent_id => subunit_rent.id)
-    #   return
-    # end
+    begin
+      common_expense_subunit = CommonExpenseSubunit.find(id)
+    rescue ActiveRecord::RecordNotFound
+      render :template => '/administrators/no_rent_found'
+      return
+    else
+      if common_expense_subunit.payed?
+        redirect_to common_expense_payment_path(common_expense_subunit.rent_payment.id)
+        return
+      else
+        redirect_to new_common_expense_payment_path(:common_expense_subunit_id => common_expense_subunit.id)
+        return
+      end
+    end
   end
 end
