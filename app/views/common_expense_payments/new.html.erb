@@ -1,5 +1,7 @@
 <%= render("transversals/navbar_admin") %>
 <h1 class="text-center">Registro de Pago</h1>
+<h3 class="text-center">Gasto Común <%= @common_expense_subunit.subunit.address_and_number %></h3>
+<h3 class="text-center">Periodo: <%= @common_expense_subunit.period.strftime("%m/%Y") %></h3>
 
 <div class="container">
   <%= form_for(@common_expense_payment) do |f| %>

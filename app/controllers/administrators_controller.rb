@@ -7,7 +7,7 @@ class AdministratorsController < ApplicationController
     @uf = ImportantNumericalValue.find(1)
 
     ## Get all subunits due to end lease within next three months
-    @subunits_end_lease = Subunit.where('lease_end_date < ?', 3.month.from_now).order(lease_end_date: :asc)
+    @subunits_end_lease = Subunit.where('readjustment_date < ?', 3.month.from_now).order(readjustment_date: :asc)
   end
 
   def new_subunit_for_property
@@ -99,7 +99,7 @@ class AdministratorsController < ApplicationController
       return
     else
       if common_expense_subunit.payed?
-        redirect_to common_expense_payment_path(common_expense_subunit.rent_payment.id)
+        redirect_to common_expense_payment_path(common_expense_subunit.common_expense_payment.id)
         return
       else
         redirect_to new_common_expense_payment_path(:common_expense_subunit_id => common_expense_subunit.id)

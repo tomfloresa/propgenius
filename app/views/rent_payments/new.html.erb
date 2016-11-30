@@ -1,6 +1,8 @@
 <%= render("transversals/navbar_admin") %>
+<div class="sub-nav"></div>
 <h1 class="text-center">Registro de Pago</h1>
-<h3 class="text-center"><%= @subunit_rent.subunit.address_and_number %></h3>
+<h3 class="text-center">Arriendo <%= @subunit_rent.subunit.address_and_number %></h3>
+<h3 class="text-center">Periodo: <%= @subunit_rent.period.strftime("%m/%Y") %></h3>
 
 <div class="container">
     <%= form_for(@rent_payment) do |f| %>

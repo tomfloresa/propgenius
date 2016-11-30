@@ -72,6 +72,6 @@ class SubunitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subunit_params
-      params.require(:subunit).permit(:square_meters, :property_type_id, :renter_id, :rent_value, :number, :lease_startdate, :owner_id, :property_id, :proration_percentage, :lease_duration, :lease_end_date)
+      params.require(:subunit).permit(:square_meters, :property_type_id, :renter_id, :rent_value, :number, :lease_startdate, :owner_id, :property_id, :proration_percentage, :lease_duration, :lease_end_date, :readjustment_percentage, :readjustment_months_period)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123020754) do
+ActiveRecord::Schema.define(version: 20161130005616) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -242,13 +242,16 @@ ActiveRecord::Schema.define(version: 20161123020754) do
     t.integer  "number"
     t.date     "lease_startdate"
     t.integer  "owner_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "property_id"
     t.float    "proration_percentage"
     t.string   "company"
     t.integer  "lease_duration"
     t.date     "lease_end_date"
+    t.float    "readjustment_percentage"
+    t.integer  "readjustment_months_period"
+    t.date     "readjustment_date"
   end
 
 end

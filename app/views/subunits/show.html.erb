@@ -102,7 +102,7 @@
                             <td class="table-data"><%= link_to "PAGAR", new_common_expense_payment_path(:common_expense_subunit_id => c.id) %></td>
                         <% else %>
                             <td class="table-data"><%= link_to "EDITAR", edit_common_expense_payment_path(c.common_expense_payment, :common_expense_subunit_id => c.id) %></td>
-                            <td class="table-data"><%= link_to "DETALLE", nil %></td>
+                            <td class="table-data"><%= link_to "DETALLE", common_expense_payment_path(c.id) %></td>
                             <% end %>
                         </tr>
                         <% end %>

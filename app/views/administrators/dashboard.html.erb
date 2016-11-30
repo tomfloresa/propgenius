@@ -52,7 +52,7 @@
                     <thead>
                         <tr>
                             <th class="table-header">SUBUNIDAD</th>
-                            <th class="table-header">FECHA</th>
+                            <th class="table-header">REAJUSTE</th>
                             <th class="table-header">ARRENDADOR</th>
                         </tr>
                     </thead>
@@ -63,7 +63,7 @@
                             <% if s.lease_end_date - Date.today <= 30 %>
                               <td class="table-data alert-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
                             <% else %>
-                              <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
+                              <td class="table-data"><%= s.readjustment_date.strftime("%d/%m/%Y") %></td>
                             <% end %>
                             <td class="table-data"><%= s.renter.renter_name_lastname %></td>
                         </tr>

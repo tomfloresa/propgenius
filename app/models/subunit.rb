@@ -1,5 +1,6 @@
 class Subunit < ActiveRecord::Base
   before_create :set_lease_end_date
+  before_create :set_readjustment_date
 
   belongs_to :owner
   belongs_to :renter
@@ -16,5 +17,9 @@ class Subunit < ActiveRecord::Base
 
   def set_lease_end_date
     self.lease_end_date = self.lease_startdate + self.lease_duration.months
+  end
+
+  def set_readjustment_date
+    self.readjustment_date = self.lease_startdate + self.readjustment_months_period.months
   end
 end
