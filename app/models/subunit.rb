@@ -22,4 +22,12 @@ class Subunit < ActiveRecord::Base
   def set_readjustment_date
     self.readjustment_date = self.lease_startdate + self.readjustment_months_period.months
   end
+
+  def payments_status_ok
+    if self.subunit_rents.where(payed: false).count >= 1
+      return false
+    else
+      return true
+    end
+  end
 end
