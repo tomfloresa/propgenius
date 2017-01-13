@@ -18,10 +18,17 @@
                     <%= label_tag("SUBUNIDAD", nil, {class: "input-header"}) %><br>
                     <%= number_field_tag("subunit_rents[][subunit_id]", s.id, {class: "form-control"}) %>
                 </div>
+                <% if s.charge_iva? %>
+                <div class="form-div">
+                    <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                    <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * 1.19, precision: 0), {class: "form-control"}) %>
+                </div>
+                <% else %>
                 <div class="form-div">
                     <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
                     <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
                 </div>
+                <% end %>
                 <div class="form-div">
                     <button class="btn btn-default btn-block action-button crimson-button prevent-charge-to-subunit" type="button" div-id="<%= s.id %>">NO GENERAR ARRIENDO</button>
                 </div>

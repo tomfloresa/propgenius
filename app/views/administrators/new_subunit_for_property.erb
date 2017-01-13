@@ -47,6 +47,10 @@
             <%= f.text_field :rent_value, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :charge_iva, "COBRO IVA", class: "input-header" %><br>
+            <%= f.check_box :charge_iva, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :proration_percentage, "% PRORRATEO", class: "input-header" %><br>
             <%= f.number_field :proration_percentage, class: "form-control" %>
         </div>
