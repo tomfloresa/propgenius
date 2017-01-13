@@ -20,7 +20,11 @@
                 </div>
                 <% if s.charge_iva? %>
                 <div class="form-div">
-                    <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                    <% if s.charge_iva? %>
+                      <%= label_tag("MONTO (IVA INCLUIDO)", nil, {class: "input-header"}) %><br>
+                    <% else %>
+                      <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                    <% end %>
                     <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * 1.19, precision: 0), {class: "form-control"}) %>
                 </div>
                 <% else %>
