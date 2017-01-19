@@ -52,17 +52,21 @@
                             <td class="table-data"><%= s.period.strftime("%m/%Y") %></td>
                             <td class="table-data"><%= link_to s.id, subunit_rent_path(s.id) %></td>
                             <td class="table-data"><%= number_to_currency(s.amount, :precision => 0, :delimiter => ".") %></td>
-                            <% if s.payed? %>
+                        <% if s.payed? %>
                             <td class="table-data payed-rent">SI</td>
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
                             <td class="table-data"><%= number_to_currency(s.get_overdue_charge, :precision => 0, :delimiter => ".") %></td>
-                            <% end %>
-                            <% if !s.payed? %>
+                        <% end %>
+                        <% if !s.payed? %>
+                            <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
+                            <% end %>
                         <% else %>
                             <td class="table-data"><%= number_to_currency(0, :precision => 0, :delimiter => ".") %></td>
+                            <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to "EDITAR", edit_rent_payment_path(s.rent_payment, :subunit_rent_id => s.id) %></td>
+                            <% end %>
                             <td class="table-data"><%= link_to "DETALLE", rent_payment_path(s.rent_payment) %></td>
                             <% end %>
                         </tr>
@@ -99,9 +103,13 @@
                             <td class="table-data not-payed-rent">NO</td>
                             <% end %>
                             <% if !c.payed? %>
-                            <td class="table-data"><%= link_to "PAGAR", new_common_expense_payment_path(:common_expense_subunit_id => c.id) %></td>
+                            <% if administrator_signed_in? %>
+                              <td class="table-data"><%= link_to "PAGAR", new_common_expense_payment_path(:common_expense_subunit_id => c.id) %></td>
+                            <% end %>
                         <% else %>
+                            <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to "EDITAR", edit_common_expense_payment_path(c.common_expense_payment, :common_expense_subunit_id => c.id) %></td>
+                            <% end %>
                             <td class="table-data"><%= link_to "DETALLE", common_expense_payment_path(c.id) %></td>
                             <% end %>
                         </tr>
