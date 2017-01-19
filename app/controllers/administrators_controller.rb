@@ -23,6 +23,8 @@ class AdministratorsController < ApplicationController
   def rent_for_subunits
     @property = Property.find(params[:property_id])
     @subunits = @property.subunits.order(number: :asc)
+    # Get UF value in case needed
+    @uf = ImportantNumericalValue.find(1).value
   end
 
   def create_rent_for_subunits

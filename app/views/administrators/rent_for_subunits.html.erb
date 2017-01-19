@@ -18,21 +18,31 @@
                     <%= label_tag("SUBUNIDAD", nil, {class: "input-header"}) %><br>
                     <%= number_field_tag("subunit_rents[][subunit_id]", s.id, {class: "form-control"}) %>
                 </div>
-                <% if s.charge_iva? %>
-                <div class="form-div">
-                    <% if s.charge_iva? %>
+            <% if s.charge_iva? %>
+                <% if s.charge_uf? %>
+                  <div class="form-div">
                       <%= label_tag("MONTO (IVA INCLUIDO)", nil, {class: "input-header"}) %><br>
-                    <% else %>
-                      <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
-                    <% end %>
-                    <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * 1.19, precision: 0), {class: "form-control"}) %>
-                </div>
+                      <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * 1.19 * @uf, precision: 0), {class: "form-control"}) %>
+                  </div>
                 <% else %>
-                <div class="form-div">
-                    <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
-                    <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
-                </div>
+                  <div class="form-div">
+                      <%= label_tag("MONTO (IVA INCLUIDO)", nil, {class: "input-header"}) %><br>
+                      <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * 1.19, precision: 0), {class: "form-control"}) %>
+                  </div>
                 <% end %>
+            <% else %>
+                <% if s.charge_uf? %>
+                  <div class="form-div">
+                      <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                      <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value * @uf, precision: 0), {class: "form-control"}) %>
+                  </div>
+              <% else %>
+                  <div class="form-div">
+                      <%= label_tag("MONTO", nil, {class: "input-header"}) %><br>
+                      <%= text_field_tag("subunit_rents[][amount]", number_with_precision(s.rent_value, precision: 0), {class: "form-control"}) %>
+                  </div>
+              <% end %>
+            <% end %>
                 <div class="form-div">
                     <button class="btn btn-default btn-block action-button crimson-button prevent-charge-to-subunit" type="button" div-id="<%= s.id %>">NO GENERAR ARRIENDO</button>
                 </div>

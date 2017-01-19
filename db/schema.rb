@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112225059) do
+ActiveRecord::Schema.define(version: 20170119024554) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -253,6 +253,7 @@ ActiveRecord::Schema.define(version: 20170112225059) do
     t.integer  "readjustment_months_period"
     t.date     "readjustment_date"
     t.boolean  "charge_iva"
+    t.boolean  "charge_uf"
   end
 
 end
