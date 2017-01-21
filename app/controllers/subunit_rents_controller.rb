@@ -16,6 +16,7 @@ class SubunitRentsController < ApplicationController
   def new
     @subunit_rent = SubunitRent.new
     @subunit = Subunit.find(params[:subunit_id])
+    @uf = ImportantNumericalValue.find(1).value
   end
 
   # GET /subunit_rents/1/edit

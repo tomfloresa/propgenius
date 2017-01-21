@@ -4,7 +4,7 @@
 <h3 class="text-center"><%= @subunit.address_and_number %></h3>
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2">
-      <%= form_for(@subunit_rent) do |f| %>
+        <%= form_for(@subunit_rent) do |f| %>
         <% if @subunit_rent.errors.any? %>
         <div id="error_explanation">
             <h2><%= pluralize(@subunit_rent.errors.count, "error") %>
@@ -22,21 +22,31 @@
             <%= f.label :period, "PERIODO", class: "input-header" %><br>
             <%= f.date_select :period, class: "form-control" %>
         </div>
-        <% if @subunit.charge_iva? %>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <% if @subunit.charge_iva? %>
-                  <%= f.label :amount, "MONTO (IVA INCLUIDO)", class: "input-header" %><br>
-                <% else %>
-                  <%= f.label :amount, "MONTO", class: "input-header" %><br>
-                <% end %>
-                <%= f.text_field :amount, :value => @subunit.rent_value * 1.19, class: "form-control" %>
-            </div>
-        <% else %>
-            <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-                <%= f.label :amount, "MONTO", class: "input-header" %><br>
-                <%= f.text_field :amount, :value => @subunit.rent_value, class: "form-control" %>
-            </div>
+    <% if @subunit.charge_iva? %>
+        <% if @subunit.charge_uf? %>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :amount, "MONTO (IVA INCLUIDO)", class: "input-header" %><br>
+            <%= f.text_field :amount, :value => @subunit.rent_value * 1.19 * @uf, class: "form-control" %>
+        </div>
+    <% else %>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :amount, "MONTO (IVA INCLUIDO)", class: "input-header" %><br>
+            <%= f.text_field :amount, :value => @subunit.rent_value * 1.19, class: "form-control" %>
+        </div>
         <% end %>
+    <% else %>
+      <% if @subunit.charge_uf? %>
+      <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+          <%= f.label :amount, "MONTO", class: "input-header" %><br>
+          <%= f.text_field :amount, :value => @subunit.rent_value * @uf, class: "form-control" %>
+      </div>
+      <% else %>
+      <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+          <%= f.label :amount, "MONTO", class: "input-header" %><br>
+          <%= f.text_field :amount, :value => @subunit.rent_value, class: "form-control" %>
+      </div>
+      <% end %>
+    <% end %>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.submit "CREAR ARRIENDO", class: "btn btn-default btn-block action-button aquamarine-button" %>
         </div>
