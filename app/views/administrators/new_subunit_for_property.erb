@@ -42,17 +42,17 @@
             <%= f.label :proration_percentage, "% PRORRATEO", class: "input-header" %><br>
             <%= f.number_field :proration_percentage, class: "form-control" %>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-            <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
-            <%= f.text_field :rent_value, class: "form-control" %>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+        <div class="col-lg-6 col-md-6 col-sm-12 div-for-input">
             <%= f.label :charge_iva, "COBRO IVA", class: "input-header" %><br>
-            <%= f.check_box :charge_iva, class: "form-control" %>
+            <%= f.check_box :charge_iva %>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 div-for-input">
+            <%= f.label :charge_uf, "COBRO UF", class: "input-header" %><br>
+            <%= f.check_box :charge_uf %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-            <%= f.label :proration_percentage, "% PRORRATEO", class: "input-header" %><br>
-            <%= f.number_field :proration_percentage, class: "form-control" %>
+            <%= f.label :rent_value, "VALOR ARRIENDO (EN UF O PESO SEGÚN CORRESPONDA)", class: "input-header" %><br>
+            <%= f.text_field :rent_value, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :lease_startdate, "INICIO ARRIENDO", class: "input-header" %><br>
