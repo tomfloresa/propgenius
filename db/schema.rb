@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119024554) do
+ActiveRecord::Schema.define(version: 20170125002937) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 20170119024554) do
     t.float    "total"
     t.date     "period"
     t.integer  "common_expense_property_id"
+    t.string   "receipt_file_name"
+    t.string   "receipt_content_type"
+    t.integer  "receipt_file_size"
+    t.datetime "receipt_updated_at"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

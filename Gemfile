@@ -38,6 +38,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'wicked_pdf'
 # Simple Calendar
 gem "simple_calendar", "~> 2.0"
+# Paperclip
+gem "paperclip", "~> 5.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
