@@ -44,7 +44,7 @@ class CommonExpenseSubunitsController < ApplicationController
         @ces_id = @common_expense_subunit.id
         CreateCommonExpenseSubunitReceiptJob.set(wait: 5.seconds).perform_later(@ces_id, @pdf_string)
 
-        format.html { redirect_to @common_expense_subunit, notice: 'Common expense subunit was successfully created.' }
+        format.html { redirect_to subunit_path(@common_expense_subunit.subunit), notice: 'Common expense subunit was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_subunit }
       else
         format.html { render :new }
