@@ -36,6 +36,10 @@ class SubunitRentsController < ApplicationController
         # When the rent is saved, send mail to renter
         CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@subunit_rent.subunit.renter, @subunit_rent, @subunit_rent.subunit.property, @pdf_string)
 
+        # Save the receipt to the system
+        @subunit_rent_id = @subunit_rent.id
+        CreateSubunitChargeReceiptJob.set(wait: 5.seconds).perform_later(@subunit_rent_id, @pdf_string)
+
         format.html { redirect_to subunit_path(@subunit_rent.subunit), notice: 'Subunit rent was successfully created.' }
         format.json { render :show, status: :created, location: @subunit_rent }
       else

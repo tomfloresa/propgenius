@@ -2,6 +2,9 @@ class SubunitRent < ActiveRecord::Base
   has_one :rent_payment
   belongs_to :subunit
 
+  has_attached_file :receipt
+  validates_attachment_content_type :receipt, content_type: ['application/pdf']
+
   def get_overdue_charge
     ## Get the month of charge
     period_month = self.period.month

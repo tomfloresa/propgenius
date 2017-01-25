@@ -41,6 +41,7 @@
                             <th class="table-header">PERIODO</th>
                             <th class="table-header">#</th>
                             <th class="table-header">MONTO</th>
+                            <th class="table-header">CUPÓN</th>
                             <th class="table-header">PAGADO</th>
                             <th class="table-header">MORA</th>
                             <th colspan="2"></th>
@@ -52,6 +53,11 @@
                             <td class="table-data"><%= s.period.strftime("%m/%Y") %></td>
                             <td class="table-data"><%= link_to s.id, subunit_rent_path(s.id) %></td>
                             <td class="table-data"><%= number_to_currency(s.amount, :precision => 0, :delimiter => ".") %></td>
+                            <% if s.receipt.file? %>
+                            <td class="table-data"><%= link_to "VER CUPÓN", s.receipt.url %></td>
+                            <% else %>
+                            <td class="table-data">SIN CUPÓN</td>
+                            <% end %>
                         <% if s.payed? %>
                             <td class="table-data payed-rent">SI</td>
                         <% else %>
@@ -83,7 +89,7 @@
                     <thead>
                         <tr>
                             <th class="table-header">PERIODO</th>
-                            <th class="table-header">ID</th>
+                            <th class="table-header">#</th>
                             <th class="table-header">TOTAL</th>
                             <th class="table-header">CUPÓN</th>
                             <th class="table-header">PAGADO</th>
