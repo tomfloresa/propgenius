@@ -36,6 +36,8 @@ gem 'daemons', '~> 1.2', '>= 1.2.3'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Wicked PDF
 gem 'wicked_pdf'
+# Wicked PDF binaries
+gem "wkhtmltopdf-binary"
 # Simple Calendar
 gem "simple_calendar", "~> 2.0"
 # Paperclip
