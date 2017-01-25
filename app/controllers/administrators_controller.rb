@@ -1,4 +1,5 @@
 class AdministratorsController < ApplicationController
+  before_action :authenticate_administrator!
   def dashboard
     @properties = Property.all
     @subunits = Subunit.all

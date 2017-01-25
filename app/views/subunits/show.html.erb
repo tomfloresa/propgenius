@@ -83,9 +83,9 @@
                     <thead>
                         <tr>
                             <th class="table-header">PERIODO</th>
-                            <th class="table-header">AGUA</th>
-                            <th class="table-header">ELECTRICIDAD</th>
+                            <th class="table-header">ID</th>
                             <th class="table-header">TOTAL</th>
+                            <th class="table-header">CUPÓN</th>
                             <th class="table-header">PAGADO</th>
                             <th colspan="2"></th>
                         </tr>
@@ -94,9 +94,13 @@
                         <% @common_expenses.each do |c| %>
                         <tr>
                             <td class="table-data"><%= c.period.strftime("%m/%Y") %></td>
-                            <td class="table-data"><%= number_to_currency(c.water_charge,:precision => 0, :delimiter => ".") %></td>
-                            <td class="table-data"><%= number_to_currency(c.electricity_charge,:precision => 0, :delimiter => ".") %></td>
+                            <td class="table-data"><%= c.id %></td>
                             <td class="table-data"><%= number_to_currency(c.total, :precision => 0, :delimiter => ".") %></td>
+                            <% if c.receipt.file? %>
+                              <td class="table-data"><%= link_to "VER CUPÓN", c.receipt.url %></td>
+                            <% else %>
+                              <td class="table-data">SIN CUPÓN</td>
+                            <% end %>
                             <% if c.payed? %>
                             <td class="table-data payed-rent">SI</td>
                         <% else %>
@@ -110,7 +114,7 @@
                             <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to "EDITAR", edit_common_expense_payment_path(c.common_expense_payment, :common_expense_subunit_id => c.id) %></td>
                             <% end %>
-                            <td class="table-data"><%= link_to "DETALLE", common_expense_payment_path(c.id) %></td>
+                            <td class="table-data"><%= link_to "DETALLE", common_expense_payment_path(c.common_expense_payment) %></td>
                             <% end %>
                         </tr>
                         <% end %>

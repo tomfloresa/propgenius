@@ -38,7 +38,7 @@ class CommonExpenseSubunitsController < ApplicationController
         @common_expense_subunit.save!
 
         # Send mail to renter
-        # GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_subunit.common_expense_property, @common_expense_subunit)
+        GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_subunit.common_expense_property, @common_expense_subunit)
 
         # Save the receipt to the system
         @ces_id = @common_expense_subunit.id
