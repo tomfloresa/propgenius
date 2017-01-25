@@ -40,6 +40,8 @@ gem 'wicked_pdf'
 gem "simple_calendar", "~> 2.0"
 # Paperclip
 gem "paperclip", "~> 5.0.0"
+# Paperclip rack
+gem 'paperclip-rack', require: 'paperclip/rack'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

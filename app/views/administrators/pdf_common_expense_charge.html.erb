@@ -3,7 +3,6 @@
         <div class="holder-extern">
             <div class="holder-intern">
                 <h3 class="text-center">RECIBO DE GASTO COMÚN</h3>
-                <h3 class="text-center"><%= @ces.subunit.address_and_number %></h3>
             </div>
         </div>
     </div>
@@ -19,17 +18,17 @@
                 </div>
                 <div class="col-lg-4">
                     <h4 class="header-info-pdf">PERIODO:
-                        <span class="info-pdf"><%= @ces.period.strftime('%b-%Y') %></span>
+                        <span class="info-pdf"><%= @common_expense_subunit.period.strftime('%b-%Y') %></span>
                     </h4>
                 </div>
                 <div class="col-lg-8">
                     <h4 class="header-info-pdf">INICIO ARRIENDO:
-                        <span class="info-pdf"><%= @ces.subunit.lease_startdate.strftime('%d-%m-%Y') %></span>
+                        <span class="info-pdf"><%= @common_expense_subunit.subunit.lease_startdate.strftime('%d-%m-%Y') %></span>
                     </h4>
                 </div>
                 <div class="col-lg-4">
                     <h4 class="header-info-pdf">M2:
-                        <span class="info-pdf"><%= @ces.subunit.square_meters %></span>
+                        <span class="info-pdf"><%= @common_expense_subunit.subunit.square_meters %></span>
                     </h4>
                 </div>
             </div>
@@ -45,39 +44,32 @@
                         <tr>
                             <th class="table-header">CATEGORÍA</th>
                             <th class="table-header">PROPIEDAD</th>
-                            <th class="table-header"><%= @ces.subunit.address_and_number %></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="table-data">ELECTRICIDAD</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.electricity, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.electricity_charge, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.electricity_charge, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                         <tr>
                             <td class="table-data">AGUA</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.water, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.water_charge, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.water_charge, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                         <tr>
                             <td class="table-data">GAS</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.gas, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.gas_charge, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.gas_charge, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                         <tr>
                             <td class="table-data">MANTENIMIENTO</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.maintenance_payments, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.maintenance_payments, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.maintenance_payments, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                         <tr>
                             <td class="table-data">SALARIOS</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.salary_payments, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.salary_payments, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.salary_payments, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                         <tr>
                             <td class="table-data">OTROS</td>
-                            <td class="table-data"><%= number_to_currency(@common_expense_property.others, :delimiter => '.', :precision => 0) %></td>
-                            <td class="table-data"><%= number_to_currency(@ces.others_charge, :delimiter => '.', :precision => 0) %></td>
+                            <td class="table-data"><%= number_to_currency(@common_expense_subunit.others_charge, :delimiter => '.', :precision => 0) %></td>
                         </tr>
                     </tbody>
                 </table>
@@ -107,7 +99,7 @@
     <div class="col-lg-12 info-square" id="pdf_header">
         <div class="holder-extern">
             <div class="holder-intern">
-              <h3>TOTAL A PAGAR: <%= number_to_currency(@ces.total, :delimiter => '.', :precision => 0) %></h3>
+              <h3>TOTAL A PAGAR: <%= number_to_currency(@common_expense_subunit.total, :delimiter => '.', :precision => 0) %></h3>
             </div>
         </div>
     </div>

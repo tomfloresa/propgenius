@@ -30,13 +30,19 @@ class CommonExpenseSubunitsController < ApplicationController
     respond_to do |format|
       if @common_expense_subunit.save
         @renter = @common_expense_subunit.subunit.renter
-        @common_expense_property = CommonExpenseProperty.where(period: @common_expense_subunit.period)
+        @common_expense_property = CommonExpenseProperty.where(property_id: @common_expense_subunit.subunit.property.id, period: @common_expense_subunit.period)
 
         # create a pdf from a string
         @pdf_string = render_to_string template: "administrators/pdf_common_expense_charge.html.erb", layout: "layouts/pdf.html.erb", encoding: "utf-8"
+        @common_expense_subunit.common_expense_property_id = @common_expense_subunit.subunit.property.id
+        @common_expense_subunit.save!
 
-        # When the common expense is saved, send mail to renter
-        GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_subunit.common_expense_property, @common_expense_subunit)
+        # Send mail to renter
+        # GeneratedCommonExpenseJob.set(wait: 5.seconds).perform_later(@renter, @pdf_string, @common_expense_subunit.common_expense_property, @common_expense_subunit)
+
+        # Save the receipt to the system
+        @ces_id = @common_expense_subunit.id
+        CreateCommonExpenseSubunitReceiptJob.set(wait: 5.seconds).perform_later(@ces_id, @pdf_string)
 
         format.html { redirect_to @common_expense_subunit, notice: 'Common expense subunit was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_subunit }
@@ -79,6 +85,6 @@ class CommonExpenseSubunitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_subunit_params
-      params.require(:common_expense_subunit).permit(:subunit_id, :electricity_charge, :water_charge, :gas_charge, :others_charge, :period)
+      params.require(:common_expense_subunit).permit(:subunit_id, :electricity_charge, :water_charge, :gas_charge, :salary_payments, :maintenance_payments, :total, :others_charge, :period, :receipt)
     end
 end
