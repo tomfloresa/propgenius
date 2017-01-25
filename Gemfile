@@ -44,6 +44,8 @@ gem "simple_calendar", "~> 2.0"
 gem "paperclip", "~> 5.0.0"
 # Paperclip rack
 gem 'paperclip-rack', require: 'paperclip/rack'
+# Whenever
+gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -30,4 +30,40 @@ class Subunit < ActiveRecord::Base
       return true
     end
   end
+
+  # Notifications
+  # Lease
+  def self.notify_when_thirty_to_end_lease
+    @subunits = Subunit.where('lease_end_date == ?', Date.today + 30.days)
+
+    @subunits.each do |s|
+      NotificationsForEndings.mailer_for_thirty_days(s.id).deliver
+    end
+  end
+
+  def self.notify_when_fifteen_to_end_lease
+    Subunit.where('lease_end_date == ?', Date.today + 15.days)
+
+    @subunits.each do |s|
+      NotificationsForEndings.mailer_for_fifteen_days(s.id).deliver
+    end
+  end
+
+  def self.notify_when_five_to_end_lease
+    Subunit.where('lease_end_date == ?', Date.today + 5.days)
+
+    @subunits.each do |s|
+      NotificationsForEndings.mailer_for_five_days(s.id).deliver
+    end
+  end
+
+  def self.notify_when_one_to_end_lease
+    Subunit.where('lease_end_date == ?', Date.today + 1.days)
+
+    @subunits.each do |s|
+      NotificationsForEndings.mailer_for_one_days(s.id).deliver
+    end
+  end
+
+  # Readjust
 end
