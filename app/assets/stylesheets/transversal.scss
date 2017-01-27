@@ -99,6 +99,16 @@ select {
     align-items: center;
 }
 
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fifty-percent-height {
+  height: 50% !important;
+}
+
 .navbar-default {
     background-color: $nav !important;
     border-bottom-color: $submarine !important;
