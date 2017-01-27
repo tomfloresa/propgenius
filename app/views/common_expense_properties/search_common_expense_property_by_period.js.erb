@@ -1,0 +1,10 @@
+<% if @common_expense_property.nil? %>
+ $('#electricity_total').html("NADA");
+<% else %>
+ $('#electricity_total').html("<%= @common_expense_property.electricity %>");
+ $('#water_total').html("<%= @common_expense_property.water %>");
+ $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>");
+ $('#salary_total').html("<%= @common_expense_property.salary_payments %>");
+ $('#gas_total').html("<%= @common_expense_property.gas %>");
+ $('#others_total').html("<%= @common_expense_property.others %>");
+<% end %>

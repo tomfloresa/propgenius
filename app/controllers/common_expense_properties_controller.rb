@@ -97,7 +97,18 @@ class CommonExpensePropertiesController < ApplicationController
   ## Custom methods
   def history_common_expenses_property
     @property = Property.find(params[:property_id])
-    subunits = @property.subunits
+  end
+
+  def search_common_expense_property_by_period
+    date = Date.new(params[:ce_period_search]['period(1i)'].to_i, params[:ce_period_search]['period(2i)'].to_i, params[:ce_period_search]['period(3i)'].to_i)
+    
+    @common_expense_property = CommonExpenseProperty.find_by(period: date)
+
+    if @common_expense_property
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   private

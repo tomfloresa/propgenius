@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :common_expense_properties do
     collection do
       get 'history_common_expenses_property/:property_id' => 'common_expense_properties#history_common_expenses_property', :as => :history_common_expenses_property
+      post 'search_common_expense_property_by_period', :as => :search_common_expense_property_by_period
     end
   end
   resources :subunits
