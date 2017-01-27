@@ -1,6 +1,13 @@
 <% if @common_expense_property.nil? %>
- $('#electricity_total').html("NADA");
+ $('#nothing_to_show').html("NADA PARA MOSTRAR");
+ $('#electricity_total').html("");
+ $('#water_total').html("");
+ $('#maintenance_total').html("");
+ $('#salary_total').html("");
+ $('#gas_total').html("");
+ $('#others_total').html("");
 <% else %>
+ $('#nothing_to_show').html("");
  $('#electricity_total').html("<%= @common_expense_property.electricity %>");
  $('#water_total').html("<%= @common_expense_property.water %>");
  $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>");

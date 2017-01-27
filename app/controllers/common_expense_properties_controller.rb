@@ -100,8 +100,9 @@ class CommonExpensePropertiesController < ApplicationController
   end
 
   def search_common_expense_property_by_period
+    # Create a date to search by period
     date = Date.new(params[:ce_period_search]['period(1i)'].to_i, params[:ce_period_search]['period(2i)'].to_i, params[:ce_period_search]['period(3i)'].to_i)
-    
+    # Search by period with previously created date
     @common_expense_property = CommonExpenseProperty.find_by(period: date)
 
     if @common_expense_property
