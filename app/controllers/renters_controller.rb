@@ -18,4 +18,21 @@ class RentersController < ApplicationController
   def index
     @renters = Renter.all
   end
+
+  def subunits_for_renter
+    @subunits = current_renter.subunits
+  end
+
+  def properties_for_renter
+    # Create an array to hold new property records
+    @properties = Array.new
+
+    # Loop through the array to get each subunit's property
+    current_renter.subunits.each do |s|
+      @properties << s.property
+    end
+
+    # Delete possible duplicates coming from the loop
+    @properties.uniq!
+  end
 end

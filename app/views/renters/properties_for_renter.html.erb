@@ -1,0 +1,15 @@
+<%= render('transversals/navbar_admin') %>
+<div class="sub-nav"></div>
+<div class="container-fluid container-squares">
+  <% @properties.each do |p| %>
+  <div class="col-lg-4 col-md-6 col-sm-6 info-square">
+      <div class="holder-extern">
+          <div class="holder-intern">
+              <h2 class="text-center"><%= "#{p.address}" %></h2>
+              <h3 class="text-center header-nav"><%= "#{current_renter.subunits.count} subunidades" %></h3>
+              <%= link_to "VER", property_path(p), class: "btn btn-default btn-block action-button aquamarine-button" %>
+          </div>
+      </div>
+  </div>
+  <% end %>
+</div>

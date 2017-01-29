@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Subunits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Square meters</th>
+      <th>Property type</th>
+      <th>Renter</th>
+      <th>Rent value</th>
+      <th>Number</th>
+      <th>Lease startdate</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subunits.each do |subunit| %>
+      <tr>
+        <td><%= subunit.square_meters %></td>
+        <td><%= subunit.property_type_id %></td>
+        <td><%= subunit.renter_id %></td>
+        <td><%= subunit.rent_value %></td>
+        <td><%= subunit.number %></td>
+        <td><%= subunit.lease_startdate %></td>
+        <td><%= subunit.owner_id %></td>
+        <td><%= link_to 'Show', subunit %></td>
+        <td><%= link_to 'Edit', edit_subunit_path(subunit) %></td>
+        <td><%= link_to 'Destroy', subunit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subunit', new_subunit_path %>

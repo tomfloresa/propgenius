@@ -55,5 +55,7 @@ Rails.application.routes.draw do
   scope path: '/renters', controller: :renters do
     get 'dashboard' => 'renters#dashboard', :as => :renters_dashboard
     get 'index' => 'renters#index', :as => :renters_index
+    get 'subunits_for_renter', :as => :subunits_for_renter
+    get 'properties_for_renter', :as => :properties_for_renter
   end
 end

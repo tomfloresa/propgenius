@@ -12,14 +12,14 @@
           <div class="holder-intern">
             <h1 class="text-center"><%= @subunits.count %></h1>
             <h3 class="text-center">subunidades</h3>
-            <h5 class="text-center"><%= link_to "ver todas", subunits_path, class: "" %></h5>
+            <h5 class="text-center"><%= link_to "ver todas", subunits_for_renter_path, class: "" %></h5>
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 fifty-percent-height vertical-center">
           <div class="holder-intern">
             <h1 class="text-center"><%= @properties.count %></h1>
             <h3 class="text-center">propiedades</h3>
-            <h5 class="text-center"><%= link_to "ver todas", properties_path, class: "" %></h5>
+            <h5 class="text-center"><%= link_to "ver todas", properties_for_renter_path, class: "" %></h5>
           </div>
         </div>
       </div>
