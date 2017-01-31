@@ -8,10 +8,10 @@
  $('#others_total').html("");
 <% else %>
  $('#nothing_to_show').html("");
- $('#electricity_total').html("<%= @common_expense_property.electricity %>");
- $('#water_total').html("<%= @common_expense_property.water %>");
- $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>");
- $('#salary_total').html("<%= @common_expense_property.salary_payments %>");
- $('#gas_total').html("<%= @common_expense_property.gas %>");
- $('#others_total').html("<%= @common_expense_property.others %>");
+ $('#electricity_total').html("<%= @common_expense_property.electricity %>").addClass("animated fadeIn");
+ $('#water_total').html("<%= @common_expense_property.water %>").addClass("animated fadeIn");
+ $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>").addClass("animated fadeIn");
+ $('#salary_total').html("<%= @common_expense_property.salary_payments %>").addClass("animated fadeIn");
+ $('#gas_total').html("<%= @common_expense_property.gas %>").addClass("animated fadeIn");
+ $('#others_total').html("<%= @common_expense_property.others %>").addClass("animated fadeIn");
 <% end %>
