@@ -4,74 +4,27 @@
         <div class="holder-extern">
             <div class="holder-intern">
                 <h2 class="text-center"><%= "#{@property.address}" %></h2>
-                <h3 class="text-center header-nav">Propietario:
-                    <%= @property.owner.owner_name_lastname %></h3>
+                <h3 class="text-center header-nav">Propietario: <%= @property.owner.owner_name_lastname %></h3>
+                <% if administrator_signed_in? %>
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
-                <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default btn-block action-button chet-button" %>
+                <% end %>
+                <% if administrator_signed_in? %>
+                  <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default btn-block action-button chet-button" %>
+                <% end %>
+                <h3 class="text-center header-nav"><%= @property.bank.name %></h3>
+                <h3 class="text-center header-nav"><%= "Nº #{@property.bank_account_number}" %></h3>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 info-square">
-        <div class="holder-extern-no-verticality">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("house.svg", {class: "house"}) %>
-                    </div>
-                    <%= link_to "SUBUNIDAD", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
-                <div>
-                    <div class="text-center holder-action-button">
-                        <%= inline_svg("outcome.svg", {class: "outcome"}) %>
-                    </div>
-                    <%= link_to "EGRESOS", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button faded-button" %>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
-                <div>
-                    <div class="text-center holder-action-button">
-                        <%= inline_svg("money.svg", class: "money") %>
-                    </div>
-                    <%= link_to "ARRIENDO", rent_for_subunits_path(:property_id => @property.id), class: "btn btn-default action-button aquamarine-button" %>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("documents.svg", {class: "paper-sheet"}) %>
-                    </div>
-                    <%= link_to "G.COMÚN", new_matrix_common_expense_property_path(:property_id => @property.id), class: "btn btn-default action-button crimson-button" %>
-                </div>
-            </div>
-        </div>
+      <% if administrator_signed_in? %>
+        <%= render('properties/administrator_actions') %>
+      <% end %>
     </div>
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 info-square">
-        <div class="holder-extern-no-verticality table-div">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-header">Nº</th>
-                            <th class="table-header">ARRENDADOR</th>
-                            <th class="table-header">%</th>
-                            <th class="table-header">FIN</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @subunits.each do |s| %>
-                        <tr>
-                            <td class="table-data"><%= link_to "#{s.number}", subunit_path(s) %></td>
-                            <td class="table-data"><%= link_to "#{s.renter.renter_name_lastname}", renter_profile_path(:renter_id => s.renter.id) %></td>
-                            <td class="table-data"><%= number_to_percentage(s.proration_percentage, precision: 3) %></td>
-                            <td class="table-data"><%= s.lease_end_date.strftime("%d/%m/%Y") %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+      <% if administrator_signed_in? %>
+        <%= render('properties/subunits_in_property_info') %>
+      <% end %>
     </div>
 </div>
 <div class="container-fluid container-squares">
