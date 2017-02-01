@@ -1,11 +1,11 @@
 <% if @common_expense_property.nil? %>
  $('#nothing_to_show').html("NADA PARA MOSTRAR");
- $('#electricity_total').html("");
- $('#water_total').html("");
- $('#maintenance_total').html("");
- $('#salary_total').html("");
- $('#gas_total').html("");
- $('#others_total').html("");
+ $('#electricity_total').html("").removeClass("animated fadeIn");
+ $('#water_total').html("").removeClass("animated fadeIn");
+ $('#maintenance_total').html("").removeClass("animated fadeIn");
+ $('#salary_total').html("").removeClass("animated fadeIn");
+ $('#gas_total').html("").removeClass("animated fadeIn");
+ $('#others_total').html("").removeClass("animated fadeIn");
 <% else %>
  $('#nothing_to_show').html("");
  $('#electricity_total').html("<%= @common_expense_property.electricity %>").addClass("animated fadeIn");
