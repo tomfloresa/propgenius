@@ -1,6 +1,7 @@
 class SubunitsController < ApplicationController
   before_action :set_subunit, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_owner_administrator_renter
+  
   # GET /subunits
   # GET /subunits.json
   def index

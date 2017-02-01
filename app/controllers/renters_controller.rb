@@ -5,7 +5,7 @@ class RentersController < ApplicationController
     @subunits = current_renter.subunits
 
     ## Get all properties holding those subunits
-    @properties = current_renter.subunits.pluck(:property_id).uniq!
+    @properties = current_renter.subunits.pluck(:property_id).uniq
 
     ## Get all unpayed subunit_rents
     subunits = current_renter.subunits
