@@ -123,7 +123,7 @@
                         <tr>
                             <td class="table-data"><%= link_to "#{r.renter_name_lastname}", renter_profile_path(:renter_id => r.id) %></td>
                             <td class="table-data"><%= r.email %></td>
-                            <td class="table-data"><%= r.properties.count %></td>
+                            <td class="table-data"><%= r.subunits.count %></td>
                         </tr>
                         <% end %>
                     </tbody>

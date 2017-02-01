@@ -18,12 +18,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">acciones<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="li-navbar"><%= link_to "crear propiedad", new_property_path %></li>
-            <li class="li-navbar"><a href="#"><%= link_to "crear arrendatario", new_renter_registration_path %></a></li>
             <li class="li-navbar"><%= link_to "crear tipo propiedad", new_property_type_path %></li>
             <li role="separator" class="divider"></li>
-            <li class="li-navbar"><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="li-navbar"><a href="#">One more separated link</a></li>
+            <li class="li-navbar"><a href="#"><%= link_to "crear arrendatario", new_renter_registration_path %></a></li>
+            <li class="li-navbar"><a href="#"><%= link_to "crear propietario", new_owner_registration_path %></a></li>
           </ul>
         </li>
         <li class="li-navbar"><%= link_to "propiedades", properties_path %></li>

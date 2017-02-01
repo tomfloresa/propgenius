@@ -4,30 +4,29 @@
         <div class="holder-extern">
             <div class="holder-intern">
                 <h2 class="text-center"><%= "#{@property.address}" %></h2>
-                <h3 class="text-center header-nav">Propietario: <%= @property.owner.owner_name_lastname %></h3>
+                <h3 class="text-center header-nav">Propietario:
+                    <%= @property.owner.owner_name_lastname %></h3>
                 <% if administrator_signed_in? %>
                 <h3 class="text-center header-nav"><%= "#{@property.subunits.count} subunidades" %></h3>
                 <% end %>
                 <% if administrator_signed_in? %>
-                  <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default btn-block action-button chet-button" %>
+                <%= link_to "EDITAR PROPIEDAD", edit_property_path(@property), class: "btn btn-default btn-block action-button chet-button" %>
                 <% end %>
                 <h3 class="text-center"><%= @property.bank.name %></h3>
                 <h3 class="text-center header-nav"><%= "Nº #{@property.bank_account_number}" %></h3>
             </div>
         </div>
     </div>
+    <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 info-square">
-      <% if administrator_signed_in? %>
         <%= render('properties/administrator_actions') %>
-      <% end %>
     </div>
+    <% end %>
+    <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 info-square">
-      <% if administrator_signed_in? %>
         <%= render('properties/subunits_in_property_info') %>
-      <% end %>
     </div>
-</div>
-<div class="container-fluid container-squares">
+    <% end %>
     <div class="col-lg-4 col-md-6 col-sm-6 info-square">
         <div class="holder-extern">
             <div class="holder-intern">
@@ -39,11 +38,9 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-8 col-md-6 col-sm-6 info-square" id="map-holder">
+    <div class="col-lg-4 col-md-6 col-sm-6 info-square" id="map-holder">
         <div class="holder-extern-no-verticality" id="map-square"></div>
     </div>
-</div>
-<div class="container-fluid container-squares">
     <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern-no-verticality table-div">
             <div class="table-responsive">
@@ -81,8 +78,6 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid container-squares">
     <div class="col-lg-6 col-md-12 info-square">
         <div class="holder-extern">
             <div class="chart-holder">

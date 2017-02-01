@@ -15,18 +15,16 @@
             </div>
         </div>
     </div>
+    <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-3 info-square">
-      <% if administrator_signed_in? %>
-        <%= render('actions_for_subunit') %>
-      <% end %>
+      <%= render('actions_for_subunit') %>
     </div>
+    <% end %>
     <div class="col-lg-4 col-md-3 info-square">
         <div class="holder-extern">
             <div class="holder-intern"></div>
         </div>
     </div>
-</div>
-<div class="container-fluid container-squares">
     <div class="col-lg-6 col-md-9 info-square">
         <div class="holder-extern-no-verticality table-div">
             <div class="table-responsive">
@@ -50,16 +48,16 @@
                             <td class="table-data"><%= number_to_currency(s.amount, :precision => 0, :delimiter => ".") %></td>
                             <% if s.receipt.file? %>
                             <td class="table-data"><%= link_to "VER CUPÓN", s.receipt.url %></td>
-                            <% else %>
+                        <% else %>
                             <td class="table-data">SIN CUPÓN</td>
                             <% end %>
-                        <% if s.payed? %>
+                            <% if s.payed? %>
                             <td class="table-data payed-rent">SI</td>
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
                             <td class="table-data"><%= number_to_currency(s.get_overdue_charge, :precision => 0, :delimiter => ".") %></td>
-                        <% end %>
-                        <% if !s.payed? %>
+                            <% end %>
+                            <% if !s.payed? %>
                             <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to "PAGAR", new_rent_payment_path(:subunit_rent_id => s.id) %></td>
                             <% end %>
@@ -98,9 +96,9 @@
                             <td class="table-data"><%= c.id %></td>
                             <td class="table-data"><%= number_to_currency(c.total, :precision => 0, :delimiter => ".") %></td>
                             <% if c.receipt.file? %>
-                              <td class="table-data"><%= link_to "VER CUPÓN", c.receipt.url %></td>
-                            <% else %>
-                              <td class="table-data">SIN CUPÓN</td>
+                            <td class="table-data"><%= link_to "VER CUPÓN", c.receipt.url %></td>
+                        <% else %>
+                            <td class="table-data">SIN CUPÓN</td>
                             <% end %>
                             <% if c.payed? %>
                             <td class="table-data payed-rent">SI</td>
@@ -109,7 +107,7 @@
                             <% end %>
                             <% if !c.payed? %>
                             <% if administrator_signed_in? %>
-                              <td class="table-data"><%= link_to "PAGAR", new_common_expense_payment_path(:common_expense_subunit_id => c.id) %></td>
+                            <td class="table-data"><%= link_to "PAGAR", new_common_expense_payment_path(:common_expense_subunit_id => c.id) %></td>
                             <% end %>
                         <% else %>
                             <% if administrator_signed_in? %>
@@ -124,8 +122,6 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid container-squares">
     <div class="col-lg-4 col-md-4 info-square">
         <div class="holder-extern">
             <div class="holder-intern"></div>
