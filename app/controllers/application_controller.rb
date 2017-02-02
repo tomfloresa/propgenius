@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate_owner_administrator_renter
-    if !administrator_signed_in? || !renter_signed_in? || !owner_signed_in?
+    if !administrator_signed_in? && !renter_signed_in? && !owner_signed_in?
       authenticate_renter!
     end
   end
