@@ -1,39 +1,45 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center">Listing Subunits</h1>
 
-<h1>Listing Subunits</h1>
+<div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12 info-square">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-header">DIRECCIÓN</th>
+                        <th class="table-header">M2</th>
+                        <th class="table-header">TIPO</th>
+                        <th class="table-header">ARRENDADOR</th>
+                        <th class="table-header">VALOR</th>
+                        <th class="table-header">Nº</th>
+                        <th class="table-header">INICIO</th>
+                        <th class="table-header">PROPIETARIO</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Square meters</th>
-      <th>Property type</th>
-      <th>Renter</th>
-      <th>Rent value</th>
-      <th>Number</th>
-      <th>Lease startdate</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @subunits.each do |subunit| %>
-      <tr>
-        <td><%= subunit.square_meters %></td>
-        <td><%= subunit.property_type_id %></td>
-        <td><%= subunit.renter_id %></td>
-        <td><%= subunit.rent_value %></td>
-        <td><%= subunit.number %></td>
-        <td><%= subunit.lease_startdate %></td>
-        <td><%= subunit.owner_id %></td>
-        <td><%= link_to 'Show', subunit %></td>
-        <td><%= link_to 'Edit', edit_subunit_path(subunit) %></td>
-        <td><%= link_to 'Destroy', subunit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Subunit', new_subunit_path %>
+                <tbody>
+                    <% @subunits.each do |subunit| %>
+                    <tr>
+                        <td class="table-data"><%= link_to subunit.address_and_number, subunit_path(subunit) %></td>
+                        <td class="table-data"><%= subunit.square_meters %></td>
+                        <td class="table-data"><%= subunit.property_type.description %></td>
+                        <td class="table-data"><%= link_to subunit.renter.renter_name_lastname, renter_profile_path(subunit.renter) %></td>
+                        <% if subunit.charge_uf %>
+                        <td class="table-data">UF: <%= subunit.rent_value %></td>
+                        <% else %>
+                        <td class="table-data">CLP: <%= number_to_currency(subunit.rent_value, delimiter: ".", precision: 0) %></td>
+                        <% end %>
+                        <td class="table-data"><%= subunit.number %></td>
+                        <td class="table-data"><%= subunit.lease_startdate.strftime("%d/%m/%Y") %></td>
+                        <td class="table-data"><%= subunit.owner.owner_name_lastname %></td>
+                        <td class="table-data"><%= link_to 'MOSTRAR', subunit %></td>
+                        <td class="table-data"><%= link_to 'EDITAR', edit_subunit_path(subunit) %></td>
+                        <td class="table-data"><%= link_to 'ELIMINAR', subunit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
