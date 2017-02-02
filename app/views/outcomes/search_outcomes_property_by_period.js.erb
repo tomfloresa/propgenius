@@ -1,17 +1,1 @@
-<% if @outcomes_property.nil? %>
- $('#nothing_to_show').html("NADA PARA MOSTRAR");
- $('#electricity_total').html("").removeClass("animated fadeIn");
- $('#water_total').html("").removeClass("animated fadeIn");
- $('#maintenance_total').html("").removeClass("animated fadeIn");
- $('#salary_total').html("").removeClass("animated fadeIn");
- $('#gas_total').html("").removeClass("animated fadeIn");
- $('#others_total').html("").removeClass("animated fadeIn");
-<% else %>
- $('#nothing_to_show').html("");
- $('#electricity_total').html("<%= @common_expense_property.electricity %>").addClass("animated fadeIn");
- $('#water_total').html("<%= @common_expense_property.water %>").addClass("animated fadeIn");
- $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>").addClass("animated fadeIn");
- $('#salary_total').html("<%= @common_expense_property.salary_payments %>").addClass("animated fadeIn");
- $('#gas_total').html("<%= @common_expense_property.gas %>").addClass("animated fadeIn");
- $('#others_total').html("<%= @common_expense_property.others %>").addClass("animated fadeIn");
-<% end %>
+$('#table_body_outcomes_history').html("<%= j (render 'table_with_historical_outcomes_data') %>");

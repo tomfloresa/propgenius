@@ -1,0 +1,8 @@
+<% @outcomes_property.each do |o| %>
+  <tr>
+    <td class="table-data"><%= o.date.strftime("%d/%m/%Y") %></td>
+    <td class="table-data"><%= o.outcome_category.name %></td>
+    <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
+    <td class="table-data"><%= o.details %></td>
+  </tr>
+<% end %>

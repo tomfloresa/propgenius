@@ -1,7 +1,7 @@
 <%= render("transversals/navbar_admin") %>
 <div class="sub-nav"></div>
 <div class="container-fluid container-squares">
-    <div class="col-lg-4 col-md-12 info-square">
+    <div class="col-lg-12 col-md-12 info-square" id="search_div_outcomes">
         <div class="holder-extern">
             <div class="holder-intern">
                 <h2 class="text-center">Periodo</h2>
@@ -19,74 +19,23 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-8 col-md-12 info-square">
-        <div class="holder-extern-no-verticality holder-categories">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("thunder.svg", {class: "house"}) %>
-                    </div>
-                    <h4 class="text-center category-header">electricidad</h4>
-                    <h4 id="electricity_total" class="text-center"></h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("water.svg", {class: "water"}) %>
-                    </div>
-                    <h4 class="text-center category-header">agua</h4>
-                    <h4 id="water_total" class="text-center"></h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("maintenance.svg", {class: "maintenance"}) %>
-                    </div>
-                    <h4 class="text-center category-header">mantención</h4>
-                    <h4 id="maintenance_total" class="text-center"></h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("salary.svg", {class: "money"}) %>
-                    </div>
-                    <h4 class="text-center category-header">salarios</h4>
-                    <h4 id="salary_total" class="text-center"></h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("gas.svg", {class: "gas"}) %>
-                    </div>
-                    <h4 class="text-center category-header">gas</h4>
-                    <h4 id="gas_total" class="text-center"></h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
-                <div>
-                    <div class="text-center">
-                        <%= inline_svg("list.svg", {class: "others"}) %>
-                    </div>
-                    <h4 class="text-center category-header">otros</h4>
-                    <h4 id="others_total" class="text-center"></h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid container-squares">
-    <div class="col-lg-7 col-md-12 info-square">
-        <div class="holder-extern">
-            <div class="chart-holder">
-                <canvas id="common-expense-history-detail"></canvas>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-5 col-md-12 info-square">
+    <div class="col-lg-12 col-md-12 info-square">
+      <div class="holder-extern-no-verticality table-div">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">FECHA</th>
+                          <th class="table-header">CATEGORÍA</th>
+                          <th class="table-header">MONTO</th>
+                          <th class="table-header">DETALLE</th>
+                      </tr>
+                  </thead>
+                  <tbody id="table_body_outcomes_history">
+                  </tbody>
+              </table>
+          </div>
+      </div>
     </div>
 </div>
 <script>
