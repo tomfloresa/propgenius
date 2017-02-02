@@ -33,7 +33,7 @@
                 <div class="text-center">
                     <%= inline_svg("chart.svg", {class: "chart"}) %>
                 </div>
-                <%= link_to "HISTORIAL EGRESOS", outcomes_path, class: "btn btn-default btn-block action-button faded-button" %>
+                <%= link_to "HISTORIAL EGRESOS", history_outcomes_property_outcomes_path(@property.id), class: "btn btn-default btn-block action-button faded-button" %>
                 <%= link_to "HISTORIAL GASTO COMÚN", history_common_expenses_property_common_expense_properties_path(@property.id), class: "btn btn-default btn-block action-button crimson-button" %>
             </div>
         </div>

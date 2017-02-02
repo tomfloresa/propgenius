@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   resources :rent_payments
   resources :subunit_rents
   resources :outcome_categories
-  resources :outcomes
+  resources :outcomes do
+    collection do
+      get 'history_outcomes_property/:property_id' => 'outcomes#history_outcomes_property', :as => :history_outcomes_property
+      post 'search_outcomes_property_by_period', :as => :search_outcomes_property_by_period
+    end
+  end
   resources :common_expense_subunits
   resources :common_expense_properties do
     collection do

@@ -1,0 +1,170 @@
+<%= render("transversals/navbar_admin") %>
+<div class="sub-nav"></div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-4 col-md-12 info-square">
+        <div class="holder-extern">
+            <div class="holder-intern">
+                <h2 class="text-center">Periodo</h2>
+                <%= form_for(:outcomes_period_search, :url => {controller: "outcomes", action: "search_outcomes_property_by_period"}, :method => :post, :remote => true) do |f| %>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-div">
+                    <%= f.date_select :period, {:discard_day => true}, {class: "form-control"} %>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-div">
+                    <%= f.submit "BUSCAR", class: "btn btn-default btn-block action-button crimson-button" %>
+                </div>
+                <% end %>
+                <div class="text-center">
+                  <h3 id="nothing_to_show"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-12 info-square">
+        <div class="holder-extern-no-verticality holder-categories">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("thunder.svg", {class: "house"}) %>
+                    </div>
+                    <h4 class="text-center category-header">electricidad</h4>
+                    <h4 id="electricity_total" class="text-center"></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("water.svg", {class: "water"}) %>
+                    </div>
+                    <h4 class="text-center category-header">agua</h4>
+                    <h4 id="water_total" class="text-center"></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("maintenance.svg", {class: "maintenance"}) %>
+                    </div>
+                    <h4 class="text-center category-header">mantención</h4>
+                    <h4 id="maintenance_total" class="text-center"></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("salary.svg", {class: "money"}) %>
+                    </div>
+                    <h4 class="text-center category-header">salarios</h4>
+                    <h4 id="salary_total" class="text-center"></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("gas.svg", {class: "gas"}) %>
+                    </div>
+                    <h4 class="text-center category-header">gas</h4>
+                    <h4 id="gas_total" class="text-center"></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 div-six-squares">
+                <div>
+                    <div class="text-center">
+                        <%= inline_svg("list.svg", {class: "others"}) %>
+                    </div>
+                    <h4 class="text-center category-header">otros</h4>
+                    <h4 id="others_total" class="text-center"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-7 col-md-12 info-square">
+        <div class="holder-extern">
+            <div class="chart-holder">
+                <canvas id="common-expense-history-detail"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-12 info-square">
+    </div>
+</div>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("common-expense-history-detail");
+        var date = new Date();
+        var monthNames = [
+            "ENE",
+            "FEB",
+            "MAR",
+            "ABR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AGO",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DIC"
+        ]
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        monthNames[date.getMonth()],
+                        monthNames[date.getMonth() - 1],
+                        monthNames[date.getMonth() - 2],
+                        monthNames[date.getMonth() - 3],
+                        monthNames[date.getMonth() - 4],
+                        monthNames[date.getMonth() - 5],
+                        monthNames[date.getMonth() - 6],
+                        monthNames[date.getMonth() - 7],
+                        monthNames[date.getMonth() - 8],
+                        monthNames[date.getMonth() - 9],
+                        monthNames[date.getMonth() - 10],
+                        monthNames[date.getMonth() + 1],
+                        monthNames[date.getMonth()]
+                    ],
+                    datasets: [
+                        {
+                            label: 'GASTO COMÚN',
+                            data: [
+                                20000,
+                                12,
+                                19,
+                                3,
+                                5,
+                                2,
+                                3
+                            ],
+                            backgroundColor: ['RGBA(8, 255, 174, 0.2)'],
+                            borderColor: ['RGBA(8, 255, 174, 1.00)'],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).on('turbolinks:load', function () {
+        if ($('#common_expense_property_period_2i') && $('#common_expense_property_period_1i')) {
+            $('#ce_period_search_period_2i').wrap("<div class='col-lg-8 col-md-6 col-sm-6 col-xs-12'></div>");
+            $('#ce_period_search_period_1i').wrap("<div class='col-lg-4 col-md-6 col-sm-6 col-xs-12'></div>");
+        }
+    });
+</script>
