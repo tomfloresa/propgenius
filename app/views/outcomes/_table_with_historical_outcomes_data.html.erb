@@ -4,5 +4,6 @@
     <td class="table-data"><%= o.outcome_category.name %></td>
     <td class="table-data"><%= number_to_currency(o.ammount, delimiter: ".", precision: 0) %></td>
     <td class="table-data"><%= o.details %></td>
+    <td class="table-data"><%= o.created_at.strftime("%d/%m/%Y") %></td>
   </tr>
 <% end %>
