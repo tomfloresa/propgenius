@@ -5,7 +5,11 @@
     <div class="col-lg-8 col-lg-offset-2">
         <h2 class="crimson-color">IMPORTANTE:</h2>
         <p>
-          Esta función permite generar todos los gastos comunes, tanto como el detalle de la propiedad como el de las subunuidades, de manera automática. <strong>Úselo sólo si está seguro de que el método de cálculo es el mismo para todas las subunidades pertenecientes a la propiedad</strong>, de lo contrario, genérelos manualmente.
+          Seleccione si desea generar el gasto común tanto como para la propiedad como para sus subunidades, o sólo para la propiedad.
+        </p>
+        <p>
+          Tenga en consideración que <strong>debe generar de manera obligatoria el gasto común de la propiedad para el perido deseado, antes de generar
+          el gasto común para las subunidades</strong>.
         </p>
     </div>
 </div>
@@ -26,6 +30,10 @@
         <% end %>
 
         <%= f.hidden_field :property_id, :value => @property.id%>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :generate_for_subunits, "GENERAR PARA SUBUNIDADES?", class: "input-header" %><br>
+            <%= f.check_box :generate_for_subunits %>
+        </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :period, "PERIODO", class: "input-header" %><br>
             <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>

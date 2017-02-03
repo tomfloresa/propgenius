@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203000429) do
+ActiveRecord::Schema.define(version: 20170203180015) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -62,12 +62,13 @@ ActiveRecord::Schema.define(version: 20170203000429) do
     t.float    "electricity"
     t.float    "others"
     t.text     "details"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.date     "period"
     t.float    "salary_payments"
     t.float    "maintenance_payments"
     t.float    "total"
+    t.boolean  "generate_for_subunits"
   end
 
   create_table "common_expense_subunits", force: :cascade do |t|
