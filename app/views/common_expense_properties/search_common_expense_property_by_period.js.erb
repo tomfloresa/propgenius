@@ -8,10 +8,10 @@
  $('#others_total').html("").removeClass("animated fadeIn");
 <% else %>
  $('#nothing_to_show').html("");
- $('#electricity_total').html("<%= @common_expense_property.electricity %>").addClass("animated fadeIn");
- $('#water_total').html("<%= @common_expense_property.water %>").addClass("animated fadeIn");
- $('#maintenance_total').html("<%= @common_expense_property.maintenance_payments %>").addClass("animated fadeIn");
- $('#salary_total').html("<%= @common_expense_property.salary_payments %>").addClass("animated fadeIn");
- $('#gas_total').html("<%= @common_expense_property.gas %>").addClass("animated fadeIn");
- $('#others_total').html("<%= @common_expense_property.others %>").addClass("animated fadeIn");
+ $('#electricity_total').html("<%= number_to_currency(@common_expense_property.electricity, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
+ $('#water_total').html("<%= number_to_currency(@common_expense_property.water, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
+ $('#maintenance_total').html("<%= number_to_currency(@common_expense_property.maintenance_payments, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
+ $('#salary_total').html("<%= number_to_currency(@common_expense_property.salary_payments, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
+ $('#gas_total').html("<%= number_to_currency(@common_expense_property.gas, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
+ $('#others_total').html("<%= number_to_currency(@common_expense_property.others, delimiter: ".", precision: 0) %>").addClass("animated fadeIn");
 <% end %>

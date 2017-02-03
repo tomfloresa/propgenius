@@ -19,6 +19,10 @@
         <%= f.text_field :address, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :comune_id, "COMUNA", class: "input-header" %><br>
+        <%= f.collection_select :comune_id, Comune.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :square_meters, "M2", class: "input-header" %><br>
         <%= f.text_field :square_meters, class: "form-control" %>
     </div>
@@ -32,7 +36,7 @@
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :owner_id, "PROPIETARIO", class: "input-header" %><br>
-        <%= f.number_field :owner_id, class: "form-control" %>
+        <%= f.collection_select :owner_id, Owner.order(:first_name), :id, :owner_name_lastname, {}, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
