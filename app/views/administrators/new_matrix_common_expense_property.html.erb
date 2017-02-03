@@ -1,7 +1,14 @@
 <div class="sub-nav"></div>
 <h1 class="text-center">Creando Gasto Común</h1>
 <h3 class="text-center"><%= @property.address_and_number %></h3>
-
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+        <h2 class="crimson-color">IMPORTANTE:</h2>
+        <p>
+          Esta función permite generar todos los gastos comunes, tanto como el detalle de la propiedad como el de las subunuidades, de manera automática. <strong>Úselo sólo si está seguro de que el método de cálculo es el mismo para todas las subunidades pertenecientes a la propiedad</strong>, de lo contrario, genérelos manualmente.
+        </p>
+    </div>
+</div>
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2">
         <%= form_for(@common_expense_property) do |f| %>
