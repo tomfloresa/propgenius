@@ -30,7 +30,9 @@ class CommonExpenseSubunitsController < ApplicationController
     respond_to do |format|
       if @common_expense_subunit.save
         @renter = @common_expense_subunit.subunit.renter
-        @common_expense_property = CommonExpenseProperty.where(property_id: @common_expense_subunit.subunit.property.id, period: @common_expense_subunit.period)
+        @subunit = @common_expense_subunit.subunit
+        @property = @common_expense_subunit.subunit.property
+        @common_expense_property = CommonExpenseProperty.find_by_property_id_and_period(@property.id, @common_expense_subunit.period)
 
         # create a pdf from a string
         @pdf_string = render_to_string template: "administrators/pdf_common_expense_charge.html.erb", layout: "layouts/pdf.html.erb", encoding: "utf-8"

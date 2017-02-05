@@ -119,6 +119,6 @@ class CommonExpensePropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_property_params
-        params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details, :period, :salary_payments, :maintenance_payments, :total)
+        params.require(:common_expense_property).permit(:property_id, :water, :gas, :electricity, :others, :details, :period, :salary_payments, :maintenance_payments, :total, :generate_for_subunits)
     end
 end
