@@ -1,0 +1,18 @@
+<div class="holder-extern-no-verticality">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fifty-percent-height vertical-center">
+        <div>
+            <div class="text-center">
+                <%= inline_svg("water.svg", {class: "water"}) %>
+            </div>
+            <%= link_to "REGISTRO MEDIDORES AGUA", new_subunit_for_property_path(:property_id => @property.id), class: "btn btn-default action-button blue-button" %>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fifty-percent-height vertical-center">
+        <div>
+            <div class="text-center holder-action-button">
+                <%= inline_svg("thunder.svg", {class: "house"}) %>
+            </div>
+            <%= link_to "REGISTRO MEDIDORES LUZ", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
+        </div>
+    </div>
+</div>

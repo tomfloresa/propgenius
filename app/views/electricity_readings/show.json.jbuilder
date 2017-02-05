@@ -1,0 +1,1 @@
+json.partial! "electricity_readings/electricity_reading", electricity_reading: @electricity_reading

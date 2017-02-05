@@ -1,0 +1,1 @@
+json.array! @electricity_readings, partial: 'electricity_readings/electricity_reading', as: :electricity_reading

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Electricity Readings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subunit</th>
+      <th>Property</th>
+      <th>Period</th>
+      <th>Total reading</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electricity_readings.each do |electricity_reading| %>
+      <tr>
+        <td><%= electricity_reading.subunit_id %></td>
+        <td><%= electricity_reading.property_id %></td>
+        <td><%= electricity_reading.period %></td>
+        <td><%= electricity_reading.total_reading %></td>
+        <td><%= link_to 'Show', electricity_reading %></td>
+        <td><%= link_to 'Edit', edit_electricity_reading_path(electricity_reading) %></td>
+        <td><%= link_to 'Destroy', electricity_reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Electricity reading', new_electricity_reading_path %>

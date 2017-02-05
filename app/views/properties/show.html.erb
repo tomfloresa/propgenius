@@ -23,6 +23,11 @@
     </div>
     <% end %>
     <% if administrator_signed_in? %>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 info-square">
+        <%= render('properties/water_and_electricity_readings') %>
+    </div>
+    <% end %>
+    <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 info-square">
         <%= render('properties/subunits_in_property_info') %>
     </div>

@@ -310,6 +310,13 @@ input[type="text"]:enabled {
     background-color: $sail !important;
 }
 
+.blue-button,
+.blue-button:hover {
+    color: white !important;
+    border-color: $blue !important;
+    background-color: $blue !important;
+}
+
 .crimson-button,
 .crimson-button:hover {
     color: white !important;

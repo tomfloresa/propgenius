@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subunit_id: 1
+  property_id: 1
+  period: 2017-02-05
+  total_reading: 1.5
+
+two:
+  subunit_id: 1
+  property_id: 1
+  period: 2017-02-05
+  total_reading: 1.5

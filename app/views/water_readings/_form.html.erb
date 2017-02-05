@@ -1,0 +1,33 @@
+<%= form_for(@water_reading) do |f| %>
+  <% if @water_reading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@water_reading.errors.count, "error") %> prohibited this water_reading from being saved:</h2>
+
+      <ul>
+      <% @water_reading.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subunit_id %><br>
+    <%= f.number_field :subunit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :property_id %><br>
+    <%= f.number_field :property_id %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.date_select :period %>
+  </div>
+  <div class="field">
+    <%= f.label :total_reading %><br>
+    <%= f.text_field :total_reading %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

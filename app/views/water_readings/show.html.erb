@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subunit:</strong>
+  <%= @water_reading.subunit_id %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @water_reading.property_id %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @water_reading.period %>
+</p>
+
+<p>
+  <strong>Total reading:</strong>
+  <%= @water_reading.total_reading %>
+</p>
+
+<%= link_to 'Edit', edit_water_reading_path(@water_reading) %> |
+<%= link_to 'Back', water_readings_path %>
