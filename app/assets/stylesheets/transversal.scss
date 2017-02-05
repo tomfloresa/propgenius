@@ -85,16 +85,16 @@ li.dropdown-toggle {
 }
 
 select {
-  height: 45px !important;
-  padding: 2px 0 2px 10px !important;
-  border-radius: 0 !important;
-  -webkit-border-radius: 0 !important;
-  border-color: $submarine !important;
-  border-width: 2px !important;
-  background-color: $bg-contrast !important;
-  color: $brussian !important;
-  font-family: $second-font !important;
-  font-size: 1.4em !important;
+    height: 45px !important;
+    padding: 2px 0 2px 10px !important;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    border-color: $submarine !important;
+    border-width: 2px !important;
+    background-color: $bg-contrast !important;
+    color: $brussian !important;
+    font-family: $second-font !important;
+    font-size: 1.4em !important;
 }
 
 .crimson-color {
@@ -336,6 +336,12 @@ input[type="text"]:enabled {
     color: white !important;
     border-color: $msg !important;
     background-color: $msg !important;
+}
+
+.button-create-massive {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .form-div {

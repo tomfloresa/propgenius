@@ -30,7 +30,12 @@ Rails.application.routes.draw do
     end
   end
   resources :subunits
-  resources :properties
+  resources :properties do
+    collection do
+      get 'register_water_measures_for_subunits' => 'properties#register_water_measures_for_subunits', :as => :register_water_measures_for_subunits
+      post 'create_water_readings_for_subunits' => 'properties#create_water_readings_for_subunits', :as => :create_water_readings_for_subunits
+    end
+  end
   resources :property_types
 
   devise_for :renters, controllers: {
