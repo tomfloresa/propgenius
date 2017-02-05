@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203180015) do
+ActiveRecord::Schema.define(version: 20170205214529) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 20170203180015) do
 
   add_index "administrators", ["email"], name: "index_administrators_on_email", unique: true
   add_index "administrators", ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
+
+  create_table "bank_account_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "banks", force: :cascade do |t|
     t.string   "name"
@@ -175,14 +181,15 @@ ActiveRecord::Schema.define(version: 20170203180015) do
     t.integer  "renter_id"
     t.float    "rent_value"
     t.integer  "subunits_number"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "comune_id"
     t.integer  "lease_startdate"
     t.integer  "owner_id"
     t.integer  "bank_id"
     t.string   "bank_account_number"
     t.string   "company"
+    t.integer  "bank_account_type_id"
   end
 
   create_table "properties_subunits", id: false, force: :cascade do |t|

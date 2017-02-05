@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bank_account_types
   resources :comunes
   resources :important_numerical_values
   resources :banks

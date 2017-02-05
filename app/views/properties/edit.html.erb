@@ -52,6 +52,10 @@
         <%= f.collection_select :bank_id, Bank.order(:name), :id, :name, {}, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
+        <%= f.label :bank_account_type_id, "TIPO DE CUENTA", class: "input-header" %><br>
+        <%= f.collection_select :bank_account_type_id, BankAccountType.order(:name), :id, :name, {}, class: "form-control" %>
+    </div>
+    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :bank_account_number, "Nº CUENTA", class: "input-header" %><br>
         <%= f.text_field :bank_account_number, class: "form-control" %>
     </div>
