@@ -85,7 +85,16 @@ li.dropdown-toggle {
 }
 
 select {
-    border-radius: 0 !important;
+  height: 45px !important;
+  padding: 2px 0 2px 10px !important;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  border-color: $submarine !important;
+  border-width: 2px !important;
+  background-color: $bg-contrast !important;
+  color: $brussian !important;
+  font-family: $second-font !important;
+  font-size: 1.4em !important;
 }
 
 .crimson-color {

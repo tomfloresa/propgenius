@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-    $('#common_expense_subunit_period_1i').ready(function() {
+    if ($('#period_picker').length > 0) {
         var year = $('#common_expense_subunit_period_1i').val();
         var month = $('#common_expense_subunit_period_2i').val();
         $.ajax({
@@ -31,41 +31,11 @@ $(document).on('turbolinks:load', function() {
                 month: month
             }
         });
-    });
+    }
 });
 
 $(document).on('turbolinks:load', function() {
-    $('#common_expense_subunit_period_1i').on("input", function() {
-        var year = $('#common_expense_subunit_period_1i').val();
-        var month = $('#common_expense_subunit_period_2i').val();
-        $.ajax({
-            url: '/common_expense_subunits/check_if_common_expense_property_for_period_is_issued',
-            type: 'GET',
-            data: {
-                year: year,
-                month: month
-            }
-        });
-    });
-});
-
-$(document).on('turbolinks:load', function() {
-    $('#common_expense_subunit_period_2i').ready(function() {
-        var year = $('#common_expense_subunit_period_1i').val();
-        var month = $('#common_expense_subunit_period_2i').val();
-        $.ajax({
-            url: '/common_expense_subunits/check_if_common_expense_property_for_period_is_issued',
-            type: 'GET',
-            data: {
-                year: year,
-                month: month
-            }
-        });
-    });
-});
-
-$(document).on('turbolinks:load', function() {
-    $('#common_expense_subunit_period_2i').on("input", function() {
+    $('#common_expense_subunit_period_1i, #common_expense_subunit_period_2i').on("input", function() {
         var year = $('#common_expense_subunit_period_1i').val();
         var month = $('#common_expense_subunit_period_2i').val();
         $.ajax({
