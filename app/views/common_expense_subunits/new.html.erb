@@ -2,7 +2,7 @@
 <div class="sub-nav"></div>
 <h1 class="text-center">Nuevo Gasto Común</h1>
 <h3 class="text-center"><%= @subunit.address_and_number %></h3>
-<div class="container">
+<div class="container" id="form_for_subunit_common_expense">
     <div class="col-lg-8 col-lg-offset-2">
         <%= form_for(@common_expense_subunit) do |f| %>
         <% if @common_expense_subunit.errors.any? %>
@@ -20,38 +20,38 @@
         <%= f.hidden_field :subunit_id, :value => @subunit.id %>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :period, "PERIODO", class: "input-header" %><br>
-            <%= f.date_select :period, :discard_day => true, class: "form-control" %>
+            <%= f.date_select :period, :discard_day => true, class: "form-control", id: "period_picker" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :electricity_charge, "ELECTRICIDAD", class: "input-header" %><br>
-            <%= f.number_field :electricity_charge, class: "form-control", id: "electricity_field" %>
+            <%= f.number_field :electricity_charge, class: "form-control", id: "electricity_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :water_charge, "AGUA", class: "input-header" %><br>
-            <%= f.number_field :water_charge, class: "form-control", id: "water_field" %>
+            <%= f.number_field :water_charge, class: "form-control", id: "water_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :gas_charge, "GAS", class: "input-header" %><br>
-            <%= f.number_field :gas_charge, class: "form-control", id: "gas_field" %>
+            <%= f.number_field :gas_charge, class: "form-control", id: "gas_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :maintenance_payments, "MANTENIMIENTO", class: "input-header" %><br>
-            <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field" %>
+            <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :salary_payments, "SALARIOS", class: "input-header" %><br>
-            <%= f.number_field :salary_payments, class: "form-control", id: "salary_field" %>
+            <%= f.number_field :salary_payments, class: "form-control", id: "salary_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :others_charge, "OTROS", class: "input-header" %><br>
-            <%= f.number_field :others_charge, class: "form-control", id: "others_field" %>
+            <%= f.number_field :others_charge, class: "form-control", id: "others_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :total, "TOTAL", class: "input-header" %><br>
-            <%= f.number_field :total, class: "form-control", id: "total_field" %>
+            <%= f.number_field :total, class: "form-control", id: "total_field", disabled: true %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-            <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button" %>
+            <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button", disabled: true %>
         </div>
         <% end %>
     </div>
