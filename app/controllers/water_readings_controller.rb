@@ -15,6 +15,10 @@ class WaterReadingsController < ApplicationController
   # GET /water_readings/new
   def new
     @water_reading = WaterReading.new
+    if params[:subunit_id]
+      @subunit = Subunit.find(params[:subunit_id])
+      @property = @subunit.property
+    end
   end
 
   # GET /water_readings/1/edit

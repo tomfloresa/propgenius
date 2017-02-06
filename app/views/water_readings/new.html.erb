@@ -1,5 +1,33 @@
-<h1>New Water Reading</h1>
+<div class="sub-nav"></div>
+<h3 class="text-center">Nueva lectura de Agua</h3>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="col-lg-8 col-lg-offset-2">
+    <%= form_for(@water_reading) do |f| %>
+      <% if @water_reading.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@water_reading.errors.count, "error") %> prohibited this water_reading from being saved:</h2>
 
-<%= link_to 'Back', water_readings_path %>
+          <ul>
+          <% @water_reading.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.hidden_field :subunit_id, :value => @subunit.id %>
+      <%= f.hidden_field :property_id, :value => @property.id %>
+      <div class="field">
+        <%= f.label :period, "PERIODO", class: "input-header" %><br>
+        <%= f.date_select :period, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :total_reading, "LECTURA", class: "input-header" %><br>
+        <%= f.text_field :total_reading, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "CREAR LECTURA", class: "btn btn-default btn-block action-button aquamarine-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
