@@ -14,10 +14,7 @@
             <div class="holder-intern" id="<%= s.id %>">
                 <h3><%= "Nº #{s.number}" %></h3>
                 <h4><%= s.renter.renter_name_lastname %></h4>
-                <div class="form-div">
-                    <%= label_tag("SUBUNIDAD", nil, {class: "input-header"}) %><br>
-                    <%= number_field_tag("electricity_readings[][subunit_id]", s.id, {class: "form-control"}) %>
-                </div>
+                <%= hidden_field_tag "electricity_readings[][subunit_id]", s.id %>
                 <div class="form-div">
                     <%= label_tag("LECTURA", nil, {class: "input-header"}) %><br>
                     <%= number_field_tag("electricity_readings[][total_reading]", nil, {class: "form-control"}) %>
