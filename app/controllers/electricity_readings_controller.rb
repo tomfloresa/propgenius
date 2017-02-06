@@ -15,6 +15,11 @@ class ElectricityReadingsController < ApplicationController
   # GET /electricity_readings/new
   def new
     @electricity_reading = ElectricityReading.new
+
+    if params[:subunit_id]
+      @subunit = Subunit.find(params[:subunit_id])
+      @property = @subunit.property
+    end
   end
 
   # GET /electricity_readings/1/edit
