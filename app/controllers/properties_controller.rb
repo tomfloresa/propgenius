@@ -74,7 +74,7 @@ class PropertiesController < ApplicationController
         end
     end
 
-    def register_water_measures_for_subunits
+    def register_water_readings_for_subunits
         @property = Property.find(params[:property_id])
         @subunits = @property.subunits
     end
@@ -90,6 +90,33 @@ class PropertiesController < ApplicationController
         # Iterate through each of the elements of the array
         water_readings.each do |w|
             @reading = WaterReading.new
+            @reading.subunit_id = (w[:subunit_id]).to_i
+            @reading.property_id = property_id
+            @reading.period = period_for_readings
+            @reading.total_reading = (w[:total_reading]).to_f
+
+            next unless @reading.save!
+        end
+
+        redirect_to property_path(property_id)
+    end
+
+    def register_electricity_readings_for_subunits
+        @property = Property.find(params[:property_id])
+        @subunits = @property.subunits
+    end
+
+    def create_electricity_readings_for_subunits
+        # Rescue the hash with all the readings generated for property's subunits
+        period_readings = params[:period_readings]
+        electricity_readings = params[:electricity_readings]
+        property_id = params[:property_id]
+
+        period_for_readings = Date.new(params[:period_readings]['(1i)'].to_i, params[:period_readings]['(2i)'].to_i)
+
+        # Iterate through each of the elements of the array
+        electricity_readings.each do |w|
+            @reading = ElectricityReading.new
             @reading.subunit_id = (w[:subunit_id]).to_i
             @reading.property_id = property_id
             @reading.period = period_for_readings

@@ -32,8 +32,10 @@ Rails.application.routes.draw do
   resources :subunits
   resources :properties do
     collection do
-      get 'register_water_measures_for_subunits' => 'properties#register_water_measures_for_subunits', :as => :register_water_measures_for_subunits
+      get 'register_water_readings_for_subunits' => 'properties#register_water_readings_for_subunits', :as => :register_water_readings_for_subunits
       post 'create_water_readings_for_subunits' => 'properties#create_water_readings_for_subunits', :as => :create_water_readings_for_subunits
+      get 'register_electricity_readings_for_subunits' => 'properties#register_electricity_readings_for_subunits', :as => :register_electricity_readings_for_subunits
+      post 'create_electricity_readings_for_subunits' => 'properties#create_electricity_readings_for_subunits', :as => :create_electricity_readings_for_subunits
     end
   end
   resources :property_types

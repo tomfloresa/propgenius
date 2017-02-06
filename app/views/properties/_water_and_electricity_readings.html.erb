@@ -4,7 +4,7 @@
             <div class="text-center">
                 <%= inline_svg("water.svg", {class: "water"}) %>
             </div>
-            <%= link_to "REGISTRO MEDIDORES AGUA", register_water_measures_for_subunits_properties_path(:property_id => @property.id), class: "btn btn-default action-button blue-button" %>
+            <%= link_to "REGISTRO MEDIDORES AGUA", register_water_readings_for_subunits_properties_path(:property_id => @property.id), class: "btn btn-default action-button blue-button" %>
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fifty-percent-height vertical-center">
@@ -12,7 +12,7 @@
             <div class="text-center holder-action-button">
                 <%= inline_svg("thunder.svg", {class: "house"}) %>
             </div>
-            <%= link_to "REGISTRO MEDIDORES LUZ", new_outcome_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
+            <%= link_to "REGISTRO MEDIDORES LUZ", register_electricity_readings_for_subunits_properties_path(:property_id => @property.id), class: "btn btn-default action-button golden-button" %>
         </div>
     </div>
 </div>
