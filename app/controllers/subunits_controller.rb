@@ -12,8 +12,14 @@ class SubunitsController < ApplicationController
   # GET /subunits/1.json
   def show
     id = params[:id]
-    @common_expenses = CommonExpenseSubunit.where(subunit_id: id)
-    @subunit_rents = SubunitRent.where(subunit_id: id).order(period: :desc)
+    @common_expenses = @subunit.common_expense_subunits
+    @subunit_rents = @subunit.subunit_rents.order(period: :desc)
+    @water_readings = @subunit.water_readings
+    @electricity_readings = @subunit.electricity_readings
+
+    # Create array with water deltas
+    @water_deltas = @water_readings.map { |wr| wr.get_consumption_delta }
+    @electricity_deltas = @electricity_readings.map { |er| er.get_consumption_delta }
   end
 
   # GET /subunits/new

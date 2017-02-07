@@ -18,23 +18,21 @@
 
     <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-3 info-square">
-      <%= render('actions_for_subunit') %>
+        <%= render('actions_for_subunit') %>
     </div>
     <% end %>
 
     <% if renter_signed_in? || owner_signed_in? %>
     <div class="col-lg-4 col-md-3 info-square">
-      <div class="holder-extern">
-          <div class="holder-intern">
-
-          </div>
-      </div>
+        <div class="holder-extern">
+            <div class="holder-intern"></div>
+        </div>
     </div>
     <% end %>
 
     <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-3 info-square">
-      <%= render('subunits/water_and_electricity_readings') %>
+        <%= render('subunits/water_and_electricity_readings') %>
     </div>
     <% end %>
     <div class="col-lg-6 col-md-9 info-square">
@@ -134,19 +132,144 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-4 info-square">
+    <% if renter_signed_in? || owner_signed_in? %>
+    <div class="col-lg-4 col-md-3 info-square">
+      <div class="holder-extern-no-verticality table-div">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">PERIODO</th>
+                          <th class="table-header">TOTAL</th>
+                          <th class="table-header">DELTA</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% @water_readings.order(period: :desc).each do |w| %>
+                      <tr>
+                        <td class="table-data"><%= w.period %></td>
+                        <td class="table-data"><%= w.total_reading %></td>
+                        <td class="table-data"><%= w.get_consumption_delta %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-3 info-square">
+      <div class="holder-extern">
+        <div class="chart-holder">
+            <canvas id="water_consumption_history"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-3 info-square">
         <div class="holder-extern">
-            <div class="holder-intern"></div>
+          <div class="chart-holder">
+              <canvas id="electricity_consumption_history"></canvas>
+          </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-4 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
-        </div>
+    <div class="col-lg-4 col-md-3 info-square">
+      <div class="holder-extern-no-verticality table-div">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">PERIODO</th>
+                          <th class="table-header">TOTAL</th>
+                          <th class="table-header">DELTA</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% @electricity_readings.order(period: :desc).each do |e| %>
+                      <tr>
+                        <td class="table-data"><%= e.period %></td>
+                        <td class="table-data"><%= e.total_reading %></td>
+                        <td class="table-data"><%= e.get_consumption_delta %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
     </div>
-    <div class="col-lg-4 col-md-4 info-square">
-        <div class="holder-extern">
-            <div class="holder-intern"></div>
-        </div>
-    </div>
+    <% end %>
 </div>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("water_consumption_history");
+        var date = new Date();
+        var dataArray = <%= raw @water_deltas.to_json %>;
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: <%= raw @water_readings.map { |wr| wr.period.strftime("%m/%Y").to_json }  %>,
+                    datasets: [
+                        {
+                            label: '∆ CONSUMO DE AGUA',
+                            data: dataArray,
+                            backgroundColor: 'RGBA(56, 87, 227, 0.2)',
+                            borderColor: 'RGBA(56, 87, 227, 1.00)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).on('turbolinks:load', function () {
+        var ctx = document.getElementById("electricity_consumption_history");
+        var date = new Date();
+        var dataArray = <%= raw @electricity_deltas.to_json %>;
+        var monthNames = [
+            "ENE",
+            "FEB",
+        ]
+        if (ctx) {
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: <%= raw @electricity_readings.map { |er| er.period.strftime("%m/%Y").to_json }  %>,
+                    datasets: [
+                        {
+                            label: '∆ CONSUMO DE ELECTRICIDAD',
+                            data: dataArray,
+                            backgroundColor: 'RGBA(250, 219, 131, 0.2)',
+                            borderColor: 'RGBA(250, 219, 131, 1.00)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+        }
+    });
+</script>

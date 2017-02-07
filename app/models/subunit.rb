@@ -10,6 +10,8 @@ class Subunit < ActiveRecord::Base
   has_many :rent_payments
   has_many :common_expense_payments
   has_many :subunit_rents
+  has_many :water_readings
+  has_many :electricity_readings
 
   def address_and_number
     "#{self.property.address}, Nº#{self.number}"
