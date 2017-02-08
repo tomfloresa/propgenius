@@ -1,4 +1,4 @@
-every 5.minutes do
+every 1.day, :at => '22:28' do
   runner "Subunit.notify_when_thirty_to_end_lease"
   runner "Subunit.notify_when_fifteen_to_end_lease"
   runner "Subunit.notify_when_five_to_end_lease"

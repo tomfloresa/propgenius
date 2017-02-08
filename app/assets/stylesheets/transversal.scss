@@ -454,6 +454,7 @@ input[type="text"]:enabled {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 !important;
     height: 85%;
     width: 85%;
 }
