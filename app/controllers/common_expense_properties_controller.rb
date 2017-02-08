@@ -103,6 +103,13 @@ class CommonExpensePropertiesController < ApplicationController
         # Search by period with previously created date
         @common_expense_property = CommonExpenseProperty.find_by(period: date)
 
+        # @electricity = @common_expense_property.electricity
+        # @water =  @common_expense_property.water
+        # @gas = @common_expense_property.gas
+        # @others = @common_expense_property.others
+        # @salary @common_expense_property.salary_payments
+        # @maintenance = @common_expense_property.maintentance_payments
+
         if @common_expense_property
             respond_to do |format|
                 format.js

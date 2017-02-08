@@ -61,7 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @common_expenses.each do |c| %>
+                        <% @common_expenses.order(created_at: :desc).each do |c| %>
                         <tr>
                             <td class="table-data"><%= c.period.strftime("%m/%Y") %></td>
                             <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
@@ -121,40 +121,12 @@
     $(document).on('turbolinks:load', function () {
         var ctx = document.getElementById("common-expense-history");
         var date = new Date();
-        var dataArray = <%= raw @array_of_ce_for_chart.to_json %>;
-        var monthNames = [
-            "ENE",
-            "FEB",
-            "MAR",
-            "ABR",
-            "MAY",
-            "JUN",
-            "JUL",
-            "AGO",
-            "SEP",
-            "OCT",
-            "NOV",
-            "DIC"
-        ]
+        var dataArray = <%= raw @common_expenses.map { |ce| ce.total } %>;
         if (ctx) {
             var myChart = new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: {
-                    labels: [
-                        monthNames[date.getMonth()],
-                        monthNames[date.getMonth() - 1],
-                        monthNames[date.getMonth() - 2],
-                        monthNames[date.getMonth() - 3],
-                        monthNames[date.getMonth() - 4],
-                        monthNames[date.getMonth() - 5],
-                        monthNames[date.getMonth() - 6],
-                        monthNames[date.getMonth() - 7],
-                        monthNames[date.getMonth() - 8],
-                        monthNames[date.getMonth() - 9],
-                        monthNames[date.getMonth() - 10],
-                        monthNames[date.getMonth() + 1],
-                        monthNames[date.getMonth()]
-                    ],
+                    labels: <%= raw @common_expenses.map { |ce| ce.period.strftime("%m/%Y").to_json } %>,
                     datasets: [
                         {
                             label: 'GASTO COMÚN',

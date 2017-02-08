@@ -12,18 +12,9 @@ class PropertiesController < ApplicationController
     # GET /properties/1.json
     def show
         property_id = params[:id]
-        @subunits = Subunit.where(property_id: property_id).order(number: :asc)
-        @common_expenses = CommonExpenseProperty.where(property_id: property_id).limit(20).order(created_at: :asc)
-        @outcomes = Outcome.where(property_id: property_id).limit(20)
-
-        @common_expenses_within_year = CommonExpenseProperty.where(property_id: property_id)
-        @common_expenses_within_year = @common_expenses_within_year.where('created_at >= ?', 1.year.ago)
-
-        @array_of_ce_for_chart = []
-
-        @common_expenses_within_year.each do |c|
-            @array_of_ce_for_chart.push(c.total)
-        end
+        @subunits = @property.subunits.order(number: :asc)
+        @common_expenses = @property.common_expense_properties.limit(20)
+        @outcomes = @property.outcomes.limit(20)
     end
 
     # GET /properties/new
