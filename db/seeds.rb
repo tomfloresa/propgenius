@@ -94,5 +94,5 @@ Bank.create(name: "Scotiabank")
 ImportantNumericalValue.create(name: "UF", value: "26981")
 ImportantNumericalValue.create(name: "IVA", value: "19")
 
-PaymentMethod.create("Efectivo")
-PaymentMethod.create("Transferencia Electrónica")
+PaymentMethod.create(name: "Efectivo")
+PaymentMethod.create(name: "Transferencia Electrónica")
