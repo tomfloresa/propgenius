@@ -63,7 +63,11 @@
                     <tbody>
                         <% @common_expenses.order(created_at: :desc).each do |c| %>
                         <tr>
+                            <% if administrator_signed_in? %>
                             <td class="table-data"><%= link_to c.period.strftime("%m/%Y"), edit_common_expense_property_path %></td>
+                            <% else %>
+                            <td class="table-data"><%= c.period.strftime("%m/%Y") %></td>
+                            <% end %>
                             <td class="table-data"><%= number_to_currency(c.water, delimiter: ".", precision: 0) %></td>
                             <td class="table-data"><%= number_to_currency(c.gas, delimiter: ".", precision: 0) %></td>
                             <td class="table-data"><%= number_to_currency(c.electricity, delimiter: ".", precision: 0) %></td>
