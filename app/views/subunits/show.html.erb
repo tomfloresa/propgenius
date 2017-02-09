@@ -30,6 +30,12 @@
     </div>
     <% end %>
 
+    <% if renter_signed_in? || owner_signed_in? %>
+    <div class="col-lg-4 col-md-6 col-sm-6 info-square" id="map-holder">
+        <div class="holder-extern-no-verticality" id="subunit_map_square"></div>
+    </div>
+    <% end %>
+
     <% if administrator_signed_in? %>
     <div class="col-lg-4 col-md-3 info-square">
         <%= render('subunits/water_and_electricity_readings') %>
@@ -133,66 +139,66 @@
         </div>
     </div>
     <div class="col-lg-4 col-md-3 info-square">
-      <div class="holder-extern-no-verticality table-div">
-          <div class="table-responsive">
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th class="table-header">PERIODO</th>
-                          <th class="table-header">TOTAL</th>
-                          <th class="table-header">DELTA</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    <% @water_readings.order(period: :desc).each do |w| %>
-                      <tr>
-                        <td class="table-data"><%= w.period %></td>
-                        <td class="table-data"><%= w.total_reading %></td>
-                        <td class="table-data"><%= w.get_consumption_delta %></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-              </table>
-          </div>
-      </div>
-    </div>
-    <div class="col-lg-8 col-md-3 info-square">
-      <div class="holder-extern">
-        <div class="chart-holder">
-            <canvas id="water_consumption_history"></canvas>
+        <div class="holder-extern-no-verticality table-div">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">PERIODO</th>
+                            <th class="table-header">TOTAL</th>
+                            <th class="table-header">DELTA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @water_readings.order(period: :desc).each do |w| %>
+                        <tr>
+                            <td class="table-data"><%= w.period %></td>
+                            <td class="table-data"><%= w.total_reading %></td>
+                            <td class="table-data"><%= w.get_consumption_delta %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     </div>
     <div class="col-lg-8 col-md-3 info-square">
         <div class="holder-extern">
-          <div class="chart-holder">
-              <canvas id="electricity_consumption_history"></canvas>
-          </div>
+            <div class="chart-holder">
+                <canvas id="water_consumption_history"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-3 info-square">
+        <div class="holder-extern">
+            <div class="chart-holder">
+                <canvas id="electricity_consumption_history"></canvas>
+            </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-3 info-square">
-      <div class="holder-extern-no-verticality table-div">
-          <div class="table-responsive">
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th class="table-header">PERIODO</th>
-                          <th class="table-header">TOTAL</th>
-                          <th class="table-header">DELTA</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    <% @electricity_readings.order(period: :desc).each do |e| %>
-                      <tr>
-                        <td class="table-data"><%= e.period %></td>
-                        <td class="table-data"><%= e.total_reading %></td>
-                        <td class="table-data"><%= e.get_consumption_delta %></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-              </table>
-          </div>
-      </div>
+        <div class="holder-extern-no-verticality table-div">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">PERIODO</th>
+                            <th class="table-header">TOTAL</th>
+                            <th class="table-header">DELTA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @electricity_readings.order(period: :desc).each do |e| %>
+                        <tr>
+                            <td class="table-data"><%= e.period %></td>
+                            <td class="table-data"><%= e.total_reading %></td>
+                            <td class="table-data"><%= e.get_consumption_delta %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 <script>
@@ -236,10 +242,7 @@
         var ctx = document.getElementById("electricity_consumption_history");
         var date = new Date();
         var dataArray = <%= raw @electricity_deltas.to_json %>;
-        var monthNames = [
-            "ENE",
-            "FEB",
-        ]
+        var monthNames = ["ENE", "FEB"]
         if (ctx) {
             var myChart = new Chart(ctx, {
                 type: 'line',
