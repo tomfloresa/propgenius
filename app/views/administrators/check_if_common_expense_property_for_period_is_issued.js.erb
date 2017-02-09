@@ -1,0 +1,8 @@
+<% if @common_expense_property.nil? %>
+  $("input").prop('disabled', false)
+  $("#already_issued").html("")
+<% else %>
+  $("input").prop('disabled', true)
+  $("#already_issued").addClass("animated fadeIn")
+  $("#already_issued").html("YA HAY GASTO COMÚN PARA ESTE PERIODO")
+<% end %>

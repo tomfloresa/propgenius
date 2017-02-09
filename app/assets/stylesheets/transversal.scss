@@ -196,6 +196,9 @@ select {
 input[type="number"]:disabled,
 input[type="text"]:disabled {
     background: $submarine !important;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
 }
 
 input[type="number"]:enabled,
@@ -455,8 +458,8 @@ input[type="text"]:enabled {
     justify-content: center;
     align-items: center;
     padding: 0 !important;
-    height: 85%;
-    width: 85%;
+    height: 80%;
+    width: 80%;
 }
 // PDF
 

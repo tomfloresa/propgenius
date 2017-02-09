@@ -70,6 +70,7 @@ Rails.application.routes.draw do
     get 'search_common_expense_subunit', :as => :search_common_expense_subunit
     post 'search_id_for_rent_charge' => 'administrators#search_id_for_rent_charge', :as => :search_id_for_rent_charge
     post 'search_id_for_common_expense_subunit' => 'administrators#search_id_for_common_expense_subunit', :as => :search_id_for_common_expense_subunit
+    get 'check_if_common_expense_property_for_period_is_issued' => 'administrators#check_if_common_expense_property_for_period_is_issued'
   end
 
   scope path: '/renters', controller: :renters do

@@ -30,13 +30,16 @@
         <% end %>
 
         <%= f.hidden_field :property_id, :value => @property.id%>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input" id="period_picker_common_expense_property">
+            <%= f.label :period, "PERIODO", class: "input-header" %><br>
+            <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+          <h2 class="text-center"id="already_issued"></h2>
+        </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :generate_for_subunits, "GENERAR PARA SUBUNIDADES?", class: "input-header" %><br>
             <%= f.check_box :generate_for_subunits %>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
-            <%= f.label :period, "PERIODO", class: "input-header" %><br>
-            <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :water, "AGUA", class: "input-header" %><br>
