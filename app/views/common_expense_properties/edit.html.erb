@@ -1,6 +1,77 @@
-<h1>Editing Common Expense Property</h1>
+<div class="sub-nav"></div>
+<h1 class="text-center">Editando Gasto Común</h1>
+<h3 class="text-center"><%= @common_expense_property.property.address_and_number %></h3>
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= link_to 'ELIMINAR', @common_expense_property, class: "btn btn-default btn-block action-button crimson-button" , method: :delete, data: { confirm: 'Está seguro que desea eliminar el Gasto Común para este periodo?' } %>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+        <%= form_for(@common_expense_property) do |f| %>
+        <% if @common_expense_property.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@common_expense_property.errors.count, "error") %>
+                prohibited this common_expense_property from being saved:</h2>
 
-<%= render 'form' %>
+            <ul>
+                <% @common_expense_property.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
 
-<%= link_to 'Show', @common_expense_property %> |
-<%= link_to 'Back', common_expense_properties_path %>
+        <%= f.hidden_field :property_id, :value => @common_expense_property.property.id%>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :period, "PERIODO", class: "input-header" %><br>
+            <%= f.date_select :period, {:discard_day => true, :start_year => 2015, :end_year => 2020}, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <h2 class="text-center" id="already_issued"></h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :generate_for_subunits, "GENERAR PARA SUBUNIDADES?", class: "input-header" %><br>
+            <%= f.check_box :generate_for_subunits %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :water, "AGUA", class: "input-header" %><br>
+            <%= f.number_field :water, class: "form-control", id: "water_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :gas, "GAS", class: "input-header" %><br>
+            <%= f.number_field :gas, class: "form-control", id: "gas_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :electricity, "ELECTRICIDAD", class: "input-header" %><br>
+            <%= f.number_field :electricity, class: "form-control", id: "electricity_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :salary_payments, "SALARIOS", class: "input-header" %><br>
+            <%= f.number_field :salary_payments, class: "form-control", id: "salary_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :maintenance_payments, "MANTENIMIENTO", class: "input-header" %><br>
+            <%= f.number_field :maintenance_payments, class: "form-control", id: "maintenance_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :others, "OTROS", class: "input-header" %><br>
+            <%= f.number_field :others, class: "form-control", id: "others_field", placeholder: 0 %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :total, "TOTAL", class: "input-header" %><br>
+            <%= f.number_field :total, value: 0, class: "form-control", id: "total_field" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.label :details, "DETALLE", class: "input-header" %><br>
+            <%= f.text_area :details, class: "form-control" %>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
+            <%= f.submit "CREAR GASTO COMÚN", class: "btn btn-default btn-block action-button aquamarine-button" %>
+        </div>
+        <% end %>
+    </div>
+</div>
+</div>
