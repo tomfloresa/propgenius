@@ -44,7 +44,7 @@ class Subunit < ActiveRecord::Base
   end
 
   def self.notify_when_fifteen_to_end_lease
-    Subunit.where(lease_end_date:, Date.today + 15.days)
+    Subunit.where(lease_end_date: Date.today + 15.days)
 
     @subunits.each do |s|
       NotificationsForEndings.mailer_for_fifteen_days(s.id).deliver
@@ -52,7 +52,7 @@ class Subunit < ActiveRecord::Base
   end
 
   def self.notify_when_five_to_end_lease
-    Subunit.where(lease_end_date:, Date.today + 5.days)
+    Subunit.where(lease_end_date: Date.today + 5.days)
 
     @subunits.each do |s|
       NotificationsForEndings.mailer_for_five_days(s.id).deliver
@@ -60,7 +60,7 @@ class Subunit < ActiveRecord::Base
   end
 
   def self.notify_when_one_to_end_lease
-    Subunit.where(lease_end_date:, Date.today + 1.days)
+    Subunit.where(lease_end_date: Date.today + 1.days)
 
     @subunits.each do |s|
       NotificationsForEndings.mailer_for_one_days(s.id).deliver
