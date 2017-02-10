@@ -20,7 +20,7 @@
         <%= f.text_field :address, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
-      <%= f.label :comune_id , "ARRENDADOR", class: "input-header" %><br>
+      <%= f.label :comune_id , "COMUNA", class: "input-header" %><br>
       <%= f.collection_select :comune_id, Comune.order(:name), :id, :name, {}, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
