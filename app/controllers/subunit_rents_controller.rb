@@ -30,6 +30,11 @@ class SubunitRentsController < ApplicationController
 
     respond_to do |format|
       if @subunit_rent.save
+        @subunit = @subunit_rent.subunit
+        @rent = @subunit_rent
+        @property = @subunit.property
+        @renter = @subunit.renter
+        
         # create a pdf from a string
         @pdf_string = render_to_string template: "administrators/pdf_rent_charge", layout: "layouts/pdf.html.erb", encoding: "utf-8"
 

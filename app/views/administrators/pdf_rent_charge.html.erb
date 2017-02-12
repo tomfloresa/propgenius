@@ -1,1 +1,108 @@
-<h1>THIS IS A PFD GENERATION TEST</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Boleta Arriendo</h2>
+                <h3 class="pull-right">Identificador #
+                    <%= @rent.id %></h3>
+                <h3>Periodo:
+                    <%= @rent.period.strftime("%m-%Y") %></h3>
+                <h4><%= @subunit.address_and_number %></h4>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Emitida a:</strong><br>
+                        <%= @renter.renter_name_lastname %><br>
+                        <%= @subunit.address_and_number %><br>
+                        <%= @subunit.property.comune.name %>
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <strong>Datos para pago:</strong><br>
+                        <%= @property.bank.name %><br>
+                        Cuenta Corriente<br>
+                        Nº <%= @property.bank_account_number %><br>
+
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Detalle de Gasto Común
+                            <%= @subunit.address_and_number %></strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table table-condensed">
+                          <thead>
+                              <tr>
+                                  <td>
+                                      <strong>PROPIEDAD</strong>
+                                  </td>
+                                  <td class="text-center">
+                                      <strong>UNIDAD</strong>
+                                  </td>
+                                  <td class="text-right">
+                                      <strong>M2</strong>
+                                  </td>
+                                  <td class="text-right">
+                                      <strong>VALOR ARRIENDO</strong>
+                                  </td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                              <tr>
+                                  <td class=""><%= @subunit.property.address %></td>
+                                  <td class="text-center"><%= @subunit.number %></td>
+                                  <td class="text-right"><%= @subunit.square_meters %></td>
+                                  <% if @subunit.charge_uf? %>
+                                    <% if @subunit.charge_iva? %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                    <% else %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF</td>
+                                    <% end %>
+                                  <% else %>
+                                    <% if @subunit.charge_iva? %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                    <% else %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %></td>
+                                    <% end %>
+                                  <% end %>
+                              </tr>
+                              <tr>
+                                  <td class="no-line"></td>
+                                  <td class="no-line"></td>
+                                  <td class="no-line text-right">
+                                      <strong>TOTAL A PAGAR</strong>
+                                  </td>
+                                  <td class="no-line text-right"><%= number_to_currency(@rent.amount, :delimiter => '.', :precision => 0) %></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+          <h3>Pagar antes del día 5 o 10 del mes siguiente al periodo facturado.</h3>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Una vez pagado, favor enviar comprobante de pago a contacto@valprop.cl</h3>
+      </div>
+    </div>
+</div>

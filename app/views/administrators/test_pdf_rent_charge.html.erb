@@ -1,69 +1,108 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <div class="container container-squares">
-      <div class="col-lg-12 info-square" id="pdf_header">
-          <div class="holder-extern">
-              <div class="holder-intern">
-                <h3 class="text-center">RECIBO DE ARRIENDO</h3>
-                <h3 class="text-center"><%= @subunit.address_and_number %></h3>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="container container-squares">
-      <div class="col-lg-12 info-square" id="pdf_header">
-        <div class="holder-extern">
-          <div class="holder-intern">
-            <div class="col-lg-8">
-              <h4 class="header-info-pdf">ARRENDADOR: <span class="info-pdf"><%= @renter.renter_name_lastname %></span></h4>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Boleta Arriendo</h2>
+                <h3 class="pull-right">Identificador #
+                    <%= @rent.id %></h3>
+                <h3>Periodo:
+                    <%= @rent.period.strftime("%m-%Y") %></h3>
+                <h4><%= @subunit.address_and_number %></h4>
             </div>
-            <div class="col-lg-4">
-              <h4 class="header-info-pdf">PERIODO: <span class="info-pdf"><%= @rent.period.strftime('%b-%Y') %></span></h4>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Emitida a:</strong><br>
+                        <%= @renter.renter_name_lastname %><br>
+                        <%= @subunit.address_and_number %><br>
+                        <%= @subunit.property.comune.name %>
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <strong>Datos para pago:</strong><br>
+                        <%= @property.bank.name %><br>
+                        Cuenta Corriente<br>
+                        Nº <%= @property.bank_account_number %><br>
+
+                    </address>
+                </div>
             </div>
-            <div class="col-lg-8">
-              <h4 class="header-info-pdf">INICIO ARRIENDO: <span class="info-pdf"><%= @subunit.lease_startdate.strftime('%d-%m-%Y') %></span></h4>
-            </div>
-            <div class="col-lg-4">
-              <h4 class="header-info-pdf">M2: <span class="info-pdf"><%= @subunit.square_meters %></span></h4>
-            </div>
-          </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Detalle de Gasto Común
+                            <%= @subunit.address_and_number %></strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table table-condensed">
+                          <thead>
+                              <tr>
+                                  <td>
+                                      <strong>PROPIEDAD</strong>
+                                  </td>
+                                  <td class="text-center">
+                                      <strong>UNIDAD</strong>
+                                  </td>
+                                  <td class="text-right">
+                                      <strong>M2</strong>
+                                  </td>
+                                  <td class="text-right">
+                                      <strong>VALOR ARRIENDO</strong>
+                                  </td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                              <tr>
+                                  <td class=""><%= @subunit.property.address %></td>
+                                  <td class="text-center"><%= @subunit.number %></td>
+                                  <td class="text-right"><%= @subunit.square_meters %></td>
+                                  <% if @subunit.charge_uf? %>
+                                    <% if @subunit.charge_iva? %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                    <% else %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF</td>
+                                    <% end %>
+                                  <% else %>
+                                    <% if @subunit.charge_iva? %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                    <% else %>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %></td>
+                                    <% end %>
+                                  <% end %>
+                              </tr>
+                              <tr>
+                                  <td class="no-line"></td>
+                                  <td class="no-line"></td>
+                                  <td class="no-line text-right">
+                                      <strong>TOTAL A PAGAR</strong>
+                                  </td>
+                                  <td class="no-line text-right"><%= number_to_currency(@rent.amount, :delimiter => '.', :precision => 0) %></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+          <h3>Pagar antes del día 5 o 10 del mes siguiente al periodo facturado.</h3>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Una vez pagado, favor enviar comprobante de pago a contacto@valprop.cl</h3>
       </div>
     </div>
-    <div class="container container-squares">
-      <div class="col-lg-8 info-square" id="pdf_body">
-          <div class="holder-extern">
-              <div class="holder-intern">
-                <h2 class="text-center">Total a pagar:</h2>
-                <h2 class="text-center" id="money-figure"><%= number_to_currency(@rent.amount, :precision => 0, :delimiter => '.') %></h2>
-                <div class="col-lg-8 col-lg-offset-2">
-                  <h3 class="text-center" id="notice-this">Pagar antes del día 10 del mes siguiente al periodo facturado.</h3>
-                </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-lg-4 info-square" id="pdf_body">
-          <div class="holder-extern-no-verticality">
-              <div class="holder-intern">
-                <div class="col-lg-12">
-                  <h3 class="text-center">FORMAS DE PAGO</h3>
-                  <ul>
-                    <li class="payment-methods">Efectivo</li>
-                    <li class="payment-methods">Transferencia Bancaria*</li>
-                    <li class="payment-methods">Cheque al día**</li>
-                  </ul>
-                </div>
-                <div class="col-lg-12">
-                  <h4>* Favor enviar comprobante de transferencia a contacto@valprop.cl</h4>
-                  <h4>** Girar cheque a nombre de VALPROP LTDA.</h4>
-                </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </body>
-</html>
+</div>
