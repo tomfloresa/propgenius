@@ -38,6 +38,14 @@
           </div>
       </div>
     </div>
+    <div class="col-lg-4 col-md-12 info-square">
+      <div class="holder-extern">
+        <div class="holder-intern">
+          <h3>Total gastado en periodo:</h3>
+          <h3 class="text-center header-nav" id="total_for_period"><%= number_to_currency(@period_total, delimiter: ".", precision: 0) %></h3>
+        </div>
+      </div>
+    </div>
 </div>
 <script>
     $(document).on('turbolinks:load', function () {

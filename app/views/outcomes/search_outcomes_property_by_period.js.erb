@@ -1,1 +1,2 @@
 $('#table_body_outcomes_history').html("<%= j (render 'table_with_historical_outcomes_data') %>");
+$('#total_for_period').html("<%= number_to_currency(@period_total, delimiter: ".", precision: 0) %>");

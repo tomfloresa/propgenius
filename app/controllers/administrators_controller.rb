@@ -49,6 +49,7 @@ class AdministratorsController < ApplicationController
             # When the rent is saved, send mail to renter
             CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@rent.subunit.renter, @rent, @rent.subunit.property, @pdf_string)
         end
+
     end
 
     def renter_profile

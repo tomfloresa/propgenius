@@ -63,6 +63,7 @@ class OutcomesController < ApplicationController
     ## Custom methods
     def history_outcomes_property
         @property = Property.find(params[:property_id])
+        @period_total = 0
     end
 
     def search_outcomes_property_by_period
@@ -71,8 +72,7 @@ class OutcomesController < ApplicationController
 
         # Search by period with previously created date
         @outcomes_property = Outcome.where(:date => date.beginning_of_month..date.end_of_month)
-
-        puts @outcomes_property.count
+        @period_total = @outcomes_property.sum(:ammount)
 
         if @outcomes_property
             respond_to do |format|
