@@ -80,6 +80,11 @@ Rails.application.configure do
   # Delayed Job
   config.active_job.queue_adapter = :delayed_job
 
+  WickedPdf.config = {
+    exe_path: '/usr/local/rvm/gems/ruby-2.3.0/bin/wkhtmltopdf',
+  }
+
+
   # Configure host for mailer
   config.action_mailer.default_url_options = { :host => 'valprop.propgenius.cl' }
   # Mailer config
