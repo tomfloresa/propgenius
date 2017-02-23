@@ -30,6 +30,6 @@ module Propgenius
         config.time_zone = 'Santiago'
 
         # Set to :debug to see everything in the log.
-        config.log_level = :error
+        config.log_level = :debug
     end
 end

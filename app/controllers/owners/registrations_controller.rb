@@ -39,18 +39,21 @@ class Owners::RegistrationsController < Devise::RegistrationsController
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
+  # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :second_name, :first_last_name, :second_last_name,
+                                                         :mobile, :landline])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :second_name, :first_last_name, :second_last_name,
+                                                                :mobile, :landline])
   end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    super(resource)
+    administrators_dashboard_path
   end
 
   # The path used after sign up for inactive accounts.

@@ -79,4 +79,11 @@ Rails.application.routes.draw do
     get 'subunits_for_renter', :as => :subunits_for_renter
     get 'properties_for_renter', :as => :properties_for_renter
   end
+
+  scope path: '/owners', controller: :owners do
+    get 'dashboard' => 'owners#dashboard', :as => :owners_dashboard
+    get 'index' => 'owners#index', :as => :owners_index
+    get 'subunits_for_owner', :as => :subunits_for_owner
+    get 'properties_for_owner', :as => :properties_for_owner
+  end
 end

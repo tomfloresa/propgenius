@@ -1,0 +1,74 @@
+<div class="sub-nav"></div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-4 col-md-12 info-square">
+      <div class="holder-extern-no-verticality">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fifty-percent-height vertical-center">
+          <div class="holder-intern">
+            <h2><%= "Hola, #{current_owner.first_name}!" %></h2>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 fifty-percent-height vertical-center">
+          <div class="holder-intern">
+            <h1 class="text-center"><%= @subunits.count %></h1>
+            <h3 class="text-center">subunidades</h3>
+            <h5 class="text-center"><%= link_to "ver todas", subunits_for_owner_path, class: "" %></h5>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 fifty-percent-height vertical-center">
+          <div class="holder-intern">
+            <h1 class="text-center"><%= @properties.count %></h1>
+            <h3 class="text-center">propiedades</h3>
+            <h5 class="text-center"><%= link_to "ver todas", properties_for_owner_path, class: "" %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 info-square">
+      <div class="holder-extern-no-verticality">
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th class="table-header">SUBUNIDAD</th>
+                          <th class="table-header">ESTADO</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <% @subunits.each do |s| %>
+                      <tr>
+                          <td class="table-data"><%= link_to "#{s.address_and_number}", subunit_path(s) %></td>
+                          <% if s.payments_status_ok %>
+                          <td class="table-data green-color">AL DIA</td>
+                          <% else %>
+                          <td class="table-data alert-data">MORA</td>
+                          <% end %>
+                      </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 info-square">
+        <div class="holder-extern-no-verticality"></div>
+    </div>
+</div>
+<!-- <div class="container-fluid container-squares">
+    <div class="col-lg-6 col-md-6 info-square">
+        <div class="holder-extern-no-verticality"></div>
+    </div>
+    <div class="col-lg-6 col-md-6 info-square">
+        <div class="holder-extern-no-verticality table-holder"></div>
+    </div>
+</div>
+<div class="container-fluid container-squares">
+    <div class="col-lg-3 col-md-6 info-square">
+        <div class="holder-extern"></div>
+    </div>
+    <div class="col-lg-6 col-md-6 info-square">
+        <div class="holder-extern-no-verticality"></div>
+    </div>
+    <div class="col-lg-3 col-md-6 info-square">
+        <div class="holder-extern"></div>
+    </div>
+</div> -->
