@@ -57,6 +57,7 @@ Rails.application.configure do
     :authentication => :plain
   }
 
+
 #   ActionMailer::Base.smtp_settings = {
 #   :user_name => ENV['sendgrid_username'],
 #   :password => ENV['sendgrid_password'],

@@ -29,9 +29,26 @@ class RentPaymentsController < ApplicationController
 
     respond_to do |format|
       if @rent_payment.save
-
         @rent_payment.subunit_rent.payed = true
         @rent_payment.subunit_rent.save!
+
+        @subunit_rent = @rent_payment.subunit_rent
+        @subunit = @rent_payment.subunit
+        @property = @subunit.property
+        @renter = @subunit.renter
+        @rent_payment_id = @rent_payment.id
+
+        @qrcode = RQRCode::QRCode.new("http://github.com/").as_html
+
+        # create a pdf from a string
+        @pdf_string = render_to_string template: 'administrators/pdf_rent_payment', layout: 'layouts/pdf.html.erb', encoding: 'utf-8'
+
+        # When the payment is saved, send mail to renter
+        CreatedSubunitRentPaymentJob.set(wait: 5.seconds).perform_later(@rent_payment, @subunit_rent, @renter, @subunit, @property, @qrcode, @pdf_string)
+
+        # Save the receipt to the system
+        @subunit_rent_id = @subunit_rent.id
+        CreateSubunitRentPaymentReceiptJob.set(wait: 5.seconds).perform_later(@rent_payment_id, @pdf_string)
 
         format.html { redirect_to subunit_path(@rent_payment.subunit), notice: 'Rent payment was successfully created.' }
         format.json { render :show, status: :created, location: @rent_payment }

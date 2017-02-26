@@ -73,6 +73,15 @@ class AdministratorsController < ApplicationController
         @subunit = @common_expense_subunit.subunit
     end
 
+    def test_pdf_rent_receipt
+      @rent_payment = RentPayment.first
+      @subunit_rent = @rent_payment.subunit_rent
+      @subunit = @rent_payment.subunit
+      @property = @subunit.property
+      @renter = @subunit.renter
+      @qrcode = RQRCode::QRCode.new("http://github.com/").as_html
+    end
+
     def search_id_for_rent_charge
         id = params[:subunit_rent_identifier][:identifier]
 
@@ -118,10 +127,6 @@ class AdministratorsController < ApplicationController
       date_to_be_found = Date.new(year.to_i, month.to_i, 1)
 
       @common_expense_property = CommonExpenseProperty.find_by(period: date_to_be_found)
-
-      if @common_expense_property.nil?
-        puts "FUCK"
-      end
 
       respond_to do |format|
         format.js

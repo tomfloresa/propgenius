@@ -73,7 +73,7 @@
                             <td class="table-data">SIN CUPÓN</td>
                             <% end %>
                             <% if s.payed? %>
-                            <td class="table-data payed-rent">SI</td>
+                            <td class="table-data"><%= link_to "SI", s.rent_payment.receipt.url, class: "payed-rent" %></td>
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
                             <td class="table-data"><%= number_to_currency(s.get_overdue_charge, :precision => 0, :delimiter => ".") %></td>

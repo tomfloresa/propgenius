@@ -48,6 +48,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'paperclip-rack', require: 'paperclip/rack'
 # Whenever
 gem 'whenever', :require => false
+# QR Codes
+gem 'rqrcode', '~> 0.10.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

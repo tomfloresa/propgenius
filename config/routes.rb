@@ -66,6 +66,7 @@ Rails.application.routes.draw do
     get 'renter_profile/:renter_id' => 'administrators#renter_profile', :as => :renter_profile
     get 'test_pdf_rent_charge' => 'administrators#test_pdf_rent_charge', :as => :test_pdf_rent_charge
     get 'test_pdf_common_expense_charge' => 'administrators#test_pdf_common_expense_charge', :as => :test_pdf_common_expense_charge
+    get 'test_pdf_rent_receipt' => 'administrators#test_pdf_rent_receipt', :as => :test_pdf_rent_receipt
     get 'search_rent_charge', :as => :search_rent_charge
     get 'search_common_expense_subunit', :as => :search_common_expense_subunit
     post 'search_id_for_rent_charge' => 'administrators#search_id_for_rent_charge', :as => :search_id_for_rent_charge

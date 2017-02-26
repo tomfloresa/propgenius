@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205221610) do
+ActiveRecord::Schema.define(version: 20170226211626) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -222,9 +222,13 @@ ActiveRecord::Schema.define(version: 20170205221610) do
     t.integer  "payment_method_id"
     t.integer  "subunit_rent_id"
     t.string   "receipt_number"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.date     "payment_date"
+    t.string   "receipt_file_name"
+    t.string   "receipt_content_type"
+    t.integer  "receipt_file_size"
+    t.datetime "receipt_updated_at"
   end
 
   create_table "renters", force: :cascade do |t|

@@ -7,8 +7,16 @@
 # To learn more, check out the README:
 #
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
+if Rails.env.production?
+  WickedPdf.config = {
+    exe_path: '/usr/local/rvm/gems/ruby-2.3.0/bin/wkhtmltopdf',
+    page_size: 'Letter'
+  }
+end
 
-WickedPdf.config = {
-  exe_path: '/usr/local/rvm/gems/ruby-2.3.0/bin/wkhtmltopdf',
-  page_size: 'Letter'
-}
+if Rails.env.development?
+  WickedPdf.config = {
+    exe_path: '/Users/tomfloresa/.rvm/gems/ruby-2.3.3/bin/wkhtmltopdf',
+    page_size: 'Letter'
+  }
+end
