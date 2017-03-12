@@ -33,6 +33,23 @@ class CommonExpensePaymentsController < ApplicationController
         @common_expense_payment.common_expense_subunit.payed = true
         @common_expense_payment.common_expense_subunit.save!
 
+        @common_expense_subunit = @common_expense_payment.common_expense_subunit
+        @subunit = @common_expense_subunit.subunit
+        @property = @subunit.property
+        @renter = @subunit.renter
+
+        @qrcode = RQRCode::QRCode.new("http://github.com/").as_html
+
+        # create a pdf from a string
+        @pdf_string = render_to_string template: 'administrators/pdf_common_expense_payment', layout: 'layouts/pdf.html.erb', encoding: 'utf-8'
+
+        # When the payment is saved, send mail to renter
+        CreatedCommonExpensePaymentJob.set(wait: 5.seconds).perform_later(@common_expense_payment, @common_expense_subunit, @renter, @subunit, @property, @qrcode, @pdf_string)
+
+        # Save the receipt to the system
+        @common_expense_payment_id = @common_expense_payment.id
+        CreateCommonExpensePaymentReceiptJob.set(wait: 5.seconds).perform_later(@common_expense_payment_id, @pdf_string)
+
         format.html { redirect_to subunit_path(@common_expense_payment.subunit), notice: 'Common expense payment was successfully created.' }
         format.json { render :show, status: :created, location: @common_expense_payment }
       else
@@ -82,6 +99,6 @@ class CommonExpensePaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def common_expense_payment_params
-      params.require(:common_expense_payment).permit(:renter_id, :subunit_id, :amount, :payment_method_id, :common_expense_subunit_id, :receipt_number, :payment_date)
+      params.require(:common_expense_payment).permit(:renter_id, :subunit_id, :amount, :payment_method_id, :common_expense_subunit_id, :receipt_number, :payment_date, :payment_method)
     end
 end

@@ -1,0 +1,105 @@
+<style media="screen">
+    table {
+        border-width: 0;
+        border-style: none;
+        border-color: #0000ff;
+        border-collapse: collapse;
+    }
+
+    td {
+        border-left: solid 10px #000;
+        padding: 0;
+        margin: 0;
+        width: 0;
+        height: 10px;
+    }
+
+    td.black {
+        border-color: #000;
+    }
+    td.white {
+        border-color: #fff;
+    }
+    .no-qr {
+      border: none !important;
+      border-left: none !important;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Recibo Pago Arriendo</h2>
+                <h3 class="pull-right">Identificador #
+                    <%= @common_expense_payment.id %></h3>
+                <h3>Periodo:
+                    <%= @common_expense_subunit.period.strftime("%m-%Y") %></h3>
+                <h4><%= @subunit.address_and_number %></h4>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Emitido a:</strong><br>
+                        <%= @renter.renter_name_lastname %><br>
+                        <%= @subunit.address_and_number %><br>
+                        <%= @subunit.property.comune.name %>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Detalle de Pago
+                            <%= @subunit.address_and_number %></strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td class="no-qr">
+                                        <strong>MONTO PAGADO</strong>
+                                    </td>
+                                    <td class="text-center no-qr">
+                                        <strong>FECHA DE PAGO</strong>
+                                    </td>
+                                    <td class="text-right no-qr">
+                                        <strong>FORMA DE PAGO</strong>
+                                    </td>
+                                    <td class="text-right no-qr">
+                                        <strong>NÚMERO BOLETA</strong>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                <tr>
+                                    <td class=" no-qr"><%= number_to_currency(@common_expense_payment.amount, :delimiter => '.', :precision => 0) %></td>
+                                    <td class="text-center no-qr"><%= @common_expense_payment.payment_date %></td>
+                                    <td class="text-right no-qr"><%= @common_expense_payment.payment_method.name %></td>
+                                    <td class="text-right no-qr"><%= @common_expense_payment.receipt_number %></td>
+                                </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-xs-6">
+        <%= raw @qrcode %>
+    </div>
+</div>
+</div>

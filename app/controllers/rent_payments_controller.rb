@@ -36,7 +36,6 @@ class RentPaymentsController < ApplicationController
         @subunit = @rent_payment.subunit
         @property = @subunit.property
         @renter = @subunit.renter
-        @rent_payment_id = @rent_payment.id
 
         @qrcode = RQRCode::QRCode.new("http://github.com/").as_html
 
@@ -47,7 +46,7 @@ class RentPaymentsController < ApplicationController
         CreatedSubunitRentPaymentJob.set(wait: 5.seconds).perform_later(@rent_payment, @subunit_rent, @renter, @subunit, @property, @qrcode, @pdf_string)
 
         # Save the receipt to the system
-        @subunit_rent_id = @subunit_rent.id
+        @rent_payment_id = @rent_payment.id
         CreateSubunitRentPaymentReceiptJob.set(wait: 5.seconds).perform_later(@rent_payment_id, @pdf_string)
 
         format.html { redirect_to subunit_path(@rent_payment.subunit), notice: 'Rent payment was successfully created.' }

@@ -12,7 +12,7 @@ class SubunitsController < ApplicationController
   # GET /subunits/1.json
   def show
     id = params[:id]
-    @common_expenses = @subunit.common_expense_subunits
+    @common_expenses = @subunit.common_expense_subunits.order(period: :desc)
     @subunit_rents = @subunit.subunit_rents.order(period: :desc)
     @water_readings = @subunit.water_readings
     @electricity_readings = @subunit.electricity_readings

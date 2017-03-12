@@ -122,7 +122,7 @@
                             <td class="table-data">SIN CUPÓN</td>
                             <% end %>
                             <% if c.payed? %>
-                            <td class="table-data payed-rent">SI</td>
+                            <td class="table-data"><%= link_to "SI", c.common_expense_payment.receipt.url, class: "payed-rent" %></td>
                         <% else %>
                             <td class="table-data not-payed-rent">NO</td>
                             <% end %>
