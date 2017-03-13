@@ -123,10 +123,11 @@ class AdministratorsController < ApplicationController
     def check_if_common_expense_property_for_period_is_issued
       year = params[:year]
       month = params[:month]
+      property_id = params[:property_id]
 
       date_to_be_found = Date.new(year.to_i, month.to_i, 1)
 
-      @common_expense_property = CommonExpenseProperty.find_by(period: date_to_be_found)
+      @common_expense_property = CommonExpenseProperty.find_by(period: date_to_be_found, property_id: property_id)
 
       respond_to do |format|
         format.js
