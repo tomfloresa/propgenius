@@ -37,7 +37,7 @@ class SubunitRentsController < ApplicationController
                 @pdf_string = render_to_string template: 'administrators/pdf_rent_charge', layout: 'layouts/pdf.html.erb', encoding: 'utf-8'
 
                 # When the rent is saved, send mail to renter
-                CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@subunit_rent.subunit.renter, @subunit_rent, @subunit_rent.subunit.property, @qrcode, @pdf_string)
+                CreatedRentChargeJob.set(wait: 5.seconds).perform_later(@subunit_rent.subunit.renter, @subunit_rent, @subunit_rent.subunit.property, @pdf_string)
 
                 # Save the receipt to the system
                 @subunit_rent_id = @subunit_rent.id
