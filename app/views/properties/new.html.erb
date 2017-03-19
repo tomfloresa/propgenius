@@ -23,28 +23,12 @@
         <%= f.collection_select :comune_id, Comune.order(:name), :id, :name, {}, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
-        <%= f.label :square_meters, "M2", class: "input-header" %><br>
-        <%= f.text_field :square_meters, class: "form-control" %>
-    </div>
-    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :property_type_id, "TIPO", class: "input-header" %><br>
         <%= f.number_field :property_type_id, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
-        <%= f.label :renter_id, "ARRENDADOR", class: "input-header" %><br>
-        <%= f.number_field :renter_id, class: "form-control" %>
-    </div>
-    <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :owner_id, "PROPIETARIO", class: "input-header" %><br>
         <%= f.collection_select :owner_id, Owner.order(:first_name), :id, :owner_name_lastname, {}, class: "form-control" %>
-    </div>
-    <div class="form-div col-md-6 col-md-offset-3">
-        <%= f.label :rent_value, "VALOR ARRIENDO", class: "input-header" %><br>
-        <%= f.text_field :rent_value, class: "form-control" %>
-    </div>
-    <div class="form-div col-md-6 col-md-offset-3">
-        <%= f.label :subunits_number, "SUBUNIDADES", class: "input-header" %><br>
-        <%= f.number_field :subunits_number, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :bank_id, "BANCO", class: "input-header" %><br>
