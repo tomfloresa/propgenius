@@ -20,7 +20,7 @@
         <%= f.hidden_field :subunit_id, :value => @subunit.id%>
         <div class="col-lg-12 col-md-12 col-sm-12 div-for-input">
             <%= f.label :period, "PERIODO", class: "input-header" %><br>
-            <%= f.date_select :period, class: "form-control" %>
+            <%= f.date_select :period, :discard_day => true, class: "form-control" %>
         </div>
     <% if @subunit.charge_iva? %>
         <% if @subunit.charge_uf? %>
