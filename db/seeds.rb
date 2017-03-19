@@ -5,82 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Renter.create!(first_name: 'Juan',
-               second_name: 'Andrés',
-               first_last_name: 'Silva',
-               second_last_name: 'Gallardo',
-               mobile: '56987716320',
-               landline: ' ',
-               email: 'juansilva@gmail.com',
-               password: '12345678')
-
-Owner.create!(first_name: 'Tomás ',
-              second_name: 'Andrés',
-              first_last_name: 'Flores',
-              second_last_name: 'Alvear',
-              mobile: '56985009287',
-              landline: ' ',
-              email: 'marcela@valprop.com',
-              password: '12345678')
-
 Administrator.create!(first_name: 'Marcela',
-                      second_name: 'Ignacia',
-                      first_last_name: 'Coronado',
-                      second_last_name: 'Díaz',
-                      mobile: '5698774412',
+                      second_name: ' ',
+                      first_last_name: ' ',
+                      second_last_name: ' ',
+                      mobile: '90000000',
                       landline: ' ',
-                      email: 'marcela@valprop.com',
-                      password: '12345678')
+                      email: 'inmobiliaria.valprop@gmail.com',
+                      password: 'valprop2017')
 
 PropertyType.create!(description: 'Bodega')
 PropertyType.create!(description: 'Edificio')
 PropertyType.create!(description: 'Departamento')
-PropertyType.create!(description: 'Local')
-
-Property.create(address: 'Santa Rosa 2',
-                square_meters: 678,
-                property_type_id: 4,
-                owner_id: 1,
-                renter_id: 1,
-                rent_value: 5_300_000,
-                subunits_number: 0,
-                comune_id: 1,
-                lease_startdate: Date.today,
-                bank_id: 1)
-
-Property.create(address: 'Povidencia 123',
-                square_meters: 180,
-                property_type_id: 2,
-                renter_id: 1,
-                owner_id: 1,
-                rent_value: 450_200,
-                subunits_number: 20,
-                comune_id: 1,
-                lease_startdate: Date.today,
-                bank_id: 1)
-
-Property.create(address: 'Gran Avenida 992',
-                square_meters: 780,
-                property_type_id: 2,
-                renter_id: 1,
-                owner_id: 1,
-                rent_value: 20_500_300,
-                subunits_number: 40,
-                comune_id: 2,
-                lease_startdate: Date.today,
-                bank_id: 1)
-
-Property.create(address: 'Lord Cochrane 173',
-                square_meters: 234,
-                property_type_id: 3,
-                renter_id: 1,
-                owner_id: 1,
-                rent_value: 450_200,
-                subunits_number: 0,
-                comune_id: 1,
-                lease_startdate: Date.today,
-                bank_id: 1)
+PropertyType.create!(description: 'Local Comercial')
 
 Bank.create(name: 'Banco de Chile')
 Bank.create(name: 'Banco Santander')
