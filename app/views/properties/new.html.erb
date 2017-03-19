@@ -24,7 +24,7 @@
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :property_type_id, "TIPO", class: "input-header" %><br>
-        <%= f.number_field :property_type_id, class: "form-control" %>
+        <%= f.collection_select :property_type_id, PropertyType.order(:description), :id, :description, {}, class: "form-control" %>
     </div>
     <div class="form-div col-md-6 col-md-offset-3">
         <%= f.label :owner_id, "PROPIETARIO", class: "input-header" %><br>
