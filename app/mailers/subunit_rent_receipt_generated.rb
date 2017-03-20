@@ -11,6 +11,6 @@ class SubunitRentReceiptGenerated < ApplicationMailer
     @qrcode = qrcode
 
     attachments["ReciboPagoArriendo.pdf"] = WickedPdf.new.pdf_from_string(pdf_string)
-    mail(to: "tomas.flores.a@gmail.com", subject: "Pago Arriendo mes de #{@rent_payment.subunit_rent.period}")
+    mail(to: @renter.email, subject: "Pago Arriendo mes de #{@rent_payment.subunit_rent.period}")
   end
 end

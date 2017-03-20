@@ -42,7 +42,7 @@ class ImportantNumericalValuesController < ApplicationController
   def update
     respond_to do |format|
       if @important_numerical_value.update(important_numerical_value_params)
-        format.html { redirect_to @important_numerical_value, notice: 'Important numerical value was successfully updated.' }
+        format.html { redirect_to administrators_dashboard_path, notice: 'Important numerical value was successfully updated.' }
         format.json { render :show, status: :ok, location: @important_numerical_value }
       else
         format.html { render :edit }

@@ -11,6 +11,6 @@ class CommonExpenseSubunitPaymentReceipt < ApplicationMailer
     @qrcode = qrcode
 
     attachments["ReciboPagoGastoComun.pdf"] = WickedPdf.new.pdf_from_string(pdf_string)
-    mail(to: "tomas.flores.a@gmail.com", subject: "Pago Gasto Común mes de #{@common_expense_payment.common_expense_subunit.period}")
+    mail(to: @renter.email, subject: "Pago Gasto Común mes de #{@common_expense_payment.common_expense_subunit.period}")
   end
 end

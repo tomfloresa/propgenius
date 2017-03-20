@@ -8,6 +8,6 @@ class CreatedRentCharge < ApplicationMailer
     @property = property
 
     attachments["CobroArriendo.pdf"] = WickedPdf.new.pdf_from_string(pdf_string)
-    mail(to: "tomas.flores.a@gmail.com", subject: "Arriendo mes de #{@rent.created_at}")
+    mail(to: @renter.email, subject: "Arriendo mes de #{@rent.created_at}")
   end
 end

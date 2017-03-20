@@ -22,7 +22,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 square-divided-four">
                 <div>
-                    <h1 class="text-center"><%= number_to_currency(@uf.value, :precision => 0, :delimiter => ".") %></h1>
+                    <h1 class="text-center"><%= number_to_currency(@uf.value, :precision => 2, :delimiter => ".", :separator => ",") %></h1>
                     <h3 class="text-center">valor UF</h3>
                     <h5 class="text-center"><%= link_to "cambiar", edit_important_numerical_value_path(@uf) %></h5>
                 </div>
