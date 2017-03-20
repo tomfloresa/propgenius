@@ -32,6 +32,7 @@ class SubunitRentsController < ApplicationController
                 @rent = @subunit_rent
                 @property = @subunit.property
                 @renter = @subunit.renter
+                @uf = ImportantNumericalValue.first.value.to_f
 
                 # create a pdf from a string
                 @pdf_string = render_to_string template: 'administrators/pdf_rent_charge', layout: 'layouts/pdf.html.erb', encoding: 'utf-8'

@@ -68,15 +68,15 @@
                                   <td class="text-right"><%= @subunit.square_meters %></td>
                                   <% if @subunit.charge_uf? %>
                                     <% if @subunit.charge_iva? %>
-                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value * @uf, :delimiter => '.', :precision => 0) %>CLP (+<%= number_to_currency(@subunit.rent_value * 0.19 * @uf, :delimiter => '.', :precision => 0) %> IVA)</td>
                                     <% else %>
-                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> UF</td>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value * @uf, :delimiter => '.', :precision => 0) %>CLP</td>
                                     <% end %>
                                   <% else %>
                                     <% if @subunit.charge_iva? %>
-                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %> (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %>CLP (+<%= number_to_currency(@subunit.rent_value * 0.19, :delimiter => '.', :precision => 0) %> IVA)</td>
                                     <% else %>
-                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %></td>
+                                      <td class="text-right"><%= number_to_currency(@subunit.rent_value, :delimiter => '.', :precision => 0) %>CLP</td>
                                     <% end %>
                                   <% end %>
                               </tr>
