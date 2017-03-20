@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312023135) do
+ActiveRecord::Schema.define(version: 20170320011812) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -67,31 +67,31 @@ ActiveRecord::Schema.define(version: 20170312023135) do
 
   create_table "common_expense_properties", force: :cascade do |t|
     t.integer  "property_id"
-    t.float    "water"
-    t.float    "gas"
-    t.float    "electricity"
+    t.float    "water",                 default: 0.0
+    t.float    "gas",                   default: 0.0
+    t.float    "electricity",           default: 0.0
     t.float    "others"
     t.text     "details"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.date     "period"
-    t.float    "salary_payments"
-    t.float    "maintenance_payments"
+    t.float    "salary_payments",       default: 0.0
+    t.float    "maintenance_payments",  default: 0.0
     t.float    "total"
     t.boolean  "generate_for_subunits"
   end
 
   create_table "common_expense_subunits", force: :cascade do |t|
     t.integer  "subunit_id"
-    t.float    "electricity_charge"
-    t.float    "water_charge"
-    t.float    "gas_charge"
-    t.float    "others_charge"
+    t.float    "electricity_charge",         default: 0.0
+    t.float    "water_charge",               default: 0.0
+    t.float    "gas_charge",                 default: 0.0
+    t.float    "others_charge",              default: 0.0
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.boolean  "payed",                      default: false
-    t.float    "salary_payments"
-    t.float    "maintenance_payments"
+    t.float    "salary_payments",            default: 0.0
+    t.float    "maintenance_payments",       default: 0.0
     t.float    "total"
     t.date     "period"
     t.integer  "common_expense_property_id"
