@@ -64,7 +64,7 @@
                             <% else %>
                               <td class="table-data"><%= s.readjustment_date.strftime("%d/%m/%Y") %></td>
                             <% end %>
-                            <td class="table-data"><%= s.renter.renter_name_lastname %></td>
+                            <td class="table-data"><%= s.renter.renter_or_company_or_both %></td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -97,7 +97,7 @@
                     <tbody>
                         <% @owners.each do |o| %>
                         <tr>
-                            <td class="table-data"><%= o.owner_name_lastname %></td>
+                            <td class="table-data"><%= o.owner_or_company_or_both %></td>
                             <td class="table-data"><%= o.email %></td>
                             <td class="table-data"><%= o.properties.count %></td>
                         </tr>
@@ -121,7 +121,7 @@
                     <tbody>
                         <% @renters.each do |r| %>
                         <tr>
-                            <td class="table-data"><%= link_to "#{r.renter_name_lastname}", renter_profile_path(:renter_id => r.id) %></td>
+                            <td class="table-data"><%= link_to "#{r.renter_or_company_or_both}", renter_profile_path(:renter_id => r.id) %></td>
                             <td class="table-data"><%= r.email %></td>
                             <td class="table-data"><%= r.subunits.count %></td>
                         </tr>
