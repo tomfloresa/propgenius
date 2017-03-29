@@ -12,4 +12,14 @@ class Renter < ActiveRecord::Base
   def renter_name_lastname
     "#{self.first_name} #{self.first_last_name}"
   end
+
+  def renter_or_company_or_both
+    if self.first_name.nil?
+      "#{self.company_name}"
+    elsif self.company_name.nil?
+      "#{self.first_name} #{self.first_last_name}"
+    elsif !self.first_name.nil? && !self.company_name.nil?
+      "#{self.company_name} - #{self.first_name} #{self.first_last_name}"
+    end
+  end
 end
