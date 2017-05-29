@@ -29,6 +29,8 @@ Bank.create(name: 'Banco BBVA')
 Bank.create(name: 'Banco Itaú')
 Bank.create(name: 'Banco Falabella')
 Bank.create(name: 'Banco Condell')
+Bank.create(name: 'Banco Corpbanca')
+Bank.create(name: 'Banco Scotiabank')
 
 BankAccountType.create(name: 'Cuenta Corriente')
 BankAccountType.create(name: 'Cuenta Vista')

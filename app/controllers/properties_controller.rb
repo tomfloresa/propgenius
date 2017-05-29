@@ -23,7 +23,8 @@ class PropertiesController < ApplicationController
     end
 
     # GET /properties/1/edit
-    def edit; end
+    def edit
+    end
 
     # POST /properties
     # POST /properties.json

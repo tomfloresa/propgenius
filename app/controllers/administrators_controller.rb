@@ -133,4 +133,50 @@ class AdministratorsController < ApplicationController
         format.js
       end
     end
+
+    def edit_renter_profile
+      @renter =  Renter.find(params[:id])
+    end
+
+    def edit_owner_profile
+      @owner =  Owner.find(params[:id])
+    end
+
+    def update_renter_registry
+      @renter = Renter.find(params[:renter_id])
+
+      @renter.company_name != params[:renter][:company_name] ? @renter.company_name = params[:renter][:company_name] : ''
+      @renter.renter_rut != params[:renter][:renter_rut] ? @renter.renter_rut = params[:renter][:renter_rut] : ''
+      @renter.first_name != params[:renter][:first_name] ? @renter.first_name = params[:renter][:first_name] : ''
+      @renter.second_name != params[:renter][:second_name] ? @renter.second_name = params[:renter][:second_name] : ''
+      @renter.first_last_name != params[:renter][:first_last_name] ? @renter.first_last_name = params[:renter][:first_last_name] : ''
+      @renter.second_last_name != params[:renter][:second_last_name] ? @renter.second_last_name = params[:renter][:second_last_name] : ''
+      @renter.email != params[:renter][:email] ? @renter.email = params[:renter][:email] : ''
+      @renter.mobile != params[:renter][:mobile] ? @renter.mobile = params[:renter][:mobile] : ''
+      @renter.landline != params[:renter][:landline] ? @renter.landline = params[:renter][:landline] : ''
+      @renter.password != params[:renter][:password_confirmation] ? @renter.password = params[:renter][:password_confirmation] : ''
+
+      if @renter.save
+        redirect_to administrators_dashboard_path
+      end
+    end
+
+    def update_owner_registry
+      @owner = Owner.find(params[:owner_id])
+
+      @owner.company_name != params[:owner][:company_name] ? @owner.company_name = params[:owner][:company_name] : ''
+      @owner.owner_rut != params[:owner][:owner_rut] ? @owner.owner_rut = params[:owner][:owner_rut] : ''
+      @owner.first_name != params[:owner][:first_name] ? @owner.first_name = params[:owner][:first_name] : ''
+      @owner.second_name != params[:owner][:second_name] ? @owner.second_name = params[:owner][:second_name] : ''
+      @owner.first_last_name != params[:owner][:first_last_name] ? @owner.first_last_name = params[:owner][:first_last_name] : ''
+      @owner.second_last_name != params[:owner][:second_last_name] ? @owner.second_last_name = params[:owner][:second_last_name] : ''
+      @owner.email != params[:owner][:email] ? @owner.email = params[:owner][:email] : ''
+      @owner.mobile != params[:owner][:mobile] ? @owner.mobile = params[:owner][:mobile] : ''
+      @owner.landline != params[:owner][:landline] ? @owner.landline = params[:owner][:landline] : ''
+      @owner.password != params[:owner][:password_confirmation] ? @owner.password = params[:owner][:password_confirmation] : ''
+
+      if @owner.save
+        redirect_to administrators_dashboard_path
+      end
+    end
 end

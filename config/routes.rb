@@ -72,6 +72,10 @@ Rails.application.routes.draw do
     post 'search_id_for_rent_charge' => 'administrators#search_id_for_rent_charge', :as => :search_id_for_rent_charge
     post 'search_id_for_common_expense_subunit' => 'administrators#search_id_for_common_expense_subunit', :as => :search_id_for_common_expense_subunit
     get 'check_if_common_expense_property_for_period_is_issued' => 'administrators#check_if_common_expense_property_for_period_is_issued'
+    get 'edit_renter_profile/:id' => 'administrators#edit_renter_profile', :as => :edit_renter_profile
+    get 'edit_owner_profile/:id' => 'administrators#edit_owner_profile', :as => :edit_owner_profile
+    put 'update_renter_registry/:renter_id' => 'administrators#update_renter_registry', :as => :update_renter_registry
+    put 'update_owner_registry/:owner_id' => 'administrators#update_owner_registry', :as => :update_owner_registry
   end
 
   scope path: '/renters', controller: :renters do

@@ -1,19 +1,17 @@
 <%= render("transversals/navbar_admin") %>
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-off-2">
-        <h2 class="text-center">Crear Arrendatario</h2>
+        <h2 class="text-center">Editar Arrendatario</h2>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
+        <%= form_for(@owner, url: update_owner_registry_path(:owner_id => @owner.id), html: { method: :put }) do |f| %>
         <div class="form-div col-lg-12 col-md-12">
             <%= f.label :company_name, "persona jurídica", class: "input-header" %><br/>
             <%= f.text_field :company_name, autofocus: true, class: "form-control" %>
         </div>
 
         <div class="form-div col-lg-12 col-md-12">
-            <%= f.label :renter_rut, "RUT arrendador", class: "input-header" %><br/>
-            <%= f.text_field :renter_rut, class: "form-control" %>
+            <%= f.label :owner_rut, "RUT arrendador", class: "input-header" %><br/>
+            <%= f.text_field :owner_rut, class: "form-control" %>
         </div>
 
         <div class="form-div col-lg-6 col-md-6">
@@ -52,21 +50,12 @@
         </div>
 
         <div class="form-div col-lg-12 col-md-12">
-            <%= f.label :password, "contraseña", class: "input-header" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>
-                caracteres mínimo)</em>
-            <% end %><br/>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          <%= f.label :password_confirmation, "nueva contraseña", class: "input-header" %><br />
+          <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
 
         <div class="form-div col-lg-12 col-md-12">
-            <%= f.label :password_confirmation, "re-ingrese contraseña", class: "input-header" %><br/>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-        </div>
-
-        <div class="form-div col-lg-12 col-md-12">
-            <%= f.submit "CREAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
+            <%= f.submit "EDITAR", class: "btn btn-default btn-block action-button aquamarine-button" %>
         </div>
         <% end %>
     </div>
