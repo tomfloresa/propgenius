@@ -97,7 +97,7 @@
                     <tbody>
                         <% @owners.each do |o| %>
                         <tr>
-                            <td class="table-data"><%= o.owner_or_company_or_both %></td>
+                            <td class="table-data"><%= link_to "#{o.owner_or_company_or_both}", edit_owner_profile_path(:id => o.id) %></td>
                             <td class="table-data"><%= o.email %></td>
                             <td class="table-data"><%= o.properties.count %></td>
                         </tr>

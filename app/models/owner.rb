@@ -12,12 +12,12 @@ class Owner < ActiveRecord::Base
   end
 
   def owner_or_company_or_both
-    if self.first_name.nil?
+    if self.first_name.blank?
       "#{self.company_name}"
-    elsif self.company_name.nil?
+    elsif self.company_name.blank?
       "#{self.first_name} #{self.first_last_name}"
-    elsif !self.first_name.nil? && !self.company_name.nil?
-      "#{self.company_name} - #{self.first_name} #{self.first_last_name}"
+    elsif !self.company_name.blank? && !self.first_name.blank?
+      "#{self.company_name} - #{self.owner_name_lastname}"
     end
   end
 end
